@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables & secrets
+.env
+.env.local
+*.secret
+
+# Logs
+logs/*.log
+*.log
+
+# Database backups & local state
+database/backups/
+*.db-journal
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+.github/
+
+# Live database and backups - contains real accounts and password hashes.
+# These must never be committed, least of all to a public repository.
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+database/backups/
+
+# Runtime logs
+logs/

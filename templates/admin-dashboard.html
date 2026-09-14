@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+body {
+            margin: 0;
+            padding: 0;
+            font-family: 'DM Sans', sans-serif;
+            background-color: #cbd5e1;
+            color: #1e293b;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        #app-wrapper {
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 0.6s ease, opacity 0.6s ease;
+            transform-origin: center left;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        }
+        body.reels-active #app-wrapper {
+            transform: scale(0.88) translateX(-2%);
+            border-radius: 30px;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        #reels-panel {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 420px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -15px 0 50px rgba(0,0,0,0.15);
+            z-index: 2000;
+            transition: right 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        body.reels-active #reels-panel {
+            right: 0;
+        }
+        .reels-header {
+            padding: 24px 30px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .reels-header h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+        .reels-header button {
+            background: #f1f5f9;
+            border: none;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            color: #64748b;
+            transition: background 0.2s;
+        }
+        .reels-header button:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        .reels-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            color: #64748b;
+            gap: 15px;
+        }
+        .reels-content i {
+            font-size: 48px;
+            color: #cbd5e1;
+        }
+        .header {
+            padding: 20px 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 40px 40px 20px 40px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .action-bar-container {
+            display: flex;
+            justify-content: center;
+            padding: 0 40px 60px;
+        }
+        .action-bar {
+            display: flex;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 1000px;
+        }
+        .action-bar button {
+            flex: 1;
+            padding: 20px 20px;
+            border: none;
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            color: #1e293b;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .action-bar button:last-child {
+            border-right: none;
+        }
+        .action-bar button:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+        .action-bar button.logout {
+            color: #e11d48;
+        }
+        .action-bar i {
+            font-size: 20px;
+            color: #64748b;
+        }
+        .action-bar button:hover i {
+            color: #1e293b;
+        }
+        .action-bar button.logout i {
+            color: #e11d48;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="app-wrapper">
+    <div class="header">
+        <h2>Admin Portal</h2>
+    </div>
+    
+    <div class="gallery">
+        <img src="/static/images/bharatamata.jpg" alt="Bharata Mata">
+        <img src="/static/images/bharatamata_lion.png" alt="Bharata Mata with Lion">
+        <img src="/static/images/tilak.webp" alt="Tilak">
+        <img src="/static/images/bose.jpg" alt="Bose">
+        <img src="/static/images/tagore.jpg" alt="Tagore Bharata Mata">
+    </div>
+
+    <div class="action-bar-container">
+        <div class="action-bar">
+            <button onclick="alert('About section coming soon!')">
+                <i class="fa-solid fa-circle-info"></i>
+                About
+            </button>
+            <button onclick="alert('History section coming soon!')">
+                <i class="fa-solid fa-landmark"></i>
+                History
+            </button>
+            <button onclick="alert('Story section coming soon!')">
+                <i class="fa-solid fa-book-open"></i>
+                Story
+            </button>
+            <button onclick="toggleReels()">
+                <i class="fa-solid fa-clapperboard"></i>
+                Reels
+            </button>
+            <button onclick="alert('Settings coming soon!')">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </button>
+            <button class="logout" onclick="window.location.href='/'">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Log Out
+            </button>
+        </div>
+    </div>
+
+    
+
+    </div> <!-- end app-wrapper -->
+
+    <!-- Reels Panel -->
+    <div id="reels-panel">
+        <div class="reels-header">
+            <h3>Reels</h3>
+            <button onclick="toggleReels()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="reels-content">
+            <i class="fa-solid fa-film"></i>
+            <p>Reels Feed Coming Soon</p>
+        </div>
+    </div>
+    <script>
+function toggleReels() {
+            document.body.classList.toggle('reels-active');
+        }
+
+        
+    </script>
+</body>
+</html>

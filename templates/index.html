@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Group of Joining Hands</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Lato:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=114">
+    <!-- Google Identity Services SDK -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+
+    <!-- PREMIUM BRANDED INTRO LOADER (WITH VORTEX THEME) -->
+    <div id="intro-loader" class="intro-loader">
+        <video class="loader-bg-video" autoplay loop muted playsinline preload="auto">
+            <source src="/themes/theme4.mp4" type="video/mp4">
+        </video>
+        <div class="loader-backdrop-overlay"></div>
+        <div class="loader-content">
+            <h2 class="loader-title">The Group of Joining Hands</h2>
+            <div class="loader-logo-wrap">
+                <i class="fa-solid fa-handshake-angle loader-logo"></i>
+            </div>
+            <p class="loader-slogan">Together Forever</p>
+        </div>
+    </div>
+
+    <!-- MAIN LANDING PAGE VIEW -->
+    <div id="landing-view" class="view-active theme-water">
+
+        <!-- Top Hero Section (Pure White Background) -->
+        <section class="hero-section">
+
+            <!-- BACKGROUND MESH GRID, ANIMATED GLASS RIBBONS & WATER RIPPLES -->
+            <div class="landing-bg-animation-container">
+                <div class="grid-mesh-overlay"></div>
+
+                <!-- Standard Theme 1: Water Droplets (Default Lake Waves with full Glassmorphism) -->
+                <div class="theme-layer layer--water">
+                    <div class="glass-ribbon glass-ribbon--1"></div>
+                    <div class="glass-ribbon glass-ribbon--2"></div>
+                    <div class="glass-ribbon glass-ribbon--3"></div>
+                    <div class="ambient-orb ambient-orb--1"></div>
+                    <div class="ambient-orb ambient-orb--2"></div>
+                    <div class="lake-waves-container">
+                        <div class="lake-wave-ring"></div>
+                        <div class="lake-wave-ring"></div>
+                        <div class="lake-wave-ring"></div>
+                        <div class="lake-wave-ring"></div>
+                    </div>
+                </div>
+
+                <!-- Standard Theme 2: Flow (Golden Flute & Peacock Feathers in 3D Motion) -->
+                <div class="theme-layer layer--flow">
+                    <video class="theme-bg-video theme-bg-video--flow" loop muted playsinline preload="metadata">
+                        <source src="/themes/flow.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="flowCanvas"></canvas>
+                </div>
+
+                <!-- Standard Theme 3: Glass Flow (Iridescent glass refractions in motion) -->
+                <div class="theme-layer layer--glassflow">
+                    <video class="theme-bg-video theme-bg-video--glass" loop muted playsinline preload="metadata">
+                        <source src="/themes/glassflow.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="glassflowCanvas"></canvas>
+                </div>
+
+                <!-- Standard Theme 4: Water Flow (Realistic water flow in motion) -->
+                <div class="theme-layer layer--waterflow">
+                    <video class="theme-bg-video theme-bg-video--waterflow" loop muted playsinline preload="metadata">
+                        <source src="/themes/waterflow.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="waterflowCanvas"></canvas>
+                </div>
+
+                <!-- Standard Theme 6: Cosmic / 7th (Looping premium background video) -->
+                <div class="theme-layer layer--7th layer--cosmic">
+                    <video class="theme-bg-video theme-bg-video--7th" loop muted playsinline preload="metadata">
+                        <source src="/themes/cosmic.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="7thCanvas"></canvas>
+                </div>
+
+                <!-- Standard Theme 7: Air / 8th (Looping premium background video) -->
+                <div class="theme-layer layer--8th layer--air">
+                    <video class="theme-bg-video theme-bg-video--8th" loop muted playsinline preload="metadata">
+                        <source src="/themes/air.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="8thCanvas"></canvas>
+                </div>
+
+                <!-- Standard Theme 8: Nova / 10th (Looping premium background video) -->
+                <div class="theme-layer layer--10th layer--nova">
+                    <video class="theme-bg-video theme-bg-video--10th" loop muted playsinline preload="metadata">
+                        <source src="/themes/nova.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="10thCanvas"></canvas>
+                </div>
+
+                <!-- Server Theme 1 (Looping background video from server) -->
+                <div class="theme-layer layer--theme1">
+                    <video class="theme-bg-video theme-bg-video--theme1" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme1.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme1Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 2 (Looping background video from server) -->
+                <div class="theme-layer layer--theme2">
+                    <video class="theme-bg-video theme-bg-video--theme2" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme2.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme2Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 3 (Looping background video from server) -->
+                <div class="theme-layer layer--theme3">
+                    <video class="theme-bg-video theme-bg-video--theme3" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme3.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme3Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 4 (Looping background video from server) -->
+                <div class="theme-layer layer--theme4">
+                    <video class="theme-bg-video theme-bg-video--theme4" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme4.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme4Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 5 (Looping background video from server) -->
+                <div class="theme-layer layer--theme5">
+                    <video class="theme-bg-video theme-bg-video--theme5" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme5.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme5Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 6 (Looping background video from server) -->
+                <div class="theme-layer layer--theme6">
+                    <video class="theme-bg-video theme-bg-video--theme6" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme6.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme6Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 7 (Looping background video from server) -->
+                <div class="theme-layer layer--theme7">
+                    <video class="theme-bg-video theme-bg-video--theme7" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme7.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme7Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 8 (Looping background video from server) -->
+                <div class="theme-layer layer--theme8">
+                    <video class="theme-bg-video theme-bg-video--theme8" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme8.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme8Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 9 (Looping background video from server) -->
+                <div class="theme-layer layer--theme9">
+                    <video class="theme-bg-video theme-bg-video--theme9" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme9.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme9Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 10 (Looping background video from server) -->
+                <div class="theme-layer layer--theme10">
+                    <video class="theme-bg-video theme-bg-video--theme10" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme10.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme10Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 11 (Looping background video from server) -->
+                <div class="theme-layer layer--theme11">
+                    <video class="theme-bg-video theme-bg-video--theme11" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme11.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme11Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 12 (Looping background video from server) -->
+                <div class="theme-layer layer--theme12">
+                    <video class="theme-bg-video theme-bg-video--theme12" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme12.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme12Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 13 (Looping background video from server) -->
+                <div class="theme-layer layer--theme13">
+                    <video class="theme-bg-video theme-bg-video--theme13" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme13.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme13Canvas"></canvas>
+                </div>
+
+                <!-- Server Theme 14 (Looping background video from server) -->
+                <div class="theme-layer layer--theme14">
+                    <video class="theme-bg-video theme-bg-video--theme14" loop muted playsinline preload="metadata">
+                        <source src="/themes/theme14.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="theme14Canvas"></canvas>
+                </div>
+
+                <!-- Picture Theme 1: Oasis (pic1.jpg) -->
+                <div class="theme-layer layer--theme15 layer--pic1">
+                    <img class="theme-bg-image theme-bg-image--theme15 theme-bg-image--pic1" src="/themes/pics/pic1.jpg"
+                        alt="Oasis"
+                        onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic1.jpg';">
+                    <canvas id="theme15Canvas"></canvas>
+                </div>
+
+                <!-- Picture Theme 2: Summit (pic2.png) -->
+                <div class="theme-layer layer--theme16 layer--pic2">
+                    <img class="theme-bg-image theme-bg-image--theme16 theme-bg-image--pic2" src="/themes/pics/pic2.png"
+                        alt="Summit"
+                        onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic2.png';">
+                    <canvas id="theme16Canvas"></canvas>
+                </div>
+
+                <!-- Picture Theme 3: Haven (pic3.jpg) -->
+                <div class="theme-layer layer--theme17 layer--pic3">
+                    <img class="theme-bg-image theme-bg-image--theme17 theme-bg-image--pic3" src="/themes/pics/pic3.jpg"
+                        alt="Haven"
+                        onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic3.jpg';">
+                    <canvas id="theme17Canvas"></canvas>
+                </div>
+
+
+
+                <!-- Picture Theme 5: Elysium (pic5.jpg) -->
+                <div class="theme-layer layer--theme19 layer--pic5">
+                    <img class="theme-bg-image theme-bg-image--theme19 theme-bg-image--pic5" src="/themes/pics/pic5.jpg"
+                        alt="Elysium"
+                        onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic5.jpg';">
+                    <canvas id="theme19Canvas"></canvas>
+                </div>
+
+                <!-- Picture Theme 6: Solitude (pic6.jpg) -->
+                <div class="theme-layer layer--theme20 layer--pic6">
+                    <img class="theme-bg-image theme-bg-image--theme20 theme-bg-image--pic6" src="/themes/pics/pic6.jpg"
+                        alt="Solitude"
+                        onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic6.jpg';">
+                    <canvas id="theme20Canvas"></canvas>
+                </div>
+
+                <!-- ==========================================================
+                     2026 MODERN THEME PACK - pure CSS, zero external assets
+                     ========================================================== -->
+
+                <!-- New Theme 1: Aurora Veil -->
+                <div class="theme-layer layer--auroraveil">
+                    <div class="aurora-sheet aurora-sheet--1"></div>
+                    <div class="aurora-sheet aurora-sheet--2"></div>
+                    <div class="aurora-sheet aurora-sheet--3"></div>
+                    <div class="aurora-stars"></div>
+                </div>
+
+                <!-- New Theme 2: Ember Rise -->
+                <div class="theme-layer layer--ember">
+                    <div class="ember-glow"></div>
+                    <div class="ember-field">
+                        <span class="ember-spark"></span><span class="ember-spark"></span>
+                        <span class="ember-spark"></span><span class="ember-spark"></span>
+                        <span class="ember-spark"></span><span class="ember-spark"></span>
+                        <span class="ember-spark"></span><span class="ember-spark"></span>
+                        <span class="ember-spark"></span><span class="ember-spark"></span>
+                        <span class="ember-spark"></span><span class="ember-spark"></span>
+                    </div>
+                </div>
+
+                <!-- New Theme 3: Sakura Drift -->
+                <div class="theme-layer layer--sakura">
+                    <div class="sakura-wash"></div>
+                    <div class="sakura-field">
+                        <span class="sakura-petal"></span><span class="sakura-petal"></span>
+                        <span class="sakura-petal"></span><span class="sakura-petal"></span>
+                        <span class="sakura-petal"></span><span class="sakura-petal"></span>
+                        <span class="sakura-petal"></span><span class="sakura-petal"></span>
+                        <span class="sakura-petal"></span><span class="sakura-petal"></span>
+                        <span class="sakura-petal"></span><span class="sakura-petal"></span>
+                    </div>
+                </div>
+
+                <!-- New Theme 4: Neon Grid -->
+                <div class="theme-layer layer--neongrid">
+                    <div class="neon-sky"></div>
+                    <div class="neon-sun"></div>
+                    <div class="neon-floor"></div>
+                    <div class="neon-haze"></div>
+                </div>
+
+                <!-- New Theme 5: Deep Tide -->
+                <div class="theme-layer layer--deeptide">
+                    <div class="tide-depth"></div>
+                    <div class="tide-caustic tide-caustic--1"></div>
+                    <div class="tide-caustic tide-caustic--2"></div>
+                    <div class="tide-beam"></div>
+                </div>
+
+                <!-- ==========================================================
+                     PREMIUM DEPTH PACK - restrained CSS 3D. Each keeps the
+                     centre of the stage clear so the wordmark and tiles read.
+                     ========================================================== -->
+
+                <!-- Premium 1: Temple Gold -->
+                <div class="theme-layer layer--templegold">
+                    <div class="depth-stage">
+                        <div class="dp-arch"></div>
+                        <div class="dp-floor"></div>
+                    </div>
+                    <div class="dp-pool"></div>
+                    <div class="dp-vignette"></div>
+                </div>
+
+                <!-- Premium 2: Midnight Sapphire -->
+                <div class="theme-layer layer--sapphire">
+                    <div class="depth-stage">
+                        <div class="dp-floor"></div>
+                    </div>
+                    <div class="dp-stars"></div>
+                    <div class="dp-pool"></div>
+                    <div class="dp-vignette"></div>
+                </div>
+
+                <!-- Premium 3: Ivory Pearl -->
+                <div class="theme-layer layer--ivorypearl">
+                    <div class="depth-stage">
+                        <div class="dp-arch"></div>
+                        <div class="dp-floor"></div>
+                    </div>
+                    <div class="dp-pool"></div>
+                    <div class="dp-vignette"></div>
+                </div>
+
+                <!-- Premium 4: Emerald Court -->
+                <div class="theme-layer layer--emerald">
+                    <div class="depth-stage">
+                        <div class="dp-floor"></div>
+                    </div>
+                    <div class="dp-pool"></div>
+                    <div class="dp-vignette"></div>
+                </div>
+
+                <!-- Premium 5: Graphite Suite -->
+                <div class="theme-layer layer--graphite">
+                    <div class="depth-stage">
+                        <div class="dp-pillar dp-pillar--l"></div>
+                        <div class="dp-pillar dp-pillar--r"></div>
+                        <div class="dp-floor"></div>
+                    </div>
+                    <div class="dp-sweep"></div>
+                    <div class="dp-vignette"></div>
+                </div>
+
+                <!-- Cinema Backdrop: launched from the white O tile -->
+                <div class="theme-layer layer--cinema">
+                    <div class="cinema-photo"></div>
+                    <div class="cinema-photo cinema-photo--sharp"></div>
+                    <div class="cinema-vignette"></div>
+                    <div class="cinema-grain"></div>
+                </div>
+            </div>
+
+
+
+            <!-- PREMIUM TOP STICKY NAVBAR -->
+            <header class="landing-navbar">
+                <div class="landing-navbar-inner">
+                    <div class="landing-nav-left">
+                        <!-- Header Menu Button Removed -->
+                    </div>
+                    <div class="landing-nav-right">
+                        <!-- Pill Button Removed -->
+                    </div>
+                </div>
+            </header>
+
+            <!-- Single 3D Menu Box Trigger -->
+            <div class="vertical-menu-trigger ecosystem-tile ecosystem-tile--menu" onclick="toggleLandingSidebar()"
+                role="button" tabindex="0"
+                onkeydown="if(event.key==='Enter'||event.key===' ') { toggleLandingSidebar(); }"
+                aria-label="Open Navigation Menu">
+                <div class="tile-3d-body">
+                    <div class="tile-3d-raised">
+                        <div class="tile-3d-circle">
+                            <span class="menu-tile-text">MENU</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single 3D Natural Intelligent Machine Box Trigger -->
+            <div class="vertical-ai-trigger ecosystem-tile ecosystem-tile--ai" role="button" tabindex="0"
+                aria-label="Natural Intelligent Machine Portal (Coming Soon)">
+                <div class="tile-3d-body">
+                    <div class="tile-3d-raised">
+                        <div class="tile-3d-circle">
+                            <span class="ai-tile-text">Natural<br>Intelligent<br>Machine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Hero & Ecosystem Container -->
+            <div class="container hero-container">
+                <div class="landing-about-overlay">
+                    <h2 class="about-overlay-title">About</h2>
+                    <div class="about-overlay-text" id="landingAboutTypewriter"></div>
+                </div>
+
+                <div class="hero-text-wrap">
+                    <!-- Elegant Layout (Single Box) - Default -->
+                    <h1 class="hero-main-title icon-title-wrapper split-title-layout" style="display: flex;">
+                        <span class="title-eyebrow" aria-hidden="true">The Group of</span>
+                        <span class="title-single-box">Joining Hands</span>
+                        <span class="title-underline" aria-hidden="true"></span>
+                        <span class="sr-only">The Group of Joining Hands</span>
+                    </h1>
+
+                    <!-- Unified Layout (All Caps in Single Box) -->
+                    <h1 class="hero-main-title icon-title-wrapper unified-title-layout" style="display: none;">
+                        <span class="title-eyebrow" aria-hidden="true">The Group of</span>
+                        <span class="title-single-box radium-single-box"
+                            style="text-transform: uppercase;">Joining Hands</span>
+                        <span class="title-underline" aria-hidden="true"></span>
+                        <span class="sr-only">The Group of Joining Hands</span>
+                    </h1>
+                </div>
+
+                <!-- Ecosystem Application Cards Hub (Brought to the top) -->
+                <div class="apps-hub-wrap" id="appsSection">
+
+                    <!-- 5 Compact 3D Interactive Tiles (D, H, I, P, E) -->
+                    <div class="ecosystem-3d-tiles-container" role="navigation" aria-label="Ecosystem Applications">
+
+                        <!-- 1. D TILE (Purple with Traditional Indian Swastik + D) -->
+                        <div class="ecosystem-tile ecosystem-tile--d" role="button" tabindex="0"
+                            onclick="openRapidoClone()"
+                            onkeydown="if(event.key==='Enter'||event.key===' ')openRapidoClone()"
+                            aria-label="Ride Application">
+                            <div class="tile-3d-body">
+                                <div class="tile-3d-raised">
+                                    <div class="tile-3d-circle">
+                                        <!-- Traditional Indian Swastik with D in center and 4 decorative dots -->
+                                        <svg class="tile-symbol-svg" viewBox="0 0 100 100" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <!-- Upright, symmetrical traditional Indian Swastik -->
+                                            <g stroke="#ffffff" stroke-width="8.5" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <!-- Center cross -->
+                                                <path d="M 50 14 L 50 86" />
+                                                <path d="M 14 50 L 86 50" />
+                                                <!-- 4 Traditional Right-bent Arms -->
+                                                <path d="M 50 14 L 84 14" />
+                                                <path d="M 86 50 L 86 84" />
+                                                <path d="M 50 86 L 16 86" />
+                                                <path d="M 14 50 L 14 16" />
+                                            </g>
+                                            <!-- 4 Traditional Auspicious Dots in quadrants -->
+                                            <circle cx="32" cy="32" r="3.5" fill="#ffffff" />
+                                            <circle cx="68" cy="32" r="3.5" fill="#ffffff" />
+                                            <circle cx="32" cy="68" r="3.5" fill="#ffffff" />
+                                            <circle cx="68" cy="68" r="3.5" fill="#ffffff" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. H TILE (Kesari / Saffron with White H) -->
+                        <div class="ecosystem-tile ecosystem-tile--h" role="button" tabindex="0"
+                            aria-label="Blank Application">
+                            <div class="tile-3d-body">
+                                <div class="tile-3d-raised">
+                                    <div class="tile-3d-circle">
+                                        <span class="tile-letter">H</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. I TILE (Red with White I) -->
+                        <div class="ecosystem-tile ecosystem-tile--i has-tile-photo" role="button" tabindex="0"
+                            onclick="openRedApp()"
+                            onkeydown="if(event.key==='Enter'||event.key===' ')openRedApp()" aria-label="India App">
+                            <div class="tile-3d-body">
+                                <div class="tile-3d-raised">
+                                    <div class="tile-3d-circle">
+                                        <img class="tile-circle-photo tile-circle-photo--devi"
+                                            src="/static/images/durga_devi.jpg" alt="Devi" loading="lazy"
+                                            decoding="async">
+                                        <span class="tile-letter tile-letter--behind">I</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. P TILE (Kesari / Saffron with White P) -->
+                        <div class="ecosystem-tile ecosystem-tile--p" role="button" tabindex="0"
+                            onclick="openLinkedinClone()"
+                            onkeydown="if(event.key==='Enter'||event.key===' ')openLinkedinClone()"
+                            aria-label="P Connect - Career & Community">
+                            <div class="tile-3d-body">
+                                <div class="tile-3d-raised">
+                                    <div class="tile-3d-circle">
+                                        <span class="tile-letter">P</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. E TILE (Green with White E - GramConnect / Instagram) -->
+                        <div class="ecosystem-tile ecosystem-tile--e" role="button" tabindex="0"
+                            onclick="openInstagramClone()"
+                            onkeydown="if(event.key==='Enter'||event.key===' ')openInstagramClone()"
+                            aria-label="E Media - GramConnect Visual Stories">
+                            <div class="tile-3d-body">
+                                <div class="tile-3d-raised">
+                                    <div class="tile-3d-circle">
+                                        <span class="tile-letter">E</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. O TILE (Bright Electric Orange with White O) -->
+                        <div class="ecosystem-tile ecosystem-tile--o has-tile-photo" role="button" tabindex="0"
+                            onclick="openCinemaView()"
+                            onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaView()"
+                            aria-label="O Portal - Behind The Lens">
+                            <div class="tile-3d-body">
+                                <div class="tile-3d-raised">
+                                    <div class="tile-3d-circle">
+                                        <img class="tile-circle-photo" src="/static/images/cinema_legend.jpg"
+                                            alt="Founding cinematographer portrait" loading="lazy" decoding="async">
+                                        <span class="tile-letter tile-letter--behind">O</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Elegant Split Slogan Layout (Modular Icons) - Default -->
+                    <div class="ecosystem-divider split-slogan-layout" style="display: flex;">
+                        <span class="divider-slogan slogan-word-icon">Together</span>
+                        <span class="divider-line"></span>
+                        <div class="divider-icon">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <span class="divider-line"></span>
+                        <span class="divider-slogan slogan-word-icon">Forever</span>
+                    </div>
+
+                    <!-- Unified Slogan Layout (All Caps, Uses Title Word Icon) -->
+                    <div class="ecosystem-divider unified-slogan-layout" style="display: none;">
+                        <!-- Using radium-word-icon here so it is literally the exact same style as the title -->
+                        <span class="radium-word-icon" style="text-transform: uppercase;">Together</span>
+                        <span class="divider-line"></span>
+                        <div class="divider-icon">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <span class="divider-line"></span>
+                        <span class="radium-word-icon" style="text-transform: uppercase;">Forever</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="landing-footer">
+            <div class="container">
+                <p>&copy; 2026 The Group of Joining Hands. All rights reserved.</p>
+            </div>
+        </footer>
+        <!-- Floating Settings Button and Backdrop Theme Popover (Downside) -->
+        <div class="landing-settings-container">
+            <div class="vertical-menu-trigger ecosystem-tile ecosystem-tile--menu" id="settingsFloatingBtn"
+                onclick="toggleSettingsPanel(event)" role="button" tabindex="0" aria-label="Configure Backdrop Themes"
+                title="Theme Settings"
+                style="position: relative; top: auto; left: auto; right: auto; margin: 0; transform: none; animation: none;">
+                <div class="tile-3d-body">
+                    <div class="tile-3d-raised">
+                        <div class="tile-3d-circle">
+                            <span class="menu-tile-text settings-tile-text">THEMES</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-popover-panel" id="settingsPopoverPanel" onclick="event.stopPropagation()">
+                <div class="settings-panel-header">
+                    <h4>Themes</h4>
+                    <button class="settings-close-btn" onclick="closeSettingsPanel()"
+                        aria-label="Close Settings Panel">&times;</button>
+                </div>
+                <div class="sidebar-themes-grid preview-boxes-grid">
+                    <!-- Standard Ecosystem Themes (8) -->
+                    <button class="theme-select-btn active" data-theme="water" onclick="switchBackdropTheme('water')"
+                        title="Water Light">
+                        <div class="theme-preview-fallback water-fallback"></div>
+                        <span class="theme-btn-badge">Water</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="flow" onclick="switchBackdropTheme('flow')"
+                        title="Flow">
+                        <video class="theme-preview-video" src="/themes/flow.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Flow</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="glassflow" onclick="switchBackdropTheme('glassflow')"
+                        title="Glass Flow">
+                        <video class="theme-preview-video" src="/themes/glassflow.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Glass Flow</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="waterflow" onclick="switchBackdropTheme('waterflow')"
+                        title="Water Flow">
+                        <video class="theme-preview-video" src="/themes/waterflow.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Water Flow</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="8th" onclick="switchBackdropTheme('8th')" title="Air">
+                        <video class="theme-preview-video" src="/themes/air.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Air</span>
+                    </button>
+
+                    <!-- Server Video Themes -->
+                    <button class="theme-select-btn" data-theme="theme1" onclick="switchBackdropTheme('theme1')"
+                        title="Aurora">
+                        <video class="theme-preview-video" src="/themes/theme1.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Aurora</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme2" onclick="switchBackdropTheme('theme2')"
+                        title="Nebula">
+                        <video class="theme-preview-video" src="/themes/theme2.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Nebula</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme3" onclick="switchBackdropTheme('theme3')"
+                        title="Prism">
+                        <video class="theme-preview-video" src="/themes/theme3.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Prism</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme4" onclick="switchBackdropTheme('theme4')"
+                        title="Vortex">
+                        <video class="theme-preview-video" src="/themes/theme4.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Vortex</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme5" onclick="switchBackdropTheme('theme5')"
+                        title="Eclipse">
+                        <video class="theme-preview-video" src="/themes/theme5.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Eclipse</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme6" onclick="switchBackdropTheme('theme6')"
+                        title="Zenith">
+                        <video class="theme-preview-video" src="/themes/theme6.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Zenith</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme7" onclick="switchBackdropTheme('theme7')"
+                        title="Mirage">
+                        <video class="theme-preview-video" src="/themes/theme7.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Mirage</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme8" onclick="switchBackdropTheme('theme8')"
+                        title="Radiance">
+                        <video class="theme-preview-video" src="/themes/theme8.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Radiance</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme9" onclick="switchBackdropTheme('theme9')"
+                        title="Solstice">
+                        <video class="theme-preview-video" src="/themes/theme9.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Solstice</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme10" onclick="switchBackdropTheme('theme10')"
+                        title="Horizon">
+                        <video class="theme-preview-video" src="/themes/theme10.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Horizon</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme11" onclick="switchBackdropTheme('theme11')"
+                        title="Flux">
+                        <video class="theme-preview-video" src="/themes/theme11.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Flux</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme12" onclick="switchBackdropTheme('theme12')"
+                        title="Cascade">
+                        <video class="theme-preview-video" src="/themes/theme12.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Cascade</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme13" onclick="switchBackdropTheme('theme13')"
+                        title="Astral">
+                        <video class="theme-preview-video" src="/themes/theme13.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Astral</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme14" onclick="switchBackdropTheme('theme14')"
+                        title="Lumina">
+                        <video class="theme-preview-video" src="/themes/theme14.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Lumina</span>
+                    </button>
+                    <!-- Server Picture Themes (themes/pics) -->
+                    <button class="theme-select-btn" data-theme="theme15" onclick="switchBackdropTheme('theme15')"
+                        title="Oasis">
+                        <img class="theme-preview-img" src="/themes/pics/pic1.jpg" alt="Oasis"
+                            onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic1.jpg';">
+                        <span class="theme-btn-badge">Oasis</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme16" onclick="switchBackdropTheme('theme16')"
+                        title="Summit">
+                        <img class="theme-preview-img" src="/themes/pics/pic2.png" alt="Summit"
+                            onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic2.png';">
+                        <span class="theme-btn-badge">Summit</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme17" onclick="switchBackdropTheme('theme17')"
+                        title="Haven">
+                        <img class="theme-preview-img" src="/themes/pics/pic3.jpg" alt="Haven"
+                            onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic3.jpg';">
+                        <span class="theme-btn-badge">Haven</span>
+                    </button>
+
+                    <button class="theme-select-btn" data-theme="theme19" onclick="switchBackdropTheme('theme19')"
+                        title="Elysium">
+                        <img class="theme-preview-img" src="/themes/pics/pic5.jpg" alt="Elysium"
+                            onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic5.jpg';">
+                        <span class="theme-btn-badge">Elysium</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="theme20" onclick="switchBackdropTheme('theme20')"
+                        title="Solitude">
+                        <img class="theme-preview-img" src="/themes/pics/pic6.jpg" alt="Solitude"
+                            onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic6.jpg';">
+                        <span class="theme-btn-badge">Solitude</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="10th" onclick="switchBackdropTheme('10th')"
+                        title="Nova">
+                        <video class="theme-preview-video" src="/themes/nova.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Nova</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="7th" onclick="switchBackdropTheme('7th')"
+                        title="Cosmic">
+                        <video class="theme-preview-video" src="/themes/cosmic.mp4" preload="metadata" muted
+                            playsinline></video>
+                        <span class="theme-btn-badge">Cosmic</span>
+                    </button>
+
+                    <!-- 2026 Modern Theme Pack (pure CSS, always available) -->
+                    <button class="theme-select-btn" data-theme="auroraveil" onclick="switchBackdropTheme('auroraveil')"
+                        title="Aurora Veil">
+                        <div class="theme-preview-fallback aurora-fallback"></div>
+                        <span class="theme-btn-badge">Aurora Veil</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="ember" onclick="switchBackdropTheme('ember')"
+                        title="Ember Rise">
+                        <div class="theme-preview-fallback ember-fallback"></div>
+                        <span class="theme-btn-badge">Ember Rise</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="sakura" onclick="switchBackdropTheme('sakura')"
+                        title="Sakura Drift">
+                        <div class="theme-preview-fallback sakura-fallback"></div>
+                        <span class="theme-btn-badge">Sakura Drift</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="neongrid" onclick="switchBackdropTheme('neongrid')"
+                        title="Neon Grid">
+                        <div class="theme-preview-fallback neongrid-fallback"></div>
+                        <span class="theme-btn-badge">Neon Grid</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="deeptide" onclick="switchBackdropTheme('deeptide')"
+                        title="Deep Tide">
+                        <div class="theme-preview-fallback deeptide-fallback"></div>
+                        <span class="theme-btn-badge">Deep Tide</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="cinema" onclick="switchBackdropTheme('cinema')"
+                        title="Cinema">
+                        <div class="theme-preview-fallback cinema-fallback"></div>
+                        <span class="theme-btn-badge">Cinema</span>
+                    </button>
+
+                    <!-- Premium Depth Pack -->
+                    <button class="theme-select-btn" data-theme="templegold"
+                        onclick="switchBackdropTheme('templegold')" title="Temple Gold">
+                        <div class="theme-preview-fallback templegold-fallback"></div>
+                        <span class="theme-btn-badge">Temple Gold</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="sapphire"
+                        onclick="switchBackdropTheme('sapphire')" title="Midnight Sapphire">
+                        <div class="theme-preview-fallback sapphire-fallback"></div>
+                        <span class="theme-btn-badge">Sapphire</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="ivorypearl"
+                        onclick="switchBackdropTheme('ivorypearl')" title="Ivory Pearl">
+                        <div class="theme-preview-fallback ivorypearl-fallback"></div>
+                        <span class="theme-btn-badge">Ivory Pearl</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="emerald"
+                        onclick="switchBackdropTheme('emerald')" title="Emerald Court">
+                        <div class="theme-preview-fallback emerald-fallback"></div>
+                        <span class="theme-btn-badge">Emerald</span>
+                    </button>
+                    <button class="theme-select-btn" data-theme="graphite"
+                        onclick="switchBackdropTheme('graphite')" title="Graphite Suite">
+                        <div class="theme-preview-fallback graphite-fallback"></div>
+                        <span class="theme-btn-badge">Graphite</span>
+                    </button>
+                </div>
+                <div class="settings-timer-section">
+                    <div class="settings-timer-label"
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                        <span
+                            style="font-size: 0.75rem; letter-spacing: 1px; color: #64748b; font-weight: 800; text-transform: uppercase;">Auto-Rotate</span>
+                        <span id="sliderValueDisplay"
+                            style="background: rgba(124, 58, 237, 0.1); color: #7c3aed; padding: 4px 12px; border-radius: 12px; font-weight: 800; font-size: 0.75rem; box-shadow: inset 0 1px 2px rgba(124, 58, 237, 0.1); min-width: 50px; text-align: center;">5s</span>
+                    </div>
+                    <div class="settings-slider-wrapper" style="padding: 0 4px;">
+                        <input type="range" id="themeIntervalSlider" class="premium-slider" min="0" max="12" value="1"
+                            step="1" oninput="updateSliderDisplay(this.value)"
+                            onchange="applySliderInterval(this.value)">
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.6rem; color: #94a3b8; margin-top: 10px; font-weight: 700; letter-spacing: 0.5px;">
+                            <span>NONE</span>
+                            <span>24 HOURS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-timer-section" style="margin-top: 16px;">
+                    <div class="settings-timer-label">Typography Style</div>
+                    <div class="settings-timer-options" style="grid-template-columns: 1fr 1fr;">
+                        <button class="timer-opt-btn active" id="btnStyleSplit"
+                            onclick="setTypographyStyle('split')">Elegant</button>
+                        <button class="timer-opt-btn" id="btnStyleUnified"
+                            onclick="setTypographyStyle('unified')">Unified</button>
+                    </div>
+                </div>
+                <div class="settings-timer-section" style="margin-top: 16px;">
+                    <div class="settings-timer-label">Theme Animations</div>
+                    <div class="settings-timer-options">
+                        <button class="timer-opt-btn active" id="btnThemeAnimOn" onclick="setThemeAnimations(true)">
+                            <i class="fa-solid fa-play" style="font-size: 0.65rem; margin-right: 5px;"></i>On
+                        </button>
+                        <button class="timer-opt-btn" id="btnThemeAnimOff" onclick="setThemeAnimations(false)">
+                            <i class="fa-solid fa-pause" style="font-size: 0.65rem; margin-right: 5px;"></i>Off
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOCKED APPS STAGE OVERLAY -->
+    <div id="locked-view" class="app-view" style="display:none; background: #ffffff; min-height: 100vh;">
+        <div
+            style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; text-align: center; font-family: var(--font-body);">
+            <div
+                style="font-size: 5rem; color: #7c3aed; margin-bottom: 24px; animation: gentleFloat 6s ease-in-out infinite alternate;">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h2
+                style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; max-width: 600px;">
+                Platform Locked
+            </h2>
+            <p style="font-size: 1.15rem; color: #64748b; margin-bottom: 24px; max-width: 500px; line-height: 1.6;">
+                BLOCKED-UAT progress. Will announce soon
+            </p>
+            <div class="admin-login-corner-card" style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="adminUnlockPassword"
+                    style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">admin
+                    password to login</label>
+                <input type="password" id="adminUnlockPassword" placeholder="••••••••"
+                    onkeyup="checkUnlockPassword(event)"
+                    style="padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none; width: 100%; box-sizing: border-box; transition: all 0.25s ease;"
+                    onfocus="this.style.borderColor='#7c3aed'; this.style.boxShadow='0 0 0 3px rgba(124, 58, 237, 0.15)'"
+                    onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
+            </div>
+            <button onclick="returnToLanding()"
+                style="background: none; border: none; cursor: pointer; padding: 0; outline: none; transition: transform 0.2s; display: flex; align-items: center; justify-content: center;"
+                onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                aria-label="Go back to main screen">
+                <img src="/static/images/new_home_icon.png" alt="Home"
+                    style="width: 44px; height: 44px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));">
+            </button>
+        </div>
+    </div>
+
+    <!-- ======================================================================
+         CINEMA VIEW - opened from the white "O" ecosystem tile.
+         The portrait is the page background; the copy blocks are placeholders
+         for the client's own text.
+         ====================================================================== -->
+    <div id="cinema-view" class="app-view" style="display: none;">
+        <div class="cinema-page-bg"></div>
+        <div class="cinema-page-grain"></div>
+        <div class="cinema-page-veil"></div>
+
+        <header class="cinema-page-header">
+            <div class="universal-app-header"
+                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; box-sizing: border-box;">
+                <!-- LEFT: Joining Hands Logo ONLY -->
+                <div style="pointer-events: auto; display: flex; align-items: center;">
+                    <i class="fa-solid fa-handshake-angle"
+                        style="color: #fcd34d; font-size: 28px; background: rgba(10,10,13,0.72); padding: 10px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.5); border: 1px solid rgba(250,204,21,0.35); backdrop-filter: blur(8px);"></i>
+                </div>
+                <!-- RIGHT: Home -->
+                <div style="pointer-events: auto; display: flex; align-items: center;">
+                    <button onclick="returnToLanding()"
+                        style="background: none; border: none; cursor: pointer; padding: 0; outline: none; transition: transform 0.2s; display: flex; align-items: center; justify-content: center;"
+                        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                        aria-label="Go back to main screen">
+                        <img src="/static/images/new_home_icon.png" alt="Home"
+                            style="width: 48px; height: 48px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="cinema-page-main">
+            <div class="cinema-portrait-frame">
+                <img src="/static/images/cinema_legend.jpg" alt="Portrait" class="cinema-portrait-img">
+            </div>
+
+            <p class="cinema-page-eyebrow">The Group of Joining Hands</p>
+            <h1 class="cinema-page-title">Behind The Lens</h1>
+            <div class="cinema-page-rule"></div>
+
+            <p class="cinema-page-lede">
+                A tribute to the craft, the patience and the people who framed our
+                story one shot at a time.
+            </p>
+
+            <div class="cinema-page-cards">
+                <article class="cinema-card">
+                    <i class="fa-solid fa-film"></i>
+                    <h3>The Craft</h3>
+                    <p>Placeholder copy &mdash; replace with the story you want told here.</p>
+                </article>
+                <article class="cinema-card">
+                    <i class="fa-solid fa-clapperboard"></i>
+                    <h3>The Work</h3>
+                    <p>Placeholder copy &mdash; replace with the story you want told here.</p>
+                </article>
+                <article class="cinema-card">
+                    <i class="fa-solid fa-heart"></i>
+                    <h3>The Legacy</h3>
+                    <p>Placeholder copy &mdash; replace with the story you want told here.</p>
+                </article>
+            </div>
+
+            <p class="cinema-page-slogan">Together Forever</p>
+        </main>
+    </div>
+
+    <!-- LINKEDIN CLONE APP VIEW (No mention of "LinkedIn" in text) -->
+    <div id="pro-network-view" class="app-view" style="min-height: 100vh; position: relative;">
+
+        <!-- LOGIN STAGE -->
+        <div id="pro-login-stage" class="pro-stage active" style="min-height: 100vh; position: relative;">
+            <div class="universal-app-header"
+                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; z-index: 1000; box-sizing: border-box; margin-bottom: 20px;">
+                <!-- LEFT: Joining Hands Logo ONLY -->
+                <div style="pointer-events: auto; display: flex; align-items: center;">
+                    <i class="fa-solid fa-handshake-angle"
+                        style="color: #f97316; font-size: 28px; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);"></i>
+                </div>
+                <!-- RIGHT: Home -->
+                <div style="pointer-events: auto; display: flex; align-items: center;">
+                    <button onclick="returnToLanding()"
+                        style="background: none; border: none; cursor: pointer; padding: 0; outline: none; transition: transform 0.2s; display: flex; align-items: center; justify-content: center;"
+                        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                        aria-label="Go back to main screen">
+                        <img src="/static/images/new_home_icon.png" alt="Home"
+                            style="width: 48px; height: 48px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));">
+                    </button>
+                </div>
+            </div>
+
+            <div class="pro-login-container" style="margin: 0; padding: 0;">
+                <div class="pro-login-card admin-login-corner-card"
+                    style="position: fixed !important; bottom: 24px !important; right: 24px !important; top: auto !important; left: auto !important; z-index: 999999 !important;">
+                    <h2>
+                        <i class="fa-solid fa-shield-halved" style="color: #7c3aed; font-size: 13px;"></i> Admin Login
+                    </h2>
+                    <div id="authErrorAlert" class="auth-error-banner"
+                        style="display:none; margin-bottom: 8px; font-size: 12px;"></div>
+
+                    <!-- ADMIN SIGN IN FORM -->
+                    <form id="proLoginForm" action="#" method="POST" onsubmit="handleProLogin(event)"
+                        style="text-align: left;">
+                        <div class="input-group">
+                            <label for="proEmail">Admin ID</label>
+                            <input type="text" id="proEmail" required placeholder="Enter Admin ID">
+                        </div>
+                        <div class="input-group">
+                            <label for="proPass">Password</label>
+                            <input type="password" id="proPass" required placeholder="Enter password">
+                        </div>
+
+                        <button type="submit" class="pro-btn-primary"
+                            style="background-color: #1e293b; color: white;">Login</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- INSIDE MAIN PORTAL STAGE -->
+        <div id="pro-main-stage" class="pro-stage">
+
+            <!-- Top Navbar -->
+            <header class="pro-header">
+                <div class="pro-header-inner">
+                    <div class="pro-header-left">
+                        <div class="pro-brand-sm" onclick="switchProTab('feed')">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <div class="pro-search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="globalSearchInput" placeholder="Search members by name or role..."
+                                oninput="handleUserSearch(event)" onfocus="handleUserSearch(event)">
+
+                            <!-- Search Results Dropdown -->
+                            <div class="search-dropdown" id="searchResultsDropdown">
+                                <!-- Results populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav class="pro-nav-items">
+                        <button class="nav-item active" onclick="switchProTab('feed')" id="nav-feed">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </button>
+                        <button class="nav-item" onclick="switchProTab('network')" id="nav-network">
+                            <i class="fa-solid fa-user-group"></i>
+                            <span>My Network</span>
+                            <span class="badge">4</span>
+                        </button>
+                        <button class="nav-item" onclick="switchProTab('jobs')" id="nav-jobs">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <span>Opportunities</span>
+                        </button>
+                        <button class="nav-item" onclick="switchProTab('messaging')" id="nav-messaging">
+                            <i class="fa-solid fa-comment-dots"></i>
+                            <span>Messaging</span>
+                            <span class="badge text-red" id="msgBadge" style="display:none;">0</span>
+                        </button>
+                        <button class="nav-item" onclick="switchProTab('notifications')" id="nav-notifications">
+                            <i class="fa-solid fa-bell"></i>
+                            <span>Notifications</span>
+                            <span class="badge" id="notifBadge" style="display:none;">0</span>
+                        </button>
+                        <button class="nav-item admin-nav-btn" onclick="openAdminPanelModal()">
+                            <i class="fa-solid fa-user-shield text-purple"></i>
+                            <span>Admin Panel</span>
+                        </button>
+
+                        <div class="pro-user-menu" onclick="toggleUserDropdown()">
+                            <img src="hero.jpg" alt="User Avatar" class="mini-avatar">
+                            <span>Me <i class="fa-solid fa-caret-down"></i></span>
+
+                            <div class="user-dropdown" id="userDropdown">
+                                <div class="dropdown-header">
+                                    <img src="hero.jpg" alt="Avatar">
+                                    <div>
+                                        <strong>Joining Hands Leader</strong>
+                                        <p>Community Administrator</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <a href="#" onclick="switchProTab('profile')"><i class="fa-solid fa-user"></i> View
+                                    Profile</a>
+                                <a href="#" onclick="openAdminPanelModal()"><i
+                                        class="fa-solid fa-user-shield text-purple"></i> Admin Panel</a>
+                                <a href="#" onclick="openSettingsModal()"><i class="fa-solid fa-gear"></i> Settings &
+                                    Privacy</a>
+                                <a href="#" onclick="openWorkflowTrackerModal()"><i class="fa-solid fa-list-check"></i>
+                                    Workflow & Bug Tracker</a>
+                                <a href="#" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i> Toggle Dark
+                                    Mode</a>
+                                <a href="#" onclick="returnToLanding()"><i class="fa-solid fa-globe"></i> Main Landing
+                                    Page</a>
+                                <hr>
+                                <a href="#" onclick="logoutPro()" class="logout-link"><i
+                                        class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="pro-body">
+                <div class="pro-body-grid">
+
+                    <!-- Left Sidebar -->
+                    <aside class="pro-sidebar-left">
+                        <div class="profile-card">
+                            <div class="profile-banner"></div>
+                            <div class="profile-info">
+                                <img src="hero.jpg" alt="User Profile" class="profile-avatar">
+                                <h4 class="profile-name">Joining Hands Member</h4>
+                                <p class="profile-tagline">Leader & Developer at The Group of Joining Hands</p>
+                            </div>
+                            <div class="profile-stats" onclick="openAnalyticsModal()" style="cursor:pointer;"
+                                title="Click to view full reach analytics">
+                                <div class="p-stat">
+                                    <span>Profile views</span>
+                                    <strong class="stat-color" id="statProfileViews">142</strong>
+                                </div>
+                                <div class="p-stat">
+                                    <span>Post impressions</span>
+                                    <strong class="stat-color" id="statPostImpressions">1,890</strong>
+                                </div>
+                            </div>
+                            <div class="profile-footer" onclick="switchProTab('saved')" style="cursor:pointer;">
+                                <i class="fa-solid fa-bookmark"></i> Saved Items
+                            </div>
+                            <div class="profile-footer admin-footer-btn" onclick="openAdminPanelModal()"
+                                style="cursor:pointer; background: rgba(124, 58, 237, 0.08); border-top: 1px solid rgba(124, 58, 237, 0.2); color: #7c3aed; font-weight: 600;">
+                                <i class="fa-solid fa-user-shield"></i> Open Admin Panel
+                            </div>
+                        </div>
+
+                        <div class="recent-widget">
+                            <h5>Recent Topics</h5>
+                            <ul>
+                                <li><i class="fa-solid fa-hashtag"></i> JoiningHandsEvents</li>
+                                <li><i class="fa-solid fa-hashtag"></i> CommunityGrowth</li>
+                                <li><i class="fa-solid fa-hashtag"></i> Innovation2026</li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Middle Feed Area -->
+                    <section class="pro-feed-center" id="proFeedContainer">
+
+                        <!-- Create Post Card -->
+                        <div class="create-post-card">
+                            <div class="cp-top">
+                                <img src="hero.jpg" alt="Avatar" class="mini-avatar">
+                                <button class="cp-trigger" onclick="openCreatePostModal()">Start a post, share progress
+                                    or
+                                    news...</button>
+                            </div>
+                            <div class="cp-actions">
+                                <button onclick="openCreatePostModal('photo')"><i
+                                        class="fa-solid fa-image text-blue"></i>
+                                    Media</button>
+                                <button onclick="openCreatePostModal('event')"><i
+                                        class="fa-solid fa-calendar-days text-orange"></i> Event</button>
+                                <button onclick="openCreatePostModal('article')"><i
+                                        class="fa-solid fa-newspaper text-red"></i> Article</button>
+                            </div>
+                        </div>
+
+                        <div class="feed-sort-bar">
+                            <hr>
+                            <span>Sort by: <strong>Top <i class="fa-solid fa-caret-down"></i></strong></span>
+                        </div>
+
+                        <!-- Posts Stream -->
+                        <div id="postsStream">
+                            <!-- Posts dynamically injected by JS -->
+                        </div>
+
+                    </section>
+
+                    <!-- Messaging Section Container -->
+                    <section class="pro-messaging-container" id="messagingTabContainer" style="display:none;">
+                        <div class="messaging-card">
+                            <!-- Conversations List Sidebar -->
+                            <div class="conversations-sidebar">
+                                <div class="conv-header">
+                                    <h4>Messaging</h4>
+                                    <i class="fa-solid fa-pen-to-square" title="New Message"></i>
+                                </div>
+                                <div class="conv-search">
+                                    <input type="text" placeholder="Search messages...">
+                                </div>
+                                <div class="conversations-list" id="conversationsList">
+                                    <!-- Dynamic conversation items -->
+                                </div>
+                            </div>
+
+                            <!-- Chat Box Area -->
+                            <div class="chat-main-area">
+                                <div class="chat-header" id="chatHeader">
+                                    <button id="mobileChatBackBtn" class="btn-outline-sm mobile-only-btn"
+                                        onclick="mobileShowConvsList()" style="margin-right: 8px; display: none;"><i
+                                            class="fa-solid fa-arrow-left"></i></button>
+                                    <img src="hero.jpg" alt="Avatar" id="chatUserAvatar" class="mini-avatar">
+                                    <div>
+                                        <strong id="chatUserName">Dr. Ramesh Kumar</strong>
+                                        <span id="chatUserStatus">Online Ã¢â‚¬Â¢ Community Lead</span>
+                                        <small class="text-purple" id="chatTypingStatus"
+                                            style="display:none; margin-left: 8px; font-weight: 600;">Typing...</small>
+                                    </div>
+                                </div>
+
+                                <div class="chat-messages-body" id="chatMessagesBody">
+                                    <!-- Message bubbles populated dynamically -->
+                                </div>
+
+                                <div class="chat-input-footer">
+                                    <input type="text" id="chatInputText" placeholder="Write a message..."
+                                        onkeypress="handleChatKeyPress(event)">
+                                    <button class="pro-btn-primary chat-send-btn" onclick="sendDirectMessage()"><i
+                                            class="fa-solid fa-paper-plane"></i> Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Notifications Center Container -->
+                    <section class="pro-notifications-container" id="notificationsTabContainer" style="display:none;">
+                        <div class="notifications-card">
+                            <div class="notif-card-header">
+                                <h3>Notifications Center</h3>
+                                <button class="btn-outline-sm" onclick="markAllNotificationsRead()"><i
+                                        class="fa-solid fa-check-double"></i> Mark all as read</button>
+                            </div>
+                            <div class="notifications-list" id="notificationsList">
+                                <!-- Dynamic notifications list -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- My Network Manager Container -->
+                    <section class="pro-network-container" id="networkTabContainer" style="display:none;">
+                        <div class="network-card">
+                            <div class="network-header">
+                                <h3>My Network & Connections</h3>
+                            </div>
+
+                            <div class="network-section">
+                                <h4>Pending Connection Requests (<span id="pendingCount">0</span>)</h4>
+                                <div class="pending-requests-list" id="pendingRequestsList">
+                                    <!-- Dynamic pending requests -->
+                                </div>
+                            </div>
+
+                            <div class="network-section" style="margin-top: 24px;">
+                                <h4>Connected Community Members</h4>
+                                <div class="connected-members-grid" id="connectedMembersGrid">
+                                    <!-- Dynamic connected members -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Events & Opportunities Container -->
+                    <section class="pro-events-container" id="eventsTabContainer" style="display:none;">
+                        <div class="events-card">
+                            <div class="events-header">
+                                <h3>Community Events & Gatherings</h3>
+                            </div>
+                            <div class="events-grid" id="eventsGrid">
+                                <!-- Dynamic events cards -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Hashtag Discovery Container -->
+                    <section class="pro-hashtag-container" id="hashtagDiscoveryStage"
+                        style="display:none; width: 100%;">
+                        <div class="hashtag-header-banner"
+                            style="background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); color: #fff; padding: 24px; border-radius: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <div
+                                    style="width: 54px; height: 54px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">
+                                    <i class="fa-solid fa-hashtag"></i>
+                                </div>
+                                <div>
+                                    <h2 id="discoveryHashtagTitle"
+                                        style="margin: 0; font-size: 24px; font-weight: 700; color:#fff;">#Technology
+                                    </h2>
+                                    <p id="discoveryHashtagMeta"
+                                        style="margin: 4px 0 0 0; opacity: 0.9; font-size: 14px;">
+                                        Explore community conversations & shared media</p>
+                                </div>
+                            </div>
+                            <button class="btn-outline-sm" onclick="switchProTab('feed')"
+                                style="background: rgba(255,255,255,0.2); color:#fff; border: 1px solid rgba(255,255,255,0.4);"><i
+                                    class="fa-solid fa-arrow-left"></i> Back to Feed</button>
+                        </div>
+                        <div id="discoveryPostsStream">
+                            <!-- Dynamic Hashtag Posts -->
+                        </div>
+                    </section>
+
+                    <!-- Profile & Dynamic About Section Container -->
+                    <section class="pro-profile-container" id="profileTabContainer" style="display:none;">
+                        <div class="my-profile-card">
+                            <div class="my-profile-cover"></div>
+                            <div class="my-profile-header">
+                                <img src="hero.jpg" alt="Avatar" id="myProfileAvatar" class="my-avatar-large">
+                                <div class="my-profile-info">
+                                    <h2 id="myProfileName">Joining Hands Leader</h2>
+                                    <p id="myProfileHeadline" class="my-headline">Leader & Developer at The Group of
+                                        Joining
+                                        Hands</p>
+                                    <p id="myProfileEmail" class="my-email"><i class="fa-regular fa-envelope"></i>
+                                        member@joininghands.org</p>
+                                </div>
+                                <button class="pro-btn-primary" onclick="openEditProfileModal()"><i
+                                        class="fa-solid fa-pen"></i> Edit Profile & About</button>
+                            </div>
+
+                            <!-- About Tabs Header -->
+                            <div class="profile-tabs-header">
+                                <button class="p-tab active" onclick="switchProfileSubTab('about')" id="ptab-about"><i
+                                        class="fa-solid fa-user"></i> About Bio</button>
+                                <button class="p-tab" onclick="switchProfileSubTab('uploads')" id="ptab-uploads"><i
+                                        class="fa-solid fa-images"></i> Uploaded Media</button>
+                                <button class="p-tab" onclick="switchProfileSubTab('posts')" id="ptab-posts"><i
+                                        class="fa-solid fa-newspaper"></i> My Activity</button>
+                            </div>
+
+                            <!-- About Bio Section -->
+                            <div class="profile-tab-body" id="psub-about">
+                                <h4>Community Bio & Background</h4>
+                                <p id="myProfileBio">Dedicated community lead focused on building unity, cultural
+                                    events,
+                                    and professional collaboration through The Group of Joining Hands platform.</p>
+                            </div>
+
+                            <!-- Uploaded Media Grid -->
+                            <div class="profile-tab-body" id="psub-uploads" style="display:none;">
+                                <h4>My Uploaded Community Photos</h4>
+                                <div class="my-media-grid" id="myMediaGrid">
+                                    <!-- Dynamic uploaded photos grid -->
+                                </div>
+                            </div>
+
+                            <!-- My Activity Posts Stream -->
+                            <div class="profile-tab-body" id="psub-posts" style="display:none;">
+                                <h4>My Timeline Contributions</h4>
+                                <div id="myPostsStream">
+                                    <!-- Dynamic posts stream -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Saved Posts / Bookmarks Container -->
+                    <section class="pro-saved-container" id="savedTabContainer" style="display:none;">
+                        <div class="network-card">
+                            <div class="network-header">
+                                <h3>Saved Items & Bookmarked Posts</h3>
+                            </div>
+                            <div id="savedPostsStream">
+                                <!-- Dynamic saved posts stream -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Right Sidebar -->
+                    <aside class="pro-sidebar-right">
+                        <div class="widget-card">
+                            <div class="widget-title">
+                                <h5>Community News & Insights</h5>
+                                <i class="fa-solid fa-circle-info"></i>
+                            </div>
+                            <ul class="news-list">
+                                <li>
+                                    <span class="news-head">The Group of Joining Hands Launches New Portal</span>
+                                    <span class="news-meta">Top story Ã¢â‚¬Â¢ 1,240 readers</span>
+                                </li>
+                                <li>
+                                    <span class="news-head">Annual Sacred & Cultural Celebration</span>
+                                    <span class="news-meta">2h ago Ã¢â‚¬Â¢ 895 readers</span>
+                                </li>
+                                <li>
+                                    <span class="news-head">Expanding Network Connections Globally</span>
+                                    <span class="news-meta">5h ago Ã¢â‚¬Â¢ 430 readers</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="widget-card" id="trendingHashtagsWidget">
+                            <div class="widget-title"
+                                style="display:flex; justify-content:space-between; align-items:center;">
+                                <h5><i class="fa-solid fa-fire text-orange"></i> Trending Hashtags</h5>
+                            </div>
+                            <ul class="news-list" id="trendingHashtagsList">
+                                <li onclick="openHashtagDiscovery('JoiningHands')" style="cursor:pointer;">
+                                    <span class="news-head text-purple">#JoiningHands</span>
+                                    <span class="news-meta">Official Ã¢â‚¬Â¢ Community</span>
+                                </li>
+                                <li onclick="openHashtagDiscovery('Technology')" style="cursor:pointer;">
+                                    <span class="news-head text-purple">#Technology</span>
+                                    <span class="news-meta">Popular Ã¢â‚¬Â¢ Tech</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="widget-card">
+                            <div class="widget-title">
+                                <h5>Add to your network</h5>
+                            </div>
+                            <div class="suggest-list">
+                                <div class="suggest-item">
+                                    <img src="hero.jpg" alt="User">
+                                    <div>
+                                        <strong>Dr. Ramesh Kumar</strong>
+                                        <p>Community Coordinator</p>
+                                        <div style="display: flex; gap: 6px; margin-top: 4px;">
+                                            <button class="btn-outline-sm" onclick="connectUser(this)"><i
+                                                    class="fa-solid fa-user-plus"></i> Connect</button>
+                                            <button class="btn-outline-sm"
+                                                onclick="quickMessageUser(2, 'Dr. Ramesh Kumar', 'hero.jpg')"
+                                                style="color:var(--pro-accent);"><i class="fa-solid fa-paper-plane"></i>
+                                                Message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="suggest-item">
+                                    <img src="hero.jpg" alt="User">
+                                    <div>
+                                        <strong>Priya Sharma</strong>
+                                        <p>Event Lead & Strategist</p>
+                                        <div style="display: flex; gap: 6px; margin-top: 4px;">
+                                            <button class="btn-outline-sm" onclick="connectUser(this)"><i
+                                                    class="fa-solid fa-user-plus"></i> Connect</button>
+                                            <button class="btn-outline-sm"
+                                                onclick="quickMessageUser(3, 'Priya Sharma', 'hero.jpg')"
+                                                style="color:var(--pro-accent);"><i class="fa-solid fa-paper-plane"></i>
+                                                Message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Floating Messaging Quick Dock Drawer (Bottom-Right) -->
+                    <div class="floating-chat-dock" id="floatingChatDock">
+                        <div class="dock-header" onclick="toggleFloatingChatDock()">
+                            <div class="dock-header-left">
+                                <img src="hero.jpg" alt="Avatar" id="dockActiveAvatar" class="mini-avatar-xs">
+                                <div>
+                                    <strong id="dockHeaderTitle">Messaging</strong>
+                                    <span id="dockHeaderStatus" class="dock-online-dot"></span>
+                                </div>
+                            </div>
+                            <div class="dock-header-actions">
+                                <span class="badge text-red" id="dockUnreadBadge" style="display:none;">0</span>
+                                <button class="dock-btn-icon" id="dockToggleBtn" title="Toggle chat"><i
+                                        class="fa-solid fa-chevron-up" id="dockToggleIcon"></i></button>
+                            </div>
+                        </div>
+                        <div class="dock-body" id="dockBody" style="display:none;">
+                            <div class="dock-conv-header" id="dockConvHeader">
+                                <span id="dockChattingWith">Chat with <strong>Dr. Ramesh Kumar</strong></span>
+                                <button class="btn-text-sm" onclick="switchProTab('messaging')"
+                                    title="Open Full Messaging Screen"><i class="fa-solid fa-up-right-from-square"></i>
+                                    Expand</button>
+                            </div>
+                            <div class="dock-messages-body" id="dockMessagesBody">
+                                <!-- Messages dynamically rendered -->
+                            </div>
+                            <div class="dock-input-row">
+                                <input type="text" id="dockInputText" placeholder="Write a message..."
+                                    onkeypress="handleDockChatKeyPress(event)">
+                                <button class="dock-send-btn" onclick="sendDockDirectMessage()"><i
+                                        class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Fixed Bottom Navigation Bar -->
+                    <nav class="pro-mobile-bottom-nav">
+                        <button class="mobile-nav-item active" onclick="switchProTab('feed')" id="mobile-nav-feed">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </button>
+                        <button class="mobile-nav-item" onclick="switchProTab('network')" id="mobile-nav-network">
+                            <i class="fa-solid fa-user-group"></i>
+                            <span>Network</span>
+                        </button>
+                        <button class="mobile-nav-item" onclick="switchProTab('messaging')" id="mobile-nav-messaging">
+                            <i class="fa-solid fa-comment-dots"></i>
+                            <span>Messages</span>
+                            <span class="mobile-badge text-red" id="mobileMsgBadge" style="display:none;">0</span>
+                        </button>
+                        <button class="mobile-nav-item" onclick="switchProTab('notifications')"
+                            id="mobile-nav-notifications">
+                            <i class="fa-solid fa-bell"></i>
+                            <span>Alerts</span>
+                            <span class="mobile-badge text-red" id="mobileNotifBadge" style="display:none;">0</span>
+                        </button>
+                        <button class="mobile-nav-item" onclick="openAdminPanelModal()">
+                            <i class="fa-solid fa-user-shield text-purple"></i>
+                            <span>Admin</span>
+                        </button>
+                    </nav>
+                </div>
+        </div>
+    </div>
+
+    <!-- INSTAGRAM CLONE VIEW -->
+    <div id="insta-view" class="app-view"
+        style="display: none; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="universal-app-header"
+            style="position: absolute; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; z-index: 1000; pointer-events: none; box-sizing: border-box;">
+            <!-- LEFT: Joining Hands Logo ONLY -->
+            <div style="pointer-events: auto; display: flex; align-items: center;">
+                <i class="fa-solid fa-handshake-angle"
+                    style="color: #f97316; font-size: 28px; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);"></i>
+            </div>
+            <!-- RIGHT: Home -->
+            <div style="pointer-events: auto; display: flex; align-items: center;">
+                <button onclick="returnToLanding()"
+                    style="background: none; border: none; cursor: pointer; padding: 0; outline: none; transition: transform 0.2s; display: flex; align-items: center; justify-content: center;"
+                    onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                    aria-label="Go back to main screen">
+                    <img src="/static/images/new_home_icon.png" alt="Home"
+                        style="width: 48px; height: 48px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));">
+                </button>
+            </div>
+        </div>
+        <div class="pro-login-card admin-login-corner-card"
+            style="position: fixed !important; bottom: 24px !important; right: 24px !important; top: auto !important; left: auto !important; z-index: 999999 !important;">
+            <h2>
+                <i class="fa-solid fa-shield-halved" style="color: #10b981; font-size: 13px;"></i> Admin Login
+            </h2>
+
+            <form action="#" method="POST" onsubmit="alert('Login successful!'); returnToLanding(); return false;"
+                style="text-align: left;">
+                <div class="input-group">
+                    <label for="instaAdminId">Admin ID</label>
+                    <input type="text" id="instaAdminId" required placeholder="Enter Admin ID">
+                </div>
+                <div class="input-group">
+                    <label for="instaPass">Password</label>
+                    <input type="password" id="instaPass" required placeholder="Enter password">
+                </div>
+
+                <button type="submit" style="background-color: #10b981; color: white;">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CREATE POST MODAL FOR PRO CONNECT -->
+    <div id="createPostModal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Create a post</h3>
+                <button class="close-modal" onclick="closeCreatePostModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="user-preview">
+                    <img src="hero.jpg" alt="Avatar" class="mini-avatar">
+                    <div>
+                        <strong>Joining Hands Member</strong>
+                        <span class="visibility-pill"><i class="fa-solid fa-earth-americas"></i> Anyone</span>
+                    </div>
+                </div>
+                <textarea id="newPostText" placeholder="What do you want to talk about?" rows="4"></textarea>
+
+                <div id="imagePreviewContainer" class="image-preview-box" style="display:none;">
+                    <img id="imagePreview" src="hero.jpg" alt="Preview">
+                    <button class="remove-img-btn" onclick="removeImagePreview()">&times;</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-tools">
+                    <label for="postImageUpload" class="tool-btn" title="Add Photo">
+                        <i class="fa-solid fa-image"></i>
+                        <input type="file" id="postImageUpload" accept="image/*" onchange="handleImageSelected(event)"
+                            style="display:none;">
+                    </label>
+                    <button class="tool-btn" title="Add Event" onclick="showToast('Event creation coming soon!')"><i
+                            class="fa-solid fa-calendar-days"></i></button>
+                </div>
+                <button class="pro-btn-primary" onclick="submitNewPost()">Post</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT PROFILE & ABOUT MODAL -->
+    <div id="editProfileModal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Edit Profile & About Section</h3>
+                <button class="close-modal" onclick="closeEditProfileModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="edit-avatar-picker">
+                    <img id="editAvatarPreview" src="hero.jpg" alt="Avatar Preview" class="mini-avatar-lg">
+                    <div style="display: flex; gap: 8px; align-items: center; margin-top: 8px;">
+                        <label for="editAvatarUpload" class="btn-outline-sm"><i class="fa-solid fa-camera"></i> Change
+                            Photo</label>
+                        <button type="button" class="btn-outline-sm" onclick="removeProfilePhoto()"
+                            style="color: #ef4444; border-color: #fca5a5;"><i class="fa-solid fa-trash"></i> Remove
+                            Photo</button>
+                    </div>
+                    <input type="file" id="editAvatarUpload" accept="image/*" onchange="handleEditAvatarSelected(event)"
+                        style="display:none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="editFullName" placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Professional Headline & Title</label>
+                    <input type="text" id="editHeadline"
+                        placeholder="e.g. Leader & Developer at The Group of Joining Hands">
+                </div>
+
+                <div class="form-group">
+                    <label>About Bio & Background</label>
+                    <textarea id="editBio" rows="4"
+                        placeholder="Tell the community about your background, goals, and interests..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline-sm" onclick="closeEditProfileModal()">Cancel</button>
+                <button class="pro-btn-primary" onclick="saveProfileChanges()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PUBLISH ARTICLE MODAL -->
+    <div id="publishArticleModal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Draft & Publish News Article</h3>
+                <button class="close-modal" onclick="closePublishArticleModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Article Title</label>
+                    <input type="text" id="articleTitle" placeholder="e.g. Community Growth & Upcoming Initiatives">
+                </div>
+                <div class="form-group">
+                    <label>Article Content</label>
+                    <textarea id="articleContent" rows="6" placeholder="Write full article body content..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline-sm" onclick="closePublishArticleModal()">Cancel</button>
+                <button class="pro-btn-primary" onclick="submitNewArticle()">Publish Article</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- REACH & PROFILE ANALYTICS DASHBOARD MODAL -->
+    <div id="analyticsModal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Profile & Reach Analytics Dashboard</h3>
+                <button class="close-modal" onclick="closeAnalyticsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="analytics-metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label"><i class="fa-solid fa-eye text-blue"></i> Profile Views</span>
+                        <strong class="metric-val" id="analyticsViews">142</strong>
+                        <p class="metric-trend">+18% this week</p>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label"><i class="fa-solid fa-chart-line text-green"></i> Post
+                            Impressions</span>
+                        <strong class="metric-val" id="analyticsImpressions">1,890</strong>
+                        <p class="metric-trend">+34% this week</p>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label"><i class="fa-solid fa-users text-orange"></i> Network Reach</span>
+                        <strong class="metric-val" id="analyticsNetwork">6</strong>
+                        <p class="metric-trend">Connected members</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FULL SCREEN PHOTO LIGHTBOX MODAL -->
+    <div id="photoLightboxModal" class="modal-backdrop" onclick="closePhotoLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightboxImg" src="hero.jpg" alt="Full screen preview">
+            <button class="close-lightbox" onclick="closePhotoLightbox()">&times;</button>
+        </div>
+    </div>
+
+    <!-- PUBLIC USER PROFILE VIEW MODAL -->
+    <div id="userProfileModal" class="modal-backdrop">
+        <div class="modal-box profile-modal-box">
+            <div class="modal-header">
+                <h3>Member Profile</h3>
+                <button class="close-modal" onclick="closeUserProfileModal()">&times;</button>
+            </div>
+            <div class="modal-body profile-modal-body">
+                <div class="profile-modal-banner"></div>
+                <div class="profile-modal-header-info">
+                    <img id="modalUserAvatar" src="hero.jpg" alt="Member Avatar" class="profile-modal-avatar">
+                    <div class="profile-modal-details">
+                        <h2 id="modalUserName">Member Name</h2>
+                        <p id="modalUserHeadline" class="modal-headline">Headline</p>
+                        <span id="modalUserEmail" class="modal-email"><i class="fa-regular fa-envelope"></i>
+                            email@joininghands.org</span>
+                    </div>
+                </div>
+
+                <div class="profile-modal-section">
+                    <h4>About</h4>
+                    <p id="modalUserBio">Community member bio details will be displayed here.</p>
+                </div>
+
+                <div class="profile-modal-actions">
+                    <button id="modalConnectBtn" class="pro-btn-primary" onclick="toggleConnectFromModal()"><i
+                            class="fa-solid fa-user-plus"></i> Connect</button>
+                    <button class="btn-outline-sm" onclick="openDirectMessageFromProfile()"><i
+                            class="fa-solid fa-paper-plane"></i> Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SETTINGS & PRIVACY CENTER MODAL -->
+    <div id="settingsModal" class="modal-backdrop">
+        <div class="modal-box settings-modal-box">
+            <div class="modal-header">
+                <h3>Settings & Preferences Center</h3>
+                <button class="close-modal" onclick="closeSettingsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-grid">
+                    <!-- Settings Side Navigation -->
+                    <div class="settings-nav">
+                        <button class="set-nav-btn active" onclick="switchSettingsSection('general')"
+                            id="setnav-general"><i class="fa-solid fa-sliders"></i> General & Theme</button>
+                        <button class="set-nav-btn" onclick="switchSettingsSection('privacy')" id="setnav-privacy"><i
+                                class="fa-solid fa-lock"></i> Privacy & Visibility</button>
+                        <button class="set-nav-btn" onclick="switchSettingsSection('security')" id="setnav-security"><i
+                                class="fa-solid fa-shield-halved"></i> Security & Password</button>
+                        <button class="set-nav-btn" onclick="switchSettingsSection('blocked')" id="setnav-blocked"><i
+                                class="fa-solid fa-user-slash"></i> Blocked Users</button>
+                        <button class="set-nav-btn text-red" onclick="switchSettingsSection('danger')"
+                            id="setnav-danger"><i class="fa-solid fa-triangle-exclamation"></i> Delete Account</button>
+                    </div>
+
+                    <!-- Settings Body Content -->
+                    <div class="settings-content">
+                        <!-- General Section -->
+                        <div class="set-section" id="setsec-general">
+                            <h4>Appearance & Localization</h4>
+                            <div class="form-group">
+                                <label>Interface Theme</label>
+                                <select id="settingTheme" onchange="applySettingTheme()">
+                                    <option value="light">Light Mode</option>
+                                    <option value="dark">Dark Theme</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Language</label>
+                                <select id="settingLang">
+                                    <option value="en">English (US)</option>
+                                    <option value="hi">Hindi (Ã Â¤Â¹Ã Â¤Â¿Ã Â¤Â¨Ã Â¥ÂÃ Â¤Â¦Ã Â¥â‚¬)</option>
+                                    <option value="es">Spanish (EspaÃƒÂ±ol)</option>
+                                    <option value="fr">French (FranÃƒÂ§ais)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Section -->
+                        <div class="set-section" id="setsec-privacy" style="display:none;">
+                            <h4>Privacy Controls</h4>
+                            <div class="form-group">
+                                <label>Profile Visibility</label>
+                                <select id="settingPrivacy">
+                                    <option value="public">Public (All Community Members)</option>
+                                    <option value="connections">Connections Only</option>
+                                </select>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label><input type="checkbox" id="settingNotifChecked" checked> Enable Instant Email
+                                    Notifications</label>
+                            </div>
+                        </div>
+
+                        <!-- Security Section -->
+                        <div class="set-section" id="setsec-security" style="display:none;">
+                            <h4>Change Password & Active Sessions</h4>
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" id="oldPassInput"
+                                    placeholder="Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢">
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" id="newPassInput" placeholder="At least 6 characters">
+                            </div>
+                            <button class="pro-btn-primary" onclick="submitChangePassword()">Update Password</button>
+
+                            <hr style="margin: 20px 0;">
+                            <h5>Active Login Sessions</h5>
+                            <div class="session-item">
+                                <i class="fa-solid fa-desktop text-blue"></i>
+                                <div>
+                                    <strong>Current Windows Browser Session</strong>
+                                    <p>Active now Ã¢â‚¬Â¢ IP: 127.0.0.1 (Localhost)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blocked Users Section -->
+                        <div class="set-section" id="setsec-blocked" style="display:none;">
+                            <h4>Blocked Members</h4>
+                            <div id="blockedUsersList">
+                                <p>No accounts currently blocked.</p>
+                            </div>
+                        </div>
+
+                        <!-- Danger Zone Section -->
+                        <div class="set-section" id="setsec-danger" style="display:none;">
+                            <h4 class="text-red">Danger Zone</h4>
+                            <p>Deleting your account permanently removes your profile, messages, and contributions.</p>
+                            <button class="btn-danger" onclick="confirmDeleteAccount()">Permanently Delete My
+                                Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline-sm" onclick="closeSettingsModal()">Close</button>
+                <button class="pro-btn-primary" onclick="saveSettingsPreferences()">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- IN-APP WORKFLOW & ISSUE TRACKER MODAL -->
+    <div id="workflowTrackerModal" class="modal-backdrop">
+        <div class="modal-box workflow-modal-box">
+            <div class="modal-header">
+                <h3>System Architecture, Workflow & Issue Tracker</h3>
+                <button class="close-modal" onclick="closeWorkflowTrackerModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Module Architecture Status Board -->
+                <h4>Module Architecture Status Board</h4>
+                <div class="module-status-grid">
+                    <div class="mod-card">
+                        <span>Core System</span>
+                        <strong class="mod-status status-green"><i class="fa-solid fa-circle-check"></i> Ã¢Å“â€¦
+                            Completed</strong>
+                    </div>
+                    <div class="mod-card">
+                        <span>Social Engine</span>
+                        <strong class="mod-status status-green"><i class="fa-solid fa-circle-check"></i> Ã°Å¸Å¸Â¢
+                            Stable</strong>
+                    </div>
+                    <div class="mod-card">
+                        <span>Network Engine</span>
+                        <strong class="mod-status status-green"><i class="fa-solid fa-circle-check"></i> Ã°Å¸Å¸Â¢
+                            Stable</strong>
+                    </div>
+                    <div class="mod-card">
+                        <span>Communication</span>
+                        <strong class="mod-status status-green"><i class="fa-solid fa-circle-check"></i> Ã°Å¸Å¸Â¢
+                            Stable</strong>
+                    </div>
+                    <div class="mod-card">
+                        <span>Content Engine</span>
+                        <strong class="mod-status status-green"><i class="fa-solid fa-circle-check"></i> Ã°Å¸Å¸Â¢
+                            Stable</strong>
+                    </div>
+                    <div class="mod-card">
+                        <span>Analytics Engine</span>
+                        <strong class="mod-status status-green"><i class="fa-solid fa-circle-check"></i> Ã°Å¸Å¸Â¢
+                            Stable</strong>
+                    </div>
+                </div>
+
+                <hr style="margin: 20px 0;">
+
+                <!-- Active Bug & Quality Assurance Tracker -->
+                <h4>Active Issue & Bug Quality Tracker</h4>
+                <div class="bug-tracker-table-wrap">
+                    <table class="bug-table">
+                        <thead>
+                            <tr>
+                                <th>Bug ID</th>
+                                <th>Assigned Module</th>
+                                <th>Feature Title</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Fix Date</th>
+                                <th>Regression Test</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bugTrackerTableBody">
+                            <!-- Dynamic Bug Tracker Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL MODAL (HIGHEST PRIORITY MANAGEMENT) -->
+    <div id="adminPanelModal" class="modal-backdrop">
+        <div class="modal-box admin-modal-box">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-user-shield text-purple"></i> Administration & Community Control Center</h3>
+                <button class="close-modal" onclick="closeAdminPanelModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-grid">
+                    <!-- Admin Navigation -->
+                    <div class="settings-nav">
+                        <button class="set-nav-btn active" onclick="switchAdminSection('overview')"
+                            id="adminnav-overview"><i class="fa-solid fa-chart-pie"></i> System Overview</button>
+                        <button class="set-nav-btn" onclick="switchAdminSection('users')" id="adminnav-users"><i
+                                class="fa-solid fa-users-gear"></i> User Management</button>
+                        <button class="set-nav-btn" onclick="switchAdminSection('reports')" id="adminnav-reports"><i
+                                class="fa-solid fa-flag"></i> Moderation Reports</button>
+                        <button class="set-nav-btn" onclick="switchAdminSection('history')" id="adminnav-history"><i
+                                class="fa-solid fa-shield-cat"></i> Login Security Logs</button>
+                    </div>
+
+                    <!-- Admin Body Content -->
+                    <div class="settings-content">
+                        <!-- Overview Section -->
+                        <div class="set-section" id="adminsec-overview">
+                            <h4>System Metrics Overview</h4>
+                            <div class="analytics-metrics-grid">
+                                <div class="metric-card">
+                                    <div>
+                                        <span class="metric-label">Total Registered Users</span>
+                                        <strong class="metric-val" id="adminTotalUsers">--</strong>
+                                    </div>
+                                    <i class="fa-solid fa-users metric-icon"></i>
+                                </div>
+                                <div class="metric-card">
+                                    <div>
+                                        <span class="metric-label">Total Published Posts</span>
+                                        <strong class="metric-val" id="adminTotalPosts">--</strong>
+                                    </div>
+                                    <i class="fa-solid fa-paper-plane metric-icon"></i>
+                                </div>
+                                <div class="metric-card">
+                                    <div>
+                                        <span class="metric-label">Direct Messages</span>
+                                        <strong class="metric-val" id="adminTotalMessages">--</strong>
+                                    </div>
+                                    <i class="fa-solid fa-comments metric-icon"></i>
+                                </div>
+                                <div class="metric-card">
+                                    <div>
+                                        <span class="metric-label">Pending Reports</span>
+                                        <strong class="metric-val text-red" id="adminPendingReports">0</strong>
+                                    </div>
+                                    <i class="fa-solid fa-triangle-exclamation metric-icon"
+                                        style="color: rgba(239, 68, 68, 0.15);"></i>
+                                </div>
+                            </div>
+
+                            <hr style="margin: 20px 0;">
+                            <h4>Broadcast System Announcement</h4>
+                            <div class="form-group">
+                                <textarea id="adminBroadcastText" rows="3"
+                                    placeholder="Write announcement message to broadcast to all members..."></textarea>
+                            </div>
+                            <button class="pro-btn-primary" onclick="submitAdminBroadcast()"><i
+                                    class="fa-solid fa-bullhorn"></i> Broadcast Announcement</button>
+                        </div>
+
+                        <!-- User Management Section -->
+                        <div class="set-section" id="adminsec-users" style="display:none;">
+                            <h4>All Registered Users</h4>
+                            <div class="bug-tracker-table-wrap">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>User Details</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="adminUsersTableBody">
+                                        <!-- Dynamic User Table Rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Moderation Reports Section -->
+                        <div class="set-section" id="adminsec-reports" style="display:none;">
+                            <h4>Content & User Reports</h4>
+                            <div id="adminReportsList" class="admin-reports-feed">
+                                <p>No active reports.</p>
+                            </div>
+                        </div>
+
+                        <!-- Security & Login History Section -->
+                        <div class="set-section" id="adminsec-history" style="display:none;">
+                            <h4>User Login Security Logs</h4>
+                            <div class="bug-tracker-table-wrap">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>User Name</th>
+                                            <th>Email</th>
+                                            <th>IP Address</th>
+                                            <th>Status</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="adminLoginLogsBody">
+                                        <!-- Dynamic Login Logs Rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- RAPIDO CLONE APP VIEW -->
+    <div id="rapido-view" class="app-view" style="display: none;">
+        <!-- Top Fixed Bar -->
+        <header class="rapido-header">
+            <div class="universal-app-header"
+                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; box-sizing: border-box;">
+                <!-- LEFT: Joining Hands Logo ONLY -->
+                <div style="pointer-events: auto; display: flex; align-items: center;">
+                    <i class="fa-solid fa-handshake-angle"
+                        style="color: #f97316; font-size: 28px; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);"></i>
+                </div>
+                <!-- RIGHT: Home -->
+                <div style="pointer-events: auto; display: flex; align-items: center;">
+                    <button onclick="returnToLanding()"
+                        style="background: none; border: none; cursor: pointer; padding: 0; outline: none; transition: transform 0.2s; display: flex; align-items: center; justify-content: center;"
+                        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                        aria-label="Go back to main screen">
+                        <img src="/static/images/new_home_icon.png" alt="Home"
+                            style="width: 48px; height: 48px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body (Rider View) -->
+        <div id="rapido-rider-body" class="rapido-body-layout">
+            <!-- Left Side / Top: Map Canvas Panel -->
+            <div class="rapido-map-panel">
+                <canvas id="rapidoMapCanvas"></canvas>
+                <div class="map-overlay-info">
+                    <i class="fa-solid fa-location-crosshairs text-yellow"></i>
+                    <span id="rapidoMapStatus">Map GPS Active - Bengaluru</span>
+                </div>
+                <div id="nearby-captains-counter" class="nearby-captains-tag">
+                    <i class="fa-solid fa-motorcycle"></i> <span id="nearbyCaptainsCount">4</span> Captains Online
+                </div>
+            </div>
+
+            <!-- Right Side / Bottom: Slide Control Panel -->
+            <div class="rapido-control-panel">
+                <!-- State 1: Search & Fare Quote -->
+                <div id="rapido-state-search" class="rapido-panel-state active">
+                    <div class="panel-header">
+                        <h3>Book a Ride</h3>
+                        <p>Fastest bike-taxis & autos in your city</p>
+                    </div>
+
+                    <div class="location-inputs">
+                        <div class="input-row">
+                            <span class="dot-icon pickup-dot"></span>
+                            <div class="input-container">
+                                <label>Pickup Location</label>
+                                <select id="rapido-pickup" onchange="calculateRapidoFare()">
+                                    <option value="MG Road">MG Road Metro Station</option>
+                                    <option value="Indiranagar">Indiranagar 100ft Road</option>
+                                    <option value="Koramangala" selected>Koramangala 5th Block</option>
+                                    <option value="HSR Layout">HSR Layout Sector 1</option>
+                                    <option value="Whitefield">Whitefield ITPL Main Gate</option>
+                                    <option value="Airport">Kempegowda Airport (BLR)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-divider-line"></div>
+
+                        <div class="input-row">
+                            <span class="dot-icon drop-dot"></span>
+                            <div class="input-container">
+                                <label>Drop-off Location</label>
+                                <select id="rapido-dropoff" onchange="calculateRapidoFare()">
+                                    <option value="MG Road" selected>MG Road Metro Station</option>
+                                    <option value="Indiranagar">Indiranagar 100ft Road</option>
+                                    <option value="Koramangala">Koramangala 5th Block</option>
+                                    <option value="HSR Layout">HSR Layout Sector 1</option>
+                                    <option value="Whitefield">Whitefield ITPL Main Gate</option>
+                                    <option value="Airport">Kempegowda Airport (BLR)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="distance-eta-tag" id="rapido-route-info">
+                        <i class="fa-solid fa-route"></i> Distance: <span>4.2 km</span> &nbsp;&bull;&nbsp; Est. Time:
+                        <span>12 mins</span>
+                    </div>
+
+                    <div class="service-selector">
+                        <div class="service-option selected" id="opt-bike" onclick="selectRapidoService('BIKE')">
+                            <div class="service-icon-bg">
+                                <i class="fa-solid fa-motorcycle text-yellow"></i>
+                            </div>
+                            <div class="service-details">
+                                <span class="service-title">Bike Taxi</span>
+                                <span class="service-desc">Beating the traffic instantly</span>
+                            </div>
+                            <div class="service-price">
+                                <span class="price-val" id="price-bike">Ã¢â€šÂ¹48</span>
+                                <span class="price-eta">2 mins away</span>
+                            </div>
+                        </div>
+
+                        <div class="service-option" id="opt-auto" onclick="selectRapidoService('AUTO')">
+                            <div class="service-icon-bg">
+                                <i class="fa-solid fa-truck-field text-yellow"></i>
+                            </div>
+                            <div class="service-details">
+                                <span class="service-title">H Auto</span>
+                                <span class="service-desc">Comfortable covered travel</span>
+                            </div>
+                            <div class="service-price">
+                                <span class="price-val" id="price-auto">Ã¢â€šÂ¹78</span>
+                                <span class="price-eta">3 mins away</span>
+                            </div>
+                        </div>
+
+                        <div class="service-option" id="opt-cab" onclick="selectRapidoService('CAB')">
+                            <div class="service-icon-bg">
+                                <i class="fa-solid fa-car text-yellow"></i>
+                            </div>
+                            <div class="service-details">
+                                <span class="service-title">H Cab</span>
+                                <span class="service-desc">Air-conditioned spacious cars</span>
+                            </div>
+                            <div class="service-price">
+                                <span class="price-val" id="price-cab">Ã¢â€šÂ¹132</span>
+                                <span class="price-eta">5 mins away</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="rapido-btn-primary" onclick="startRapidoBooking()">
+                        Confirm & Book Ride
+                    </button>
+
+                    <button class="rapido-btn-secondary" onclick="openRapidoHistoryModal()">
+                        <i class="fa-solid fa-history"></i> Ride History
+                    </button>
+                </div>
+
+                <!-- State 2: Booking Matcher -->
+                <div id="rapido-state-matching" class="rapido-panel-state">
+                    <div class="matching-container">
+                        <div class="radar-container">
+                            <div class="radar-pulse ring-1"></div>
+                            <div class="radar-pulse ring-2"></div>
+                            <div class="radar-pulse ring-3"></div>
+                            <div class="radar-center">
+                                <i class="fa-solid fa-motorcycle text-yellow"></i>
+                            </div>
+                        </div>
+                        <h3>Finding a Captain...</h3>
+                        <p class="matching-status-text">Matching you with the nearest captain. Please hold on.</p>
+                        <p class="fare-summary-text">Selected Service: <span id="match-service">Bike Taxi</span> &bull;
+                            Fare: <span id="match-fare">Ã¢â€šÂ¹48</span></p>
+                        <button class="rapido-btn-cancel" onclick="cancelRapidoBooking()">
+                            Cancel Request
+                        </button>
+                    </div>
+                </div>
+
+                <!-- State 3: Active Ride & Live Tracking -->
+                <div id="rapido-state-tracking" class="rapido-panel-state">
+                    <div class="tracking-container">
+                        <div class="driver-card">
+                            <div class="driver-photo-wrap">
+                                <div class="driver-avatar-svg" id="tracking-driver-avatar">MK</div>
+                            </div>
+                            <div class="driver-info">
+                                <h4 id="tracking-driver-name">Manjunath K.</h4>
+                                <div class="rating-tag">
+                                    <i class="fa-solid fa-star text-yellow"></i>
+                                    <span id="tracking-driver-rating">4.8</span>
+                                </div>
+                                <span class="vehicle-plate" id="tracking-vehicle-number">KA-03-EX-4921</span>
+                            </div>
+                            <div class="otp-badge">
+                                <span class="otp-label">START OTP</span>
+                                <strong id="tracking-otp-val">4921</strong>
+                            </div>
+                        </div>
+
+                        <div class="trip-status-card">
+                            <div class="status-indicator">
+                                <div class="pulse-dot bg-green"></div>
+                                <span id="tracking-status-text">Captain arriving at pickup...</span>
+                            </div>
+                            <div class="eta-countdown" id="tracking-eta-val">ETA: 3 mins</div>
+                            <!-- Live Telemetry Stats -->
+                            <div class="telemetry-bar"
+                                style="display: flex; gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #e2e8f0; font-size: 13px; font-weight: 700; color: #52525b;">
+                                <div class="telemetry-item" style="display: flex; align-items: center; gap: 5px;">
+                                    <i class="fa-solid fa-gauge-high text-yellow"></i>
+                                    <span id="telemetry-speed">0 km/h</span>
+                                </div>
+                                <div class="telemetry-item" style="display: flex; align-items: center; gap: 5px;">
+                                    <i class="fa-solid fa-battery-three-quarters text-green"></i>
+                                    <span id="telemetry-battery">85% EV</span>
+                                </div>
+                            </div>
+                            <div class="telemetry-guidance"
+                                style="margin-top: 8px; font-size: 12px; font-weight: 600; color: #71717a; display: flex; align-items: center; gap: 6px;">
+                                <i class="fa-solid fa-compass text-yellow animate-spin" style="font-size: 13px;"></i>
+                                <span id="telemetry-guidance">Navigating streets...</span>
+                            </div>
+                        </div>
+
+                        <!-- Chat with Captain Section -->
+                        <div class="chat-section-container">
+                            <div class="chat-toggle-header" onclick="toggleRapidoChatView()">
+                                <span><i class="fa-solid fa-comments"></i> Chat with Captain</span>
+                                <i class="fa-solid fa-chevron-up" id="chat-arrow-icon"></i>
+                            </div>
+                            <div class="chat-box-content" id="rapidoChatBoxContent" style="display: none;">
+                                <div class="chat-messages-list" id="rapidoChatList">
+                                    <!-- Chat Bubbles -->
+                                    <div class="chat-bubble system">Chat initiated with Captain.</div>
+                                </div>
+                                <div class="chat-presets">
+                                    <button class="chat-preset-btn"
+                                        onclick="sendRapidoPresetChat('I am at the main gate.')">At main gate</button>
+                                    <button class="chat-preset-btn"
+                                        onclick="sendRapidoPresetChat('Please bring a helmet.')">Need helmet</button>
+                                    <button class="chat-preset-btn"
+                                        onclick="sendRapidoPresetChat('Coming in 2 mins.')">Coming in 2m</button>
+                                    <button class="chat-preset-btn"
+                                        onclick="sendRapidoPresetChat('Where are you?')">Where are you?</button>
+                                </div>
+                                <div class="chat-input-bar">
+                                    <input type="text" id="rapidoChatInput" placeholder="Type a message to Captain..."
+                                        onkeypress="handleRapidoChatKeyPress(event)">
+                                    <button onclick="sendRapidoCustomChat()"><i
+                                            class="fa-solid fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tracking-action-bar">
+                            <button class="rapido-btn-cancel" id="btn-cancel-trip" onclick="cancelActiveTrip()">
+                                Cancel Ride
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- State 4: Rating & Feedback -->
+                <div id="rapido-state-feedback" class="rapido-panel-state">
+                    <div class="feedback-container">
+                        <div class="success-checkmark">
+                            <div class="checkmark-circle">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                        </div>
+                        <h3>Arrived at Destination!</h3>
+                        <p>Hope you had a safe ride. Please rate your captain.</p>
+
+                        <div class="driver-summary-mini">
+                            <div class="mini-avatar" id="feedback-driver-avatar">MK</div>
+                            <div class="mini-details">
+                                <strong id="feedback-driver-name">Manjunath K.</strong>
+                                <span id="feedback-vehicle-number">KA-03-EX-4921</span>
+                            </div>
+                        </div>
+
+                        <div class="star-rating-selector">
+                            <i class="fa-solid fa-star" onclick="setFeedbackRating(1)" data-val="1"></i>
+                            <i class="fa-solid fa-star" onclick="setFeedbackRating(2)" data-val="2"></i>
+                            <i class="fa-solid fa-star" onclick="setFeedbackRating(3)" data-val="3"></i>
+                            <i class="fa-solid fa-star" onclick="setFeedbackRating(4)" data-val="4"></i>
+                            <i class="fa-solid fa-star" onclick="setFeedbackRating(5)" data-val="5"></i>
+                        </div>
+
+                        <div class="form-group text-left">
+                            <label>Add feedback comments (optional)</label>
+                            <textarea id="feedback-comments" rows="3"
+                                placeholder="How was your captain? e.g., safe driving, clean helmet..."></textarea>
+                        </div>
+
+                        <button class="rapido-btn-primary" onclick="submitRapidoFeedback()">
+                            Submit Rating & Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Captain Mode (Driver View) -->
+        <div id="rapido-captain-body" class="rapido-body-layout" style="display: none;">
+            <!-- Left Side / Top: Map Canvas Panel -->
+            <div class="rapido-map-panel">
+                <canvas id="rapidoCaptainMapCanvas"></canvas>
+                <div class="map-overlay-info">
+                    <i class="fa-solid fa-location-crosshairs text-green"></i>
+                    <span id="rapidoCaptainMapStatus">Driver GPS Active - Online</span>
+                </div>
+                <div class="nearby-captains-tag" style="background: rgba(16, 185, 129, 0.9);">
+                    <i class="fa-solid fa-shield-halved"></i> Captain Status: <span
+                        id="driverStatusTagText">OFFLINE</span>
+                </div>
+            </div>
+
+            <!-- Right Side / Bottom: Captain Controls & Stats -->
+            <div class="rapido-control-panel bg-dark-slate text-white">
+                <div class="captain-status-bar">
+                    <div class="status-info">
+                        <h3>Captain Dashboard</h3>
+                        <p>Manage rides and track your earnings</p>
+                    </div>
+                    <div class="online-toggle-wrap">
+                        <label class="switch">
+                            <input type="checkbox" id="driverOnlineToggle" onchange="toggleDriverOnlineStatus()">
+                            <span class="slider round"></span>
+                        </label>
+                        <span id="driverOnlineText">Go Online</span>
+                    </div>
+                </div>
+
+                <div class="captain-metrics-grid">
+                    <div class="captain-metric-card">
+                        <span class="label">Today's Earnings</span>
+                        <strong class="val text-yellow" id="driverEarnings">Ã¢â€šÂ¹0.00</strong>
+                    </div>
+                    <div class="captain-metric-card">
+                        <span class="label">Rides Completed</span>
+                        <strong class="val" id="driverRidesCount">0</strong>
+                    </div>
+                </div>
+
+                <!-- Captain Active State (Idle) -->
+                <div id="captain-state-idle" class="captain-state-panel active">
+                    <div class="captain-idle-graphic">
+                        <div class="radar-pulse ring-1" style="border-color: rgba(16, 185, 129, 0.4)"></div>
+                        <i class="fa-solid fa-motorcycle text-green icon-idle"></i>
+                    </div>
+                    <p id="captain-idle-text">You are currently offline. Toggle the switch above to start receiving ride
+                        requests.</p>
+                </div>
+
+                <!-- Captain Active State (Incoming Request Alert) -->
+                <div id="captain-state-request" class="captain-state-panel">
+                    <div class="request-alert-card">
+                        <div class="alert-header">
+                            <span class="new-tag">NEW TRIP RIDE</span>
+                            <div class="timer-countdown" id="req-countdown-timer">15s</div>
+                        </div>
+
+                        <div class="request-locations">
+                            <div class="loc-item">
+                                <span class="dot bg-green"></span>
+                                <div>
+                                    <small>PICKUP</small>
+                                    <strong id="req-pickup-text">Koramangala 5th Block</strong>
+                                </div>
+                            </div>
+                            <div class="loc-item">
+                                <span class="dot bg-red"></span>
+                                <div>
+                                    <small>DROP-OFF</small>
+                                    <strong id="req-dropoff-text">MG Road Metro Station</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="request-financials">
+                            <div>
+                                <small>EST. EARNINGS</small>
+                                <strong class="text-yellow" id="req-earning-text">Ã¢â€šÂ¹48.00</strong>
+                            </div>
+                            <div>
+                                <small>DISTANCE</small>
+                                <strong id="req-distance-text">4.2 km</strong>
+                            </div>
+                        </div>
+
+                        <div class="alert-actions">
+                            <button class="btn-decline" onclick="declineIncomingRequest()">Decline</button>
+                            <button class="btn-accept" onclick="acceptIncomingRequest()">Accept & Go</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Captain Active State (Navigating/Driving) -->
+                <div id="captain-state-driving" class="captain-state-panel">
+                    <div class="driving-container">
+                        <div class="driver-trip-status">
+                            <div class="status-row">
+                                <i class="fa-solid fa-compass text-yellow animate-spin"></i>
+                                <span id="captain-trip-status-text">Heading to pickup location...</span>
+                            </div>
+                            <div id="captain-trip-eta">ETA: 2 mins</div>
+                            <!-- Captain Live Telemetry -->
+                            <div class="telemetry-bar"
+                                style="display: flex; gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #3f3f46; font-size: 13px; font-weight: 700; color: #a1a1aa;">
+                                <div class="telemetry-item" style="display: flex; align-items: center; gap: 5px;">
+                                    <i class="fa-solid fa-gauge-high text-yellow"></i>
+                                    <span id="captain-telemetry-speed">0 km/h</span>
+                                </div>
+                                <div class="telemetry-item" style="display: flex; align-items: center; gap: 5px;">
+                                    <i class="fa-solid fa-bolt text-green"></i>
+                                    <span>EV 92%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Driver Action Card -->
+                        <div class="driver-action-card">
+                            <!-- OTP prompt (visible when arrived at pickup) -->
+                            <div id="driver-otp-entry-section" style="display: none;">
+                                <p>Ask rider for OTP to start the trip</p>
+                                <div class="otp-input-wrap">
+                                    <input type="text" id="driverOtpInput" placeholder="Enter 4-Digit OTP"
+                                        maxlength="4">
+                                    <button class="rapido-btn-primary" onclick="verifyDriverOtp()">Verify & Start
+                                        Ride</button>
+                                </div>
+                            </div>
+
+                            <!-- Arrived at pickup button (visible before OTP) -->
+                            <button class="rapido-btn-primary" id="btn-driver-arrived"
+                                onclick="setDriverArrivedAtPickup()">
+                                I Have Arrived at Pickup
+                            </button>
+
+                            <!-- Arrived at drop-off button (visible after OTP verification) -->
+                            <button class="rapido-btn-success" id="btn-driver-completed"
+                                onclick="setDriverCompletedTrip()" style="display: none;">
+                                Complete Ride & Collect Cash
+                            </button>
+                        </div>
+
+                        <!-- Chat view for driver -->
+                        <div class="chat-section-container dark">
+                            <div class="chat-toggle-header" onclick="toggleCaptainChatView()">
+                                <span><i class="fa-solid fa-comments"></i> Chat with Rider</span>
+                                <i class="fa-solid fa-chevron-up" id="captain-chat-arrow-icon"></i>
+                            </div>
+                            <div class="chat-box-content" id="captainChatBoxContent" style="display: none;">
+                                <div class="chat-messages-list" id="captainChatList">
+                                    <div class="chat-bubble system">Chat initiated with Rider.</div>
+                                </div>
+                                <div class="chat-presets">
+                                    <button class="chat-preset-btn"
+                                        onclick="sendCaptainPresetChat('I have reached the location.')">I have
+                                        reached</button>
+                                    <button class="chat-preset-btn"
+                                        onclick="sendCaptainPresetChat('Please share OTP.')">Share OTP</button>
+                                    <button class="chat-preset-btn"
+                                        onclick="sendCaptainPresetChat('Reaching in 1 min.')">Coming in 1m</button>
+                                    <button class="chat-preset-btn"
+                                        onclick="sendCaptainPresetChat('Where exactly are you?')">Where are
+                                        you?</button>
+                                </div>
+                                <div class="chat-input-bar">
+                                    <input type="text" id="captainChatInput" placeholder="Type a message to Rider..."
+                                        onkeypress="handleCaptainChatKeyPress(event)">
+                                    <button onclick="sendCaptainCustomChat()"><i
+                                            class="fa-solid fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Historical Rides Modal -->
+        <div id="rapido-history-modal" class="rapido-modal" style="display: none;">
+            <div class="rapido-modal-content">
+                <div class="modal-header">
+                    <h3>Your Ride History</h3>
+                    <button class="close-modal-btn" onclick="closeRapidoHistoryModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="rapidoHistoryList" class="history-list">
+                        <!-- Dynamic history list -->
+                        <p class="text-center text-muted">No rides completed yet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer"></div>
+
+
+    <!-- RED APP VIEW (3rd Application) -->
+    <div id="red-app-view" class="view-hidden app-view"
+        style="background-color: #06090d; min-height: 100vh; position: relative; display: none; width: 100%; height: 100%; z-index: 9999;">
+        <!-- Nav / Back Button (Floating above iframe) -->
+        <div class="universal-app-header"
+            style="position: absolute; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; z-index: 1000; pointer-events: none; box-sizing: border-box;">
+            <!-- LEFT: Joining Hands Logo ONLY -->
+            <div style="pointer-events: auto; display: flex; align-items: center;">
+                <i class="fa-solid fa-handshake-angle"
+                    style="color: #f97316; font-size: 28px; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);"></i>
+            </div>
+            <!-- RIGHT: Home -->
+            <div style="pointer-events: auto; display: flex; align-items: center;">
+                <button onclick="returnToLanding()"
+                    style="background: none; border: none; cursor: pointer; padding: 0; outline: none; transition: transform 0.2s; display: flex; align-items: center; justify-content: center;"
+                    onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                    aria-label="Go back to main screen">
+                    <img src="/static/images/new_home_icon.png" alt="Home"
+                        style="width: 48px; height: 48px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));">
+                </button>
+            </div>
+        </div>
+
+        <!-- Iframe isolating the complex React-translated UI -->
+        <iframe src="/red-app"
+            style="width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></iframe>
+    </div>
+
+    <script src="script.js?v=48"></script>
+</body>
+
+</html>

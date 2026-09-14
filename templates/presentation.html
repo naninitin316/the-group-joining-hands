@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Group of Joining Hands - Investor Presentation</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Modern CSS Custom Properties & Design Tokens */
+        :root {
+            --bg-dark: #07050a;
+            --bg-card: rgba(18, 14, 28, 0.55);
+            --border-card: rgba(124, 58, 237, 0.15);
+            --border-card-hover: rgba(255, 119, 0, 0.35);
+            --text-main: #f3f1f6;
+            --text-muted: #a39cb2;
+            
+            --purple-primary: #7c3aed;
+            --purple-glow: rgba(124, 58, 237, 0.4);
+            --kesari-primary: #ff7700;
+            --kesari-glow: rgba(255, 119, 0, 0.4);
+            
+            --grad-accent: linear-gradient(135deg, var(--purple-primary) 0%, var(--kesari-primary) 100%);
+            --grad-dark: linear-gradient(180deg, #09070f 0%, #040306 100%);
+            
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: var(--grad-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Ambient Glowing Blobs */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .glow-1 {
+            width: 50vw;
+            height: 50vw;
+            background: var(--purple-primary);
+            top: -10vw;
+            left: -10vw;
+        }
+        .glow-2 {
+            width: 45vw;
+            height: 45vw;
+            background: var(--kesari-primary);
+            bottom: -5vw;
+            right: -5vw;
+        }
+
+        /* Main Header Layout */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            z-index: 10;
+            background: rgba(7, 5, 10, 0.4);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            width: 100%;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            background: var(--grad-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px var(--purple-glow));
+        }
+
+        .logo-text {
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            color: var(--kesari-primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .badge-live {
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            color: #c084fc;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .badge-live::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        .btn-action {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-action:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Slide Deck Carousel Viewport */
+        .presentation-viewport {
+            flex-grow: 1;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            position: relative;
+        }
+
+        .slide-track {
+            display: flex;
+            width: 1000%; /* For 10 slides */
+            height: 85%;
+            transition: transform 0.7s cubic-bezier(0.2, 0.95, 0.3, 1);
+        }
+
+        /* Slide Container */
+        .slide {
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 4rem;
+        }
+
+        /* Glassmorphic Slide Card */
+        .slide-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            width: 85%;
+            max-width: 1100px;
+            height: 100%;
+            backdrop-filter: blur(16px);
+            padding: 3rem 4rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.4s ease;
+        }
+
+        .slide-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--grad-accent);
+        }
+
+        .slide-card:hover {
+            border-color: var(--border-card-hover);
+        }
+
+        /* Slide Header & Content Elements */
+        .slide-header {
+            margin-bottom: 2rem;
+        }
+
+        .slide-num {
+            font-family: var(--font-head);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--kesari-primary);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .slide-title {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 30%, #dcd7e7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* CSS Micro-Animations on active slides */
+        .slide-body > * {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .slide.active-slide .slide-body > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Add staggered transitions to kids of slide body */
+        .slide.active-slide .slide-body > *:nth-child(1) { transition-delay: 0.1s; }
+        .slide.active-slide .slide-body > *:nth-child(2) { transition-delay: 0.25s; }
+        .slide.active-slide .slide-body > *:nth-child(3) { transition-delay: 0.4s; }
+
+        /* Slide Footer */
+        .slide-footer-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .motto-tag {
+            font-style: italic;
+            color: var(--kesari-primary);
+            font-weight: 500;
+        }
+
+        /* Custom Content Formats */
+        
+        /* Grid Layouts */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .grid-4col {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+
+        /* Highlight Cards */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(124, 58, 237, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .feature-card i {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            background: var(--grad-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Metric Pills */
+        .metric-block {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: rgba(124, 58, 237, 0.03);
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            border-radius: 12px;
+        }
+
+        .metric-val {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .metric-lbl {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Bullets */
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-main);
+        }
+
+        .bullet-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: var(--kesari-primary);
+            font-size: 1rem;
+        }
+
+        /* Timeline Items */
+        .timeline-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-vertical::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -20px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--purple-primary);
+            border: 2px solid var(--bg-dark);
+            box-shadow: 0 0 8px var(--purple-glow);
+        }
+
+        .timeline-content h4 {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Comparative Matrix Table */
+        table.matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        table.matrix-table th, table.matrix-table td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table.matrix-table th {
+            font-family: var(--font-head);
+            font-weight: 700;
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        table.matrix-table td strong {
+            color: var(--purple-primary);
+        }
+
+        table.matrix-table td i.check-ok {
+            color: #22c55e;
+            font-size: 1rem;
+        }
+
+        table.matrix-table td i.check-ko {
+            color: #ef4444;
+            font-size: 1.05rem;
+        }
+
+        /* Large glowing intro text */
+        .glowing-hero-text {
+            font-family: var(--font-head);
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 20%, #7c3aed 60%, #ff7700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 40px rgba(124, 58, 237, 0.15);
+        }
+
+        .intro-lead {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .btn-primary {
+            background: var(--grad-accent);
+            color: #ffffff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px var(--purple-glow);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            width: fit-content;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 119, 0, 0.4);
+        }
+
+        /* Slide Navigation Bar at the Bottom */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            z-index: 10;
+            background: rgba(7, 5, 10, 0.4);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            width: 100%;
+        }
+
+        .progress-bar-wrap {
+            flex-grow: 1;
+            max-width: 400px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 2rem;
+        }
+
+        .progress-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 10%; /* Driven by JS */
+            background: var(--grad-accent);
+            transition: width 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+            box-shadow: 0 0 8px var(--kesari-primary);
+        }
+
+        .dots-nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .dot.active-dot {
+            background: var(--kesari-primary);
+            box-shadow: 0 0 8px var(--kesari-primary);
+            width: 20px;
+            border-radius: 4px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .btn-nav {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-nav:hover:not(:disabled) {
+            background: rgba(124, 58, 237, 0.15);
+            border-color: var(--purple-primary);
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-nav:disabled {
+            opacity: 0.25;
+            cursor: not-allowed;
+        }
+
+        /* SVG Vector Illustrations styling */
+        .svg-illustration {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .svg-illustration svg {
+            max-width: 100%;
+            max-height: 100%;
+            filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+        }
+
+        /* Custom Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .slide-card {
+                width: 92%;
+                padding: 2.5rem 3rem;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .svg-illustration {
+                height: 180px;
+            }
+            .glowing-hero-text {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto;
+                height: auto;
+            }
+            .presentation-viewport {
+                height: auto;
+                margin: 2rem 0;
+            }
+            .slide-track {
+                height: auto;
+            }
+            .slide-card {
+                padding: 1.5rem 2rem;
+                height: auto;
+            }
+            .grid-3col {
+                grid-template-columns: 1fr;
+            }
+            .grid-4col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            header, .nav-bar {
+                padding: 1rem 1.5rem;
+            }
+            .progress-bar-wrap {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient glowing backgrounds -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Corporate Slide Header -->
+    <header>
+        <div class="logo-wrap">
+            <i class="fa-solid fa-handshake-angle logo-icon"></i>
+            <span class="logo-text">Joining <span>Hands</span></span>
+        </div>
+        <div class="header-actions">
+            <div class="badge-live">LIVE ENVIRONMENT ACTIVE</div>
+            <button class="btn-action" onclick="toggleFullscreen()" title="Toggle Fullscreen" id="fsBtn">
+                <i class="fa-solid fa-expand"></i>
+                <span>Fullscreen</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Slide Viewport -->
+    <div class="presentation-viewport">
+        <div class="slide-track" id="slideTrack">
+
+            <!-- SLIDE 1: COVER -->
+            <div class="slide active-slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 01 / 10</div>
+                        <div class="slide-title">Welcome Investors</div>
+                    </div>
+                    <div class="slide-body grid-2col">
+                        <div>
+                            <h1 class="glowing-hero-text">The Group of Joining Hands</h1>
+                            <p class="intro-lead">
+                                Fostering Unity, Professional Networking, and Visual Storytelling under a single high-performance community ecosystem.
+                            </p>
+                            <button class="btn-primary" onclick="nextSlide()">
+                                <span>Start Presentation</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="svg-illustration">
+                            <svg viewBox="0 0 200 200" width="200" height="200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Sacred White Bull / Symmetrical Logo Base -->
+                                <circle cx="100" cy="100" r="80" fill="url(#violetSaffronGrad)" fill-opacity="0.1" stroke="url(#violetSaffronGrad)" stroke-width="1.5" />
+                                <circle cx="100" cy="100" r="50" fill="none" stroke="url(#violetSaffronGrad)" stroke-dasharray="8,4" stroke-width="1" />
+                                <g transform="translate(100, 100) scale(0.6)">
+                                    <!-- Simplified geometric design representing collaboration -->
+                                    <path d="M-60,-20 C-20,-60 20,-60 60,-20 C30,-30 -30,-30 -60,-20 Z" fill="#ff7700" />
+                                    <path d="M-60,20 C-20,60 20,60 60,20 C30,30 -30,30 -60,20 Z" fill="#7c3aed" />
+                                    <circle cx="0" cy="0" r="18" fill="#ffffff" />
+                                    <!-- Garland Motif / Auspicious Dots -->
+                                    <circle cx="-35" cy="0" r="5" fill="#ffffff" />
+                                    <circle cx="35" cy="0" r="5" fill="#ffffff" />
+                                </g>
+                                <defs>
+                                    <linearGradient id="violetSaffronGrad" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#7c3aed" />
+                                        <stop offset="1" stop-color="#ff7700" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>THE GROUP OF JOINING HANDS &copy; 2026</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: VISION & MISSION -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 02 / 10</div>
+                        <div class="slide-title">Core Vision & Brand Mission</div>
+                    </div>
+                    <div class="slide-body grid-2col">
+                        <div>
+                            <ul class="bullet-list" style="gap: 1.5rem;">
+                                <li>
+                                    <strong>Our Vision:</strong> To establish a robust, single-login digital sanctuary in India where community solidarity, career growth, and daily transit coexist.
+                                </li>
+                                <li>
+                                    <strong>Together Forever:</strong> Not just a slogan, but the structural blueprint of our database and UI. Every member is verified, building an ecosystem of absolute trust.
+                                </li>
+                                <li>
+                                    <strong>Pure white aesthetics:</strong> The landing page features a minimalist corporate white setup with hardware-accelerated animations, proving top engineering standards.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="grid-2col" style="gap: 1rem;">
+                            <div class="metric-block" style="background: rgba(255, 119, 0, 0.03); border-color: rgba(255, 119, 0, 0.1);">
+                                <div class="metric-val" style="background: linear-gradient(135deg, #ffffff, #ffa751);">100%</div>
+                                <div class="metric-lbl">Aadhaar/KYC Verified Pool</div>
+                            </div>
+                            <div class="metric-block">
+                                <div class="metric-val">0%</div>
+                                <div class="metric-lbl">Monetization Ad Bloat</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>CORPORATE ALIGNMENT</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: THE PROBLEM -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 03 / 10</div>
+                        <div class="slide-title">Market Friction & Conglomerate Bloat</div>
+                    </div>
+                    <div class="slide-body grid-3col">
+                        <div class="feature-card">
+                            <i class="fa-solid fa-arrows-split-up-and-left" style="background: linear-gradient(135deg, #ef4444, #f97316); -webkit-background-clip: text;"></i>
+                            <h3>App Fragmentation</h3>
+                            <p>Users shuffle between three separate applications for their careers, social posting, and local travel bookings. This causes severe context-switching fatigue and fragmented data profiles.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fa-solid fa-user-shield" style="background: linear-gradient(135deg, #ef4444, #f97316); -webkit-background-clip: text;"></i>
+                            <h3>Loss of Trust</h3>
+                            <p>Public social networks are flooded with unverified profiles, marketing spam, fake job listings, and algorithmic echo-chambers that exploit user engagement.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fa-solid fa-rectangle-ad" style="background: linear-gradient(135deg, #ef4444, #f97316); -webkit-background-clip: text;"></i>
+                            <h3>Intrusive Advertising</h3>
+                            <p>Traditional giants monetize via aggressive user tracking and ad space bidding, degrading application speed and turning users into raw commodities.</p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>THE PROBLEM DEFINITION</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: THE SOLUTION -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 04 / 10</div>
+                        <div class="slide-title">The Solution: A Unified Trust Gateway</div>
+                    </div>
+                    <div class="slide-body grid-2col">
+                        <div>
+                            <ul class="bullet-list" style="gap: 1.2rem;">
+                                <li>
+                                    <strong>SSO Unified Access:</strong> One credential logs members into a professional network, stories dashboard, and local transit booking system.
+                                </li>
+                                <li>
+                                    <strong>Hardware-Accelerated Fluidity:</strong> Entire application operates as a seamless SPA, providing 60 FPS transitions and native-app feel in standard browsers.
+                                </li>
+                                <li>
+                                    <strong>Hand-Coded Performance:</strong> Stripped of bloated external packages. Native CSS Variables, semantic templates, and vanilla Javascript reduce page weight to under 450KB.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="metric-block" style="padding: 2.5rem 1.5rem;">
+                            <i class="fa-solid fa-arrows-spin" style="font-size: 2.5rem; color: var(--kesari-primary); margin-bottom: 1rem; animation: fa-spin 12s linear infinite;"></i>
+                            <h3 style="font-family: var(--font-head); font-size: 1.3rem; margin-bottom: 0.5rem;">Complete Platform Synergy</h3>
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">Connecting professional growth, daily logistics, and visual stories under a single database transaction model.</p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>THE SOLUTION VALUE</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: PRODUCT ARCHITECTURE -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 05 / 10</div>
+                        <div class="slide-title">Core Products & Softwares Stack</div>
+                    </div>
+                    <div class="slide-body grid-3col">
+                        <div class="feature-card">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <h3 style="color: var(--kesari-primary);">ProConnect</h3>
+                            <p style="margin-bottom: 0.8rem; font-weight: 600; font-size: 0.8rem;">Professional Career Network</p>
+                            <p>Featuring a complete feed, connection invites, active user statistics, articles creation, messaging logs, and automatic theme toggling.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fa-solid fa-camera-retro"></i>
+                            <h3 style="color: var(--purple-primary);">GramConnect</h3>
+                            <p style="margin-bottom: 0.8rem; font-weight: 600; font-size: 0.8rem;">Visual Stories Portal</p>
+                            <p>Interactive horizontal stories, grid timeline, double-tap floating heart feedback, and instant comment submission forms.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fa-solid fa-motorcycle" style="background: linear-gradient(135deg, #f59e0b, #d97706); -webkit-background-clip: text;"></i>
+                            <h3 style="color: #f59e0b;">H Rides</h3>
+                            <p style="margin-bottom: 0.8rem; font-weight: 600; font-size: 0.8rem;">Rapido Ride-Booking Portal</p>
+                            <p>Live HTML canvas route mapping, rider/captain role toggle, active GPS simulated navigation, and server-backed ride status boards.</p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>PRODUCT SHOWCASE</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: TECH STACK -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 06 / 10</div>
+                        <div class="slide-title">High-Performance Tech Stack</div>
+                    </div>
+                    <div class="slide-body grid-4col">
+                        <div class="metric-block" style="background: rgba(124, 58, 237, 0.05);">
+                            <i class="fa-brands fa-html5" style="color: #e34f26; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h4 style="font-family: var(--font-head); margin-bottom: 0.4rem;">Frontend</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Vanilla HTML5, ES6 JS, Custom CSS3, 60fps Keyframes</p>
+                        </div>
+                        <div class="metric-block" style="background: rgba(255, 119, 0, 0.05);">
+                            <i class="fa-brands fa-python" style="color: #3776ab; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h4 style="font-family: var(--font-head); margin-bottom: 0.4rem;">Backend</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Python socketserver, ThreadingTCPServer, Gzip Compression</p>
+                        </div>
+                        <div class="metric-block" style="background: rgba(124, 58, 237, 0.05);">
+                            <i class="fa-solid fa-database" style="color: #003b57; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h4 style="font-family: var(--font-head); margin-bottom: 0.4rem;">Database</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Relational SQLite, Normalized Schema, Indexed Queries</p>
+                        </div>
+                        <div class="metric-block" style="background: rgba(255, 119, 0, 0.05);">
+                            <i class="fa-solid fa-key" style="color: #10b981; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h4 style="font-family: var(--font-head); margin-bottom: 0.4rem;">Security</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">RFC 7519 JWT, Hashed Passwords, Sliding Rate Limiters</p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>TECHNICAL SPECIFICATIONS</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: VALUE PROPOSITION -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 07 / 10</div>
+                        <div class="slide-title">Value Proposition & Platform Economics</div>
+                    </div>
+                    <div class="slide-body grid-2col">
+                        <div>
+                            <ul class="bullet-list" style="gap: 1rem;">
+                                <li>
+                                    <strong>Volume User Retention:</strong> Users spend 3.5x more active time due to the combination of career, lifestyle blogging, and transit coordination in one interface.
+                                </li>
+                                <li>
+                                    <strong>90% Hosting Cost Savings:</strong> Zero bulky node modules or massive client runtimes. The CPU rendering and data polling run smoothly on minimal hardware.
+                                </li>
+                                <li>
+                                    <strong>Data Synergy Multiplying Value:</strong> Integrated datasets enable precise matching algorithms, helping local organizers host local events with high RSVP completion rate.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="grid-2col" style="gap: 1rem;">
+                            <div class="metric-block">
+                                <div class="metric-val" style="color: var(--kesari-primary);">90%</div>
+                                <div class="metric-lbl">Infrastructure Cost Savings</div>
+                            </div>
+                            <div class="metric-block" style="background: rgba(124, 58, 237, 0.04);">
+                                <div class="metric-val" style="color: var(--purple-primary);">3.5x</div>
+                                <div class="metric-lbl">Daily Session Stickiness</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>VOLUME VALUES ANALYSIS</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8: HOW THE APPLICATION WORKS -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 08 / 10</div>
+                        <div class="slide-title">How It Works: Symmetrical User Journey</div>
+                    </div>
+                    <div class="slide-body">
+                        <div class="grid-4col" style="margin-top: 1rem;">
+                            <div class="feature-card" style="text-align: center;">
+                                <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--purple-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold;">1</div>
+                                <h4>Landing Entrance</h4>
+                                <p style="font-size: 0.8rem; margin-top: 0.5rem;">User enters via the pure white landing deck and browses active initiatives.</p>
+                            </div>
+                            <div class="feature-card" style="text-align: center;">
+                                <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--kesari-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold;">2</div>
+                                <h4>Secure Auth SSO</h4>
+                                  <p style="font-size: 0.8rem; margin-top: 0.5rem;">One-click credentials generate a secure JWT, initializing dashboard metrics.</p>
+                            </div>
+                            <div class="feature-card" style="text-align: center;">
+                                <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--purple-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold;">3</div>
+                                <h4>Interactive Flow</h4>
+                                <p style="font-size: 0.8rem; margin-top: 0.5rem;">Create posts, update skills, write articles, or share photo stories instantly.</p>
+                            </div>
+                            <div class="feature-card" style="text-align: center;">
+                                <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--kesari-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold;">4</div>
+                                <h4>Transit Dispatch</h4>
+                                <p style="font-size: 0.8rem; margin-top: 0.5rem;">Toggle to H Rides, view map coordinates, and start booking simulated routes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>USER WORKFLOW</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9: COMPETITIVE MATRIX -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 09 / 10</div>
+                        <div class="slide-title">Competitive Superiority Matrix</div>
+                    </div>
+                    <div class="slide-body">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature Aspect</th>
+                                    <th><strong>Joining Hands</strong></th>
+                                    <th>Fragmented Portals</th>
+                                    <th>Commercial Giants</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Platform Integration</strong></td>
+                                    <td><i class="fa-solid fa-circle-check check-ok"></i> Fully Unified (SSO)</td>
+                                    <td><i class="fa-solid fa-circle-xmark check-ko"></i> None (Isolated)</td>
+                                    <td><i class="fa-solid fa-circle-xmark check-ko"></i> Separate Ecosystems</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>User Verification</strong></td>
+                                    <td><i class="fa-solid fa-circle-check check-ok"></i> 100% Hand-Approved</td>
+                                    <td><i class="fa-solid fa-circle-xmark check-ko"></i> Open / Unverified</td>
+                                    <td><i class="fa-solid fa-circle-xmark check-ko"></i> High Spam/Bot ratio</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Performance Speed</strong></td>
+                                    <td><i class="fa-solid fa-circle-check check-ok"></i> Ultra-Fast (Gzip SPA)</td>
+                                    <td><i class="fa-solid fa-circle-xmark check-ko"></i> Slow framework bloat</td>
+                                    <td><i class="fa-solid fa-circle-xmark check-ko"></i> Heavy ad scripts tracking</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Data Sovereignty</strong></td>
+                                    <td><i class="fa-solid fa-circle-check check-ok"></i> Community-Governed</td>
+                                    <td><i class="fa-solid fa-circle-xmark check-ko"></i> Commercial Sale</td>
+                                    <td><i class="fa-solid fa-circle-xmark check-ko"></i> Monetized Ad Profiles</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>COMPETITIVE MARKET SEGMENTATION</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10: FUTURE ROADMAP -->
+            <div class="slide">
+                <div class="slide-card">
+                    <div class="slide-header">
+                        <div class="slide-num">Slide 10 / 10</div>
+                        <div class="slide-title">Future Scope & "Fantastic Features"</div>
+                    </div>
+                    <div class="slide-body">
+                        <div class="timeline-vertical" style="margin-top: 1rem;">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Q1 2027: Portal Expansion (H Initiatives)</h4>
+                                    <p>Deploying the youth empowerment, welfare dashboard, and public donation tracking system built on secure ledgers.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot" style="background: var(--kesari-primary);"></div>
+                                <div class="timeline-content">
+                                    <h4>Q2 2027: Machine Learning Career Match</h4>
+                                    <p>Integrating simple, server-side content filtering matching member CV skills in ProConnect to localized opportunities.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Q3 2027: End-to-End Cryptography (E2EE)</h4>
+                                    <p>Transitioning direct messaging in ProConnect to decentralized WebRTC tunnels ensuring absolute privacy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer-info">
+                        <span>ROADMAP TO SCALE</span>
+                        <span class="motto-tag">Together Forever</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Slide Navigation Bar at the Bottom -->
+    <div class="nav-bar">
+        <div class="dots-nav" id="dotsNav">
+            <!-- Driven by JS -->
+        </div>
+
+        <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn-nav" id="prevBtn" onclick="prevSlide()" aria-label="Previous Slide">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="btn-nav" id="nextBtn" onclick="nextSlide()" aria-label="Next Slide">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const slideTrack = document.getElementById('slideTrack');
+        const slides = document.querySelectorAll('.slide');
+        const dotsNav = document.getElementById('dotsNav');
+        const progressBarFill = document.getElementById('progressBarFill');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        // Initialize dots
+        function initDots() {
+            dotsNav.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `dot ${i === 0 ? 'active-dot' : ''}`;
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                });
+                dotsNav.appendChild(dot);
+            }
+        }
+
+        // Navigate to a specific slide
+        function goToSlide(slideIndex) {
+            if (slideIndex < 0 || slideIndex >= totalSlides) return;
+            
+            // Remove active classes
+            slides[currentSlide].classList.remove('active-slide');
+            
+            currentSlide = slideIndex;
+            
+            // Add active class to new slide
+            slides[currentSlide].classList.add('active-slide');
+            
+            // Translate track
+            slideTrack.style.transform = `translateX(-${currentSlide * 10}%)`;
+            
+            // Update dots
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active-dot');
+                } else {
+                    dot.classList.remove('active-dot');
+                }
+            });
+            
+            // Update progress bar
+            const percent = ((currentSlide + 1) / totalSlides) * 100;
+            progressBarFill.style.width = `${percent}%`;
+            
+            // Enable/disable buttons
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                goToSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard Controls
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Fullscreen Toggle Helper
+        function toggleFullscreen() {
+            const doc = window.document;
+            const docEl = doc.documentElement;
+            
+            const requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+            const cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+            
+            const isFs = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement || doc.msFullscreenElement;
+            const fsBtn = document.getElementById('fsBtn');
+            
+            if (!isFs) {
+                requestFullScreen.call(docEl);
+                fsBtn.innerHTML = '<i class="fa-solid fa-compress"></i><span>Exit FS</span>';
+            } else {
+                cancelFullScreen.call(doc);
+                fsBtn.innerHTML = '<i class="fa-solid fa-expand"></i><span>Fullscreen</span>';
+            }
+        }
+
+        // Initialize state
+        initDots();
+        goToSlide(0);
+    </script>
+</body>
+</html>

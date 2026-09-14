@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red App Portal</title>
+    <style>
+        html, body {
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: "DM Sans", sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            overflow: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap");
+
+        :root {
+            --saffron: #ff9d45;
+            --cream: #f5eadc;
+            --muted: #aaa29a;
+            --green: #2e8b57;
+            --black: #06090d;
+        }
+
+        button, input {
+            font: inherit;
+        }
+
+        .portal {
+            min-height: 100svh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            display: grid;
+            place-items: center;
+            background: transparent;
+        }
+
+        .mesh {
+            position: absolute;
+            inset: -25%;
+            z-index: -5;
+            background:
+                radial-gradient(ellipse at 76% 24%, rgba(255, 153, 51, .30), transparent 25%),
+                radial-gradient(ellipse at 12% 82%, rgba(19, 136, 8, .20), transparent 28%),
+                linear-gradient(115deg, #060a10 0%, #15131a 50%, #06110b 100%);
+            /* removed blur */
+            transform: translate(
+                calc(var(--pointer-x) * -15px),
+                calc(var(--pointer-y) * -15px)
+            );
+            animation: meshDrift 18s ease-in-out infinite alternate;
+        }
+
+        .grain {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            pointer-events: none;
+            opacity: .11;
+            mix-blend-mode: screen;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+        }
+
+        .vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            pointer-events: none;
+            background:
+                linear-gradient(90deg, rgba(3, 6, 10, .96) 0%, rgba(3, 6, 10, .54) 22%, rgba(3, 6, 10, .10) 55%, rgba(3, 6, 10, .74) 100%),
+                linear-gradient(180deg, rgba(0,0,0,.52), transparent 22%, transparent 76%, rgba(0,0,0,.72)),
+                radial-gradient(circle at center, transparent 28%, rgba(0,0,0,.60) 100%);
+        }
+
+        .particle-field {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            transform: translate(
+                calc(var(--pointer-x) * 8px),
+                calc(var(--pointer-y) * 8px)
+            );
+            transition: transform 1s ease-out;
+        }
+
+        .particle-field span {
+            position: absolute;
+            left: var(--left);
+            top: var(--top);
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50%;
+            background: rgba(255, 205, 155, .62);
+            box-shadow: 0 0 13px rgba(255, 153, 51, .55);
+            animation: float 6s ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        .cinematic-stream {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: visible;
+            transform: translate(
+                calc(var(--pointer-x) * 18px),
+                calc(var(--pointer-y) * 11px)
+            );
+            transition: transform 1.5s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .stream-glow {
+            position: absolute;
+            left: -10%;
+            top: 15%;
+            width: 72%;
+            height: 70%;
+            background: radial-gradient(ellipse, rgba(255, 153, 51, .11), transparent 65%);
+            /* removed blur */
+        }
+
+                .portrait {
+            position: absolute;
+            margin: 0;
+            width: 220px;
+            height: 280px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,.08);
+            background: transparent;
+            box-shadow: 0 20px 40px rgba(0,0,0,.15);
+            opacity: 0;
+            will-change: transform, opacity;
+            animation: procession 24s linear infinite;
+            animation-delay: calc(var(--portrait-index) * 2s - 1s);
+        }
+
+        .portrait-image-wrap {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center top;
+            /* filter removed for clearer photos */
+            transform: scale(1.03);
+        }
+
+        .portrait::before {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(255,255,255,0.8) 100%);
+        }
+
+        .portrait::after {
+            content: "";
+            position: absolute;
+            z-index: 3;
+            inset: 0;
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .portrait figcaption {
+            position: absolute;
+            z-index: 4;
+            left: 22px;
+            right: 18px;
+            bottom: 21px;
+            display: grid;
+            gap: 5px;
+            text-transform: uppercase;
+        }
+
+        .portrait figcaption strong {
+            font-family: "Playfair Display", serif;
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: .035em;
+        }
+
+        .portrait figcaption span {
+            color: #ea580c;
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: .22em;
+        }
+
+        .portrait-mother { top: calc(83.33% - 140px); left: 8%; --start-y: 0; --depth: 1; }
+        .portrait-bhagat { top: calc(83.33% - 140px); left: 28%; --start-y: 0; --depth: 1; }
+        .portrait-azad { top: calc(83.33% - 140px); left: 51%; --start-y: 0; --depth: 1; }
+        .portrait-bose { top: calc(83.33% - 140px); left: 67%; --start-y: 0; --depth: 1; }
+        .portrait-mother-2 { top: calc(83.33% - 140px); left: 82%; --start-y: 0; --depth: 1; }
+        .portrait-bose-2 { top: calc(83.33% - 140px); left: 12%; --start-y: 0; --depth: 1; }
+        .portrait-mother-3 { top: calc(83.33% - 140px); left: 45%; --start-y: 0; --depth: 1; }
+        .portrait-mother-4 { top: calc(83.33% - 140px); left: 25%; --start-y: 0; --depth: 1; }
+                .portrait-tilak { top: calc(83.33% - 140px); left: 88%; --start-y: 0; --depth: 1; }
+        .portrait-new-1 { top: calc(50% - 140px); left: 35%; --start-y: 0; --depth: 1; }
+        .portrait-new-2 { top: calc(50% - 140px); left: 60%; --start-y: 0; --depth: 1; }
+        .portrait-new-3 { top: calc(50% - 140px); left: 95%; --start-y: 0; --depth: 1; }
+        .portrait-new-1 figcaption,
+        .portrait-new-2 figcaption,
+        .portrait-new-3 figcaption,
+        .portrait-new-1::before,
+        .portrait-new-2::before,
+        .portrait-new-3::before {
+            display: none !important;
+        }
+
+        .top-meta, .bottom-meta {
+            position: absolute;
+            z-index: 7;
+            font-size: 8px;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: #334155;
+        }
+
+        .top-meta {
+            top: 34px;
+            left: 42px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .top-meta .number { color: #ea580c; }
+
+        .meta-line {
+            width: 42px;
+            height: 1px;
+            background: rgba(255,255,255,.24);
+        }
+
+        .bottom-meta {
+            right: 42px;
+            bottom: 30px;
+        }
+
+        .login-shell {
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            top: auto;
+            margin: 0;
+            z-index: 1000;
+            width: 250px;
+            max-width: calc(100vw - 32px);
+            padding: 16px 18px;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            animation: reveal .95s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        .national-mark {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 26px;
+            border: 1px solid rgba(255,157,69,.58);
+            border-radius: 50%;
+            color: #ea580c;
+            font-size: 17px;
+            box-shadow: 0 0 25px rgba(255,153,51,.08);
+        }
+
+        .eyebrow {
+            margin: 0 0 13px;
+            color: #ea580c;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: .31em;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 5vw, 61px);
+            line-height: .91;
+            font-weight: 500;
+            letter-spacing: -.05em;
+        }
+
+        h1 em {
+            color: #ea580c;
+            font-style: italic;
+        }
+
+        .intro {
+            margin: 20px 0 31px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.65;
+        }
+
+        .login-form { display: grid; gap: 8px; }
+
+        .login-form label {
+            margin-top: 4px;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+
+        .login-form input {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            outline: 0;
+            padding: 8px 10px;
+            font-size: 13px;
+            color: #1e293b;
+            background: #f8fafc;
+            transition: .2s ease;
+        }
+
+        .login-form input::placeholder { color: #94a3b8; }
+
+        .login-form input:focus {
+            border-color: #ea580c;
+            background: #ffffff;
+            box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.15);
+        }
+
+        .login-form button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            border: 0;
+            border-radius: 6px;
+            padding: 9px 12px;
+            color: #ffffff;
+            background: #ea580c;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .2s ease;
+        }
+
+        .login-form button:hover {
+            background: #c2410c;
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+        }
+
+        .login-form button b {
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .demo-note {
+            margin: 10px 0 0;
+            color: #9dcc88;
+            font-size: 10px;
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 36px;
+            color: #77736e;
+            font-size: 8px;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+        }
+
+        footer i {
+            height: 1px;
+            flex: 1;
+            background: rgba(255,255,255,.14);
+        }
+
+        @keyframes procession {
+            0% { opacity: 0; transform: translate3d(58vw, 0, 0); }
+            10% { opacity: 1; }
+            50% { opacity: 1; transform: translate3d(0, 0, 0); }
+            90% { opacity: 1; }
+            100% { opacity: 0; transform: translate3d(-80vw, 0, 0); }
+        }
+
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes meshDrift {
+            from { transform: scale(1) translate(calc(var(--pointer-x) * -15px), calc(var(--pointer-y) * -15px)); }
+            to { transform: scale(1.08) translate(calc(var(--pointer-x) * -15px), calc(var(--pointer-y) * -15px)); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); opacity: .15; }
+            50% { transform: translateY(-25px); opacity: .8; }
+        }
+
+        @media (max-width: 900px) {
+            body { overflow: hidden; }
+            .portrait { width: 190px; height: 241px; }
+            .portrait-mother { top: calc(83.33% - 140px); left: 8%; --start-y: 0; --depth: 1; }
+            .portrait-bhagat { top: calc(83.33% - 140px); left: 28%; --start-y: 0; --depth: 1; }
+            .portrait-azad { top: calc(83.33% - 140px); left: 51%; --start-y: 0; --depth: 1; }
+            .portrait-bose { top: calc(83.33% - 140px); left: 67%; --start-y: 0; --depth: 1; }
+            
+        }
+
+        @media (max-width: 650px) {
+            .login-shell {
+                box-sizing: border-box;
+                bottom: 16px !important;
+                right: 16px !important;
+                top: auto !important;
+                left: auto !important;
+                margin: 0 !important;
+                width: 240px !important;
+                max-width: calc(100vw - 32px) !important;
+            }
+            
+            .cinematic-stream { opacity: 1; }
+            .portrait { width: 160px; height: 203px; }
+            .portrait-bhagat { top: calc(83.33% - 140px); left: 28%; --start-y: 0; --depth: 1; }
+            .portrait-azad { top: calc(83.33% - 140px); left: 51%; --start-y: 0; --depth: 1; }
+            .portrait-bose { top: calc(83.33% - 140px); left: 67%; --start-y: 0; --depth: 1; }
+            .top-meta { left: 20px; top: 20px; }
+            .bottom-meta { right: 20px; bottom: 20px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .portrait, .mesh, .particle-field span, .login-shell {
+            box-sizing: border-box; animation: none; }
+            .portrait { opacity: .45; }
+        }
+
+        .tricolor-bg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: -1;
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+        .band {
+            flex: 1;
+            width: 100%;
+            will-change: transform, opacity, filter;
+        }
+        .band-saffron {
+            background-color: #FF9933;
+            opacity: 0;
+            animation: smokeSlideLTR 3.5s cubic-bezier(0.1, 0.9, 0.2, 1) forwards 0s;
+        }
+        .band-white {
+            background-color: #FFFFFF;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: smokeSlideRTL 3.5s cubic-bezier(0.1, 0.9, 0.2, 1) forwards 0.8s;
+        }
+        .band-green {
+            background-color: #138808;
+            opacity: 0;
+            animation: smokeSlideRTL 3.5s cubic-bezier(0.1, 0.9, 0.2, 1) forwards 1.6s;
+        }
+
+        .ashoka-chakra {
+            height: 75%;
+            max-height: 120px;
+            opacity: 0;
+            will-change: transform, opacity;
+            animation: chakraSpinFade 3.5s cubic-bezier(0.1, 0.9, 0.2, 1) forwards 2.4s;
+        }
+
+        .bharata-bg {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            height: 100svh;
+            width: auto;
+            object-fit: contain;
+            opacity: 0;
+            will-change: transform, opacity, filter;
+            pointer-events: none;
+            animation: slideUpBharata 4s cubic-bezier(0.1, 0.9, 0.2, 1) forwards 3.8s;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: high-quality;
+        }
+
+        @keyframes slideUpBharata {
+            0% { opacity: 0; transform: translate(-50%, 50%); filter: blur(15px) contrast(1) saturate(1); }
+            40% { opacity: 0.8; filter: blur(5px) contrast(1.1) saturate(1.1); }
+            100% { 
+                opacity: 1; 
+                transform: translate(-50%, 0); 
+                filter: blur(0) contrast(1.05) saturate(1.05) drop-shadow(0 0 30px rgba(255, 153, 51, 0.4)); 
+            }
+        }
+
+        @keyframes smokeSlideLTR {
+            0% { transform: translateX(-80%); opacity: 0; filter: blur(20px); }
+            40% { opacity: 0.8; filter: blur(8px); }
+            100% { transform: translateX(0); opacity: 1; filter: blur(0); }
+        }
+        @keyframes smokeSlideRTL {
+            0% { transform: translateX(80%); opacity: 0; filter: blur(20px); }
+            40% { opacity: 0.8; filter: blur(8px); }
+            100% { transform: translateX(0); opacity: 1; filter: blur(0); }
+        }
+        @keyframes chakraSpinFade {
+            0% { opacity: 0; transform: rotate(-180deg) scale(0.4); filter: blur(10px); }
+            100% { opacity: 1; transform: rotate(0) scale(1); filter: blur(0); }
+        }
+    
+/* Blur Overlay */
+        #blur-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        #blur-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Interactive Profile Widget */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(249, 115, 22, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+        }
+        #profile-widget {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            width: 60px;
+            height: 60px;
+            animation: pulseGlow 2s infinite;
+            margin-bottom: 0;
+            margin-left: 0;
+            border-radius: 50%;
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 3px solid #ffffff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+        #profile-widget img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Expanded State */
+        #profile-widget.expanded {
+            bottom: 50%;
+            left: 50%;
+            width: 280px;
+            height: 280px;
+            margin-bottom: -140px;
+            margin-left: -140px;
+            border-width: 6px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        
+        /* Small label below the widget when small */
+        #profile-label {
+            position: fixed;
+            bottom: 15px;
+            left: 40px;
+            width: 60px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1e293b;
+            z-index: 999;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        #profile-widget.expanded ~ #profile-label {
+            opacity: 0;
+        }
+
+        /* Message when expanded */
+        #ganga-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 140px);
+            color: #1e293b;
+            font-size: 20px;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 24px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1001;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transition-delay: 0.1s;
+            white-space: nowrap;
+            letter-spacing: -0.02em;
+        }
+        #profile-widget.expanded ~ #ganga-message {
+            opacity: 1;
+            transform: translate(-50%, 170px);
+        }
+</style>
+</head>
+<body>
+    <main class="portal" style="--pointer-x: 0; --pointer-y: 0;">
+        <div class="tricolor-bg">
+            <div class="band band-saffron"></div>
+            <div class="band band-white">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Ashoka_Chakra.svg" alt="Ashoka Chakra" class="ashoka-chakra">
+            </div>
+            <div class="band band-green"></div>
+            <img src="/static/images/bharatamata_bg.png" class="bharata-bg" alt="Bharata Mata Divine Background">
+        </div>
+
+        
+        
+        <div class="particle-field" aria-hidden="true" id="particles"></div>
+        <section class="cinematic-stream" aria-label="Historical freedom fighters" id="portraits">
+            
+        </section>
+        
+        <div class="top-meta">
+            <span class="number">01 / 09</span>
+            <span class="meta-line"></span>
+            
+        </div>
+        <section class="login-shell" style="position: fixed !important; bottom: 24px !important; right: 24px !important; top: auto !important; left: auto !important; z-index: 999999 !important;">
+            <h2 style="margin: 0 0 8px 0; font-size: 14px; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 6px; font-family: sans-serif;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Admin Login
+            </h2>
+            <form class="login-form" id="loginForm">
+                <label for="admin">Admin</label>
+                <input id="admin" type="text" placeholder="Enter Admin ID" autocomplete="off" required>
+                <label for="password">Password</label>
+                <div style="position: relative; width: 100%;">
+                    <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required style="width: 100%; padding-right: 40px; box-sizing: border-box;">
+                    <button type="button" id="togglePassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #334155; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center; height: 100%;">
+                        <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                </div>
+                <button type="submit">
+                    <span>Login</span>
+                </button>
+                <p class="demo-note" id="demoNote" style="display: none;">Demo mode â€” your details were not sent anywhere.</p>
+            </form>
+            <footer>
+                
+                <i></i>
+                
+            </footer>
+        </section>
+        
+    </main>
+
+    <!-- Interactive Profile Widget & Blur Overlay -->
+    <div id="blur-overlay" onclick="toggleProfile()"></div>
+    <div id="profile-widget" onclick="toggleProfile()">
+        <img src="/static/images/ganga.jpg" alt="Ganga">
+    </div>
+    <div id="profile-label">Ganga</div>
+    <div id="ganga-message">"Stay tuned -Ganga's announcement is coming soon"</div>
+<script>
+        // Setup Particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 42; i++) {
+            const span = document.createElement('span');
+            span.style.setProperty('--left', `${(i * 31) % 100}%`);
+            span.style.setProperty('--top', `${(i * 43) % 100}%`);
+            span.style.setProperty('--delay', `${(i % 9) * -0.65}s`);
+            span.style.setProperty('--size', `${2 + (i % 3)}px`);
+            particlesContainer.appendChild(span);
+        }
+
+        // Setup Portraits
+        const portraitsData = [
+          { name: "Bharata Mata", role: "The Motherland", image: "/static/images/flag_waving.png", className: "portrait-mother" },
+          { name: "Bhagat Singh", role: "Revolutionary", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Bhagat%20Singh%201929.jpg?width=2560", className: "portrait-bhagat" },
+          { name: "Chandrashekhar Azad", role: "Revolutionary", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Chandrashekhar%20Azad.jpg?width=2560", className: "portrait-azad" },
+          { name: "Subhash Chandra Bose", role: "Nationalist Leader", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Subhas%20Chandra%20Bose.jpg?width=2560", className: "portrait-bose" },
+          { name: "Bharata Mata", role: "Divine Mother", image: "static/images/tagore.jpg", className: "portrait-mother-2" },
+          { name: "Netaji Bose", role: "Azad Hind Fauj", image: "static/images/bose.jpg", className: "portrait-bose-2" },
+          { name: "Bharata Mata", role: "Vande Mataram", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Bharat_Mata_Temple_statue.jpg/1280px-Bharat_Mata_Temple_statue.jpg", className: "portrait-mother-3" },
+          { name: "Bharata Mata", role: "The Motherland", image: "static/images/bharatamata_lion.png", className: "portrait-mother-4" },
+          { name: "Bal Gangadhar Tilak", role: "Swaraj Pioneer", image: "static/images/tilak.webp", className: "portrait-tilak" },
+          { name: "Divine Shrine", role: "Sacred Decor", image: "static/images/stream_1.jpg", className: "portrait-new-1" },
+          { name: "Holy Procession", role: "Nandi & Deity", image: "static/images/stream_2.jpg", className: "portrait-new-2" },
+          { name: "Lotus Deity", role: "Divine Blessing", image: "static/images/stream_3.jpg", className: "portrait-new-3" }
+        ];
+        const streamContainer = document.getElementById('portraits');
+        portraitsData.forEach((p, index) => {
+            const figure = document.createElement('figure');
+            figure.className = `portrait ${p.className}`;
+            figure.style.setProperty('--portrait-index', index);
+            figure.innerHTML = `
+                <div class="portrait-image-wrap">
+                  <img src="${p.image}" alt="${p.name}" onerror="this.style.display='none'" />
+                </div>
+                <figcaption>
+                  <strong>${p.name}</strong>
+                  <span>${p.role}</span>
+                </figcaption>
+            `;
+            streamContainer.appendChild(figure);
+        });
+
+        // Pointer tracking
+        const portal = document.querySelector('.portal');
+        window.addEventListener('pointermove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+            portal.style.setProperty('--pointer-x', x);
+            portal.style.setProperty('--pointer-y', y);
+        });
+
+        // Form submission
+        
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const pwd = document.getElementById('password');
+            const icon = document.getElementById('eyeIcon');
+            if (pwd.type === 'password') {
+                pwd.type = 'text';
+                icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>';
+            } else {
+                pwd.type = 'password';
+                icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const admin = document.getElementById('admin').value;
+            const password = document.getElementById('password').value;
+            const note = document.getElementById('demoNote');
+            
+            if (admin === 'tejas' && password === 'NewTejas99@') {
+                note.style.color = '#9dcc88';
+                note.textContent = 'Login successful. Redirecting...';
+                note.style.display = 'block';
+                setTimeout(() => {
+                    window.top.location.href = '/admin-dashboard';
+                }, 500);
+            } else {
+                note.style.color = '#ff6b6b';
+                note.textContent = 'Invalid Admin ID or Password.';
+                note.style.display = 'block';
+            }
+        });
+    
+let femaleVoice = null;
+        function loadVoices() {
+            const voices = window.speechSynthesis.getVoices();
+            // Look for common female voice names
+            femaleVoice = voices.find(v => 
+                v.name.includes('Zira') || 
+                v.name.includes('Female') || 
+                v.name.includes('Samantha') || 
+                v.name.includes('Google UK English Female') || 
+                v.name.includes('Victoria')
+            );
+            if (!femaleVoice && voices.length > 0) {
+                // Fallback to the first voice if no female identifier found
+                femaleVoice = voices[0];
+            }
+        }
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+        // Call immediately in case voices are already loaded
+        loadVoices();
+
+        function toggleProfile() {
+            const widget = document.getElementById('profile-widget');
+            const overlay = document.getElementById('blur-overlay');
+            
+            const isExpanding = !widget.classList.contains('expanded');
+            
+            widget.classList.toggle('expanded');
+            overlay.classList.toggle('active');
+
+            if (isExpanding) {
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance("Stay tuned -Ganga's announcement is coming soon");
+                if (femaleVoice) {
+                    utterance.voice = femaleVoice;
+                }
+                utterance.pitch = 1.4; // Higher pitch for female/child
+                utterance.rate = 0.95; 
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                window.speechSynthesis.cancel();
+            }
+        }
+</script>
+</body>
+</html>
+
+
+
