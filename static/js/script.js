@@ -6055,11 +6055,38 @@ function initThemeLoops() {
 }
 
 // Downside Settings Panel Handlers
+// Preview videos are preload="metadata", which loads dimensions but decodes no
+// frame, so every tile in the picker rendered as an empty black rectangle.
+// Nudging currentTime forces one frame to decode and paint, turning each tile
+// into a real thumbnail of its theme.
+function primeThemePreviewFrames() {
+    document.querySelectorAll('.theme-preview-video').forEach(video => {
+        if (video.dataset.framePrimed) return;
+        video.dataset.framePrimed = '1';
+        const seek = () => {
+            try {
+                if (video.readyState >= 1 && video.currentTime < 0.05) {
+                    video.currentTime = Math.min(0.6, (video.duration || 2) * 0.25);
+                }
+            } catch (e) { }
+        };
+        if (video.readyState >= 1) {
+            seek();
+        } else {
+            video.addEventListener('loadedmetadata', seek, { once: true });
+            try { video.load(); } catch (e) { }
+        }
+    });
+}
+
 function toggleSettingsPanel(event) {
     if (event) event.stopPropagation();
     const panel = document.getElementById("settingsPopoverPanel");
     if (panel) {
         panel.classList.toggle("active");
+        if (panel.classList.contains("active")) {
+            primeThemePreviewFrames();
+        }
     }
 }
 
