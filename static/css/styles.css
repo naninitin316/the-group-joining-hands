@@ -14810,3 +14810,44 @@ input:checked+.slider:before {
 
 #cinema-view .cinema-admin-note.is-ok { color: #86efac; }
 #cinema-view .cinema-admin-note.is-error { color: #fca5a5; }
+
+
+/* ==========================================================================
+   35. CINEMA ADMIN - PINNED BOTTOM RIGHT
+   Matches where the Red App puts its card (fixed, 24px from the bottom-right
+   corner) so administrative access sits in the same place across the apps.
+   The toggle collapses it out of the way rather than removing it.
+   ========================================================================== */
+
+#cinema-view .cinema-admin {
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 4000 !important;
+    width: min(286px, calc(100vw - 32px)) !important;
+    margin: 0 !important;
+    align-items: flex-end !important;
+    gap: 8px !important;
+}
+
+/* Toggle sits above the card and only shows the word when collapsed */
+#cinema-view .cinema-admin-toggle {
+    order: 2;
+    padding: 8px 16px !important;
+    font-size: 0.7rem !important;
+}
+
+#cinema-view .cinema-admin-panel {
+    order: 1;
+    width: 100% !important;
+}
+
+@media (max-width: 560px) {
+    #cinema-view .cinema-admin {
+        right: 12px !important;
+        bottom: 12px !important;
+        width: calc(100vw - 24px) !important;
+    }
+}
