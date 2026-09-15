@@ -14592,7 +14592,7 @@ input:checked+.slider:before {
 
 #landing-view[class] .title-single-box {
     font-size: clamp(2rem, 7.9vw, 7.6rem) !important;
-    letter-spacing: -0.028em !important;
+    letter-spacing: 0.072em !important;
     max-width: 100% !important;
     width: 100% !important;
     margin-inline: auto !important;
