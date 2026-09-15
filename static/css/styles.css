@@ -14851,3 +14851,116 @@ input:checked+.slider:before {
         width: calc(100vw - 24px) !important;
     }
 }
+
+
+/* ==========================================================================
+   36. THEME HOVER PREVIEW
+   The preview video was stacking BELOW the fallback gradient and getting
+   clipped by the tile's overflow, so no tile ever showed its footage. The
+   video is now layered over the fallback, which goes back to being a real
+   fallback. On hover the tile plays for five seconds and names itself.
+   ========================================================================== */
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn video[class].theme-preview-video,
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn img[class].theme-preview-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme-preview-fallback {
+    position: absolute;
+    inset: 0;
+}
+
+/* The tile being previewed lifts out of the grid */
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn.theme-previewing {
+    transform: scale(1.07);
+    border-color: rgba(250, 204, 21, 0.92);
+    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.55);
+    z-index: 6;
+}
+
+/* Name plate - says which theme is playing */
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn.theme-previewing::after {
+    content: attr(data-theme-name);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 6px 6px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+    background: linear-gradient(to top, rgba(2, 6, 23, 0.92) 0%, rgba(2, 6, 23, 0.55) 55%, transparent 100%);
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* The resting badge steps aside for the name plate */
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn.theme-previewing .theme-btn-badge {
+    opacity: 0;
+}
+
+/* Bar that drains over the five seconds the preview runs */
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn.theme-previewing::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #fde68a, #f59e0b);
+    transform-origin: left center;
+    animation: themePreviewRun 5s linear forwards;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes themePreviewRun {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+}
+
+/* Tiles with no footage still move for the five seconds */
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn.theme-previewing .theme-preview-fallback {
+    background-size: 210% 210%;
+    animation: themePreviewPan 5s ease-in-out;
+}
+
+@keyframes themePreviewPan {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar-themes-grid.preview-boxes-grid .theme-select-btn.theme-previewing {
+        transform: none;
+    }
+    .sidebar-themes-grid.preview-boxes-grid .theme-select-btn.theme-previewing::before,
+    .sidebar-themes-grid.preview-boxes-grid .theme-select-btn.theme-previewing .theme-preview-fallback {
+        animation: none;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   36b. Clearance for the always-open admin card
+   The login now stands open at the bottom-right, so the three story cards get
+   right-hand clearance on wide screens instead of running underneath it.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 981px) {
+    #cinema-view .cinema-page-cards {
+        padding-right: 296px;
+        /* hold the approved three-across row inside the narrowed track */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

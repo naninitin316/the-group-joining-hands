@@ -6417,18 +6417,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Add hover play for theme preview videos
-document.addEventListener("DOMContentLoaded", () => {
-    const previewVideos = document.querySelectorAll(".theme-preview-video");
-    previewVideos.forEach(video => {
-        video.parentElement.addEventListener("mouseenter", () => {
-            try { video.play(); } catch (e) { }
-        });
-        video.parentElement.addEventListener("mouseleave", () => {
-            try { video.pause(); } catch (e) { }
-        });
-    });
-});
+// Hover playback for the theme tiles lives in THEME HOVER PREVIEW below.
 
 
 
@@ -6442,3 +6431,119 @@ document.addEventListener('click', function (e) {
 });
 
 
+
+/* ==========================================================================
+   THEME HOVER PREVIEW
+   Hovering a theme tile plays that theme for five seconds and names it, so
+   the 37 tiles can be told apart without committing to one.
+   ========================================================================== */
+
+const THEME_PREVIEW_MS = 5000;
+const THEME_PREVIEW_INTENT_MS = 110;   // sweeping the grid shouldn't start 37 videos
+let themePreviewIntentTimer = null;
+let themePreviewStopTimer = null;
+let themePreviewActiveBtn = null;
+
+function themePreviewReducedMotion() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+}
+
+function clearThemePreviewTimers() {
+    if (themePreviewIntentTimer) {
+        clearTimeout(themePreviewIntentTimer);
+        themePreviewIntentTimer = null;
+    }
+    if (themePreviewStopTimer) {
+        clearTimeout(themePreviewStopTimer);
+        themePreviewStopTimer = null;
+    }
+}
+
+function stopThemePreview(btn) {
+    const target = btn || themePreviewActiveBtn;
+    if (!target) return;
+    target.classList.remove('theme-previewing');
+    const video = target.querySelector('.theme-preview-video');
+    if (video) {
+        try {
+            video.pause();
+            // back to the primed still frame so the tile still reads as its theme
+            video.currentTime = Math.min(0.6, (video.duration || 2) * 0.25);
+        } catch (e) { }
+    }
+    if (target === themePreviewActiveBtn) themePreviewActiveBtn = null;
+}
+
+function startThemePreview(btn) {
+    if (!btn) return;
+    if (themePreviewActiveBtn && themePreviewActiveBtn !== btn) {
+        stopThemePreview(themePreviewActiveBtn);
+    }
+    themePreviewActiveBtn = btn;
+    btn.classList.add('theme-previewing');
+
+    const video = btn.querySelector('.theme-preview-video');
+    if (video && !themePreviewReducedMotion()) {
+        const attemptPlay = () => {
+            const played = video.play();
+            if (played && played.catch) {
+                played.catch(() => {
+                    // Not enough buffered yet - try once more when data lands
+                    video.addEventListener('canplay', () => {
+                        if (!btn.classList.contains('theme-previewing')) return;
+                        const retry = video.play();
+                        if (retry && retry.catch) retry.catch(() => { });
+                    }, { once: true });
+                });
+            }
+        };
+        try {
+            video.muted = true;
+            video.loop = true;
+            if (video.readyState >= 2) video.currentTime = 0;
+            attemptPlay();
+        } catch (e) { }
+    }
+
+    themePreviewStopTimer = setTimeout(() => {
+        themePreviewStopTimer = null;
+        stopThemePreview(btn);
+    }, THEME_PREVIEW_MS);
+}
+
+function bindThemePreview(btn) {
+    if (btn.dataset.previewBound) return;
+    btn.dataset.previewBound = '1';
+
+    // The caption reads from the badge so the name lives in one place
+    const badge = btn.querySelector('.theme-btn-badge');
+    const name = (badge && badge.textContent.trim()) || btn.getAttribute('title') || '';
+    if (name) btn.setAttribute('data-theme-name', name);
+
+    const enter = () => {
+        clearThemePreviewTimers();
+        themePreviewIntentTimer = setTimeout(() => {
+            themePreviewIntentTimer = null;
+            startThemePreview(btn);
+        }, THEME_PREVIEW_INTENT_MS);
+    };
+    const leave = () => {
+        clearThemePreviewTimers();
+        stopThemePreview(btn);
+    };
+
+    btn.addEventListener('mouseenter', enter);
+    btn.addEventListener('mouseleave', leave);
+    btn.addEventListener('focus', enter);
+    btn.addEventListener('blur', leave);
+}
+
+function initThemeHoverPreviews() {
+    document.querySelectorAll('.sidebar-themes-grid .theme-select-btn').forEach(bindThemePreview);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeHoverPreviews);
+} else {
+    initThemeHoverPreviews();
+}
