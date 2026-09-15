@@ -724,7 +724,7 @@ function startHeroTypewriterSequence(forceRestart = false) {
     // Step 2: Stamp in the 6 ecosystem icons sequentially with typewriter keystroke feel
     function typeTilesStep() {
         if (!isHeroTyping) return;
-        const tileKeystrokeInterval = 90; // ms
+        const tileKeystrokeInterval = 260; // ms - slower, so each tile's 3D arrival reads
 
         tiles.forEach((tile, index) => {
             heroTypewriterTimers.push(setTimeout(() => {
@@ -885,6 +885,22 @@ function closeLandingSidebar() {
     isAboutTyping = false;
     finishHeroTypewriter();
 }
+
+// Drops the bottom fade once the About copy is scrolled to the end, so the
+// cue only appears while there is genuinely more to read.
+function bindAboutScrollCue() {
+    const panel = document.querySelector('.landing-about-overlay');
+    if (!panel || panel.dataset.scrollCueBound) return;
+    panel.dataset.scrollCueBound = '1';
+    const update = () => {
+        const atEnd = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 4;
+        panel.classList.toggle('about-at-end', atEnd);
+    };
+    panel.addEventListener('scroll', update, { passive: true });
+    update();
+}
+
+document.addEventListener('DOMContentLoaded', bindAboutScrollCue);
 
 function toggleLandingSidebar() {
     const landingView = document.getElementById("landing-view");

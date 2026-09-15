@@ -13,7 +13,7 @@
         rel="stylesheet">
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=117">
+    <link rel="stylesheet" href="styles.css?v=122">
     <!-- Google Identity Services SDK -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
@@ -617,23 +617,27 @@
                     </button>
                     <button class="theme-select-btn" data-theme="flow" onclick="switchBackdropTheme('flow')"
                         title="Flow">
+                        <div class="theme-preview-fallback flow-preview"></div>
                         <video class="theme-preview-video" src="/themes/flow.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Flow</span>
                     </button>
                     <button class="theme-select-btn" data-theme="glassflow" onclick="switchBackdropTheme('glassflow')"
                         title="Glass Flow">
+                        <div class="theme-preview-fallback glassflow-preview"></div>
                         <video class="theme-preview-video" src="/themes/glassflow.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Glass Flow</span>
                     </button>
                     <button class="theme-select-btn" data-theme="waterflow" onclick="switchBackdropTheme('waterflow')"
                         title="Water Flow">
+                        <div class="theme-preview-fallback waterflow-preview"></div>
                         <video class="theme-preview-video" src="/themes/waterflow.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Water Flow</span>
                     </button>
                     <button class="theme-select-btn" data-theme="8th" onclick="switchBackdropTheme('8th')" title="Air">
+                        <div class="theme-preview-fallback 8th-preview"></div>
                         <video class="theme-preview-video" src="/themes/air.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Air</span>
@@ -642,84 +646,98 @@
                     <!-- Server Video Themes -->
                     <button class="theme-select-btn" data-theme="theme1" onclick="switchBackdropTheme('theme1')"
                         title="Aurora">
+                        <div class="theme-preview-fallback theme1-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme1.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Aurora</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme2" onclick="switchBackdropTheme('theme2')"
                         title="Nebula">
+                        <div class="theme-preview-fallback theme2-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme2.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Nebula</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme3" onclick="switchBackdropTheme('theme3')"
                         title="Prism">
+                        <div class="theme-preview-fallback theme3-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme3.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Prism</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme4" onclick="switchBackdropTheme('theme4')"
                         title="Vortex">
+                        <div class="theme-preview-fallback theme4-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme4.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Vortex</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme5" onclick="switchBackdropTheme('theme5')"
                         title="Eclipse">
+                        <div class="theme-preview-fallback theme5-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme5.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Eclipse</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme6" onclick="switchBackdropTheme('theme6')"
                         title="Zenith">
+                        <div class="theme-preview-fallback theme6-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme6.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Zenith</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme7" onclick="switchBackdropTheme('theme7')"
                         title="Mirage">
+                        <div class="theme-preview-fallback theme7-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme7.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Mirage</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme8" onclick="switchBackdropTheme('theme8')"
                         title="Radiance">
+                        <div class="theme-preview-fallback theme8-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme8.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Radiance</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme9" onclick="switchBackdropTheme('theme9')"
                         title="Solstice">
+                        <div class="theme-preview-fallback theme9-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme9.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Solstice</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme10" onclick="switchBackdropTheme('theme10')"
                         title="Horizon">
+                        <div class="theme-preview-fallback theme10-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme10.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Horizon</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme11" onclick="switchBackdropTheme('theme11')"
                         title="Flux">
+                        <div class="theme-preview-fallback theme11-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme11.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Flux</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme12" onclick="switchBackdropTheme('theme12')"
                         title="Cascade">
+                        <div class="theme-preview-fallback theme12-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme12.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Cascade</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme13" onclick="switchBackdropTheme('theme13')"
                         title="Astral">
+                        <div class="theme-preview-fallback theme13-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme13.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Astral</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme14" onclick="switchBackdropTheme('theme14')"
                         title="Lumina">
+                        <div class="theme-preview-fallback theme14-preview"></div>
                         <video class="theme-preview-video" src="/themes/theme14.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Lumina</span>
@@ -727,18 +745,21 @@
                     <!-- Server Picture Themes (themes/pics) -->
                     <button class="theme-select-btn" data-theme="theme15" onclick="switchBackdropTheme('theme15')"
                         title="Oasis">
+                        <div class="theme-preview-fallback theme15-preview"></div>
                         <img class="theme-preview-img" src="/themes/pics/pic1.jpg" alt="Oasis"
                             onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic1.jpg';">
                         <span class="theme-btn-badge">Oasis</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme16" onclick="switchBackdropTheme('theme16')"
                         title="Summit">
+                        <div class="theme-preview-fallback theme16-preview"></div>
                         <img class="theme-preview-img" src="/themes/pics/pic2.png" alt="Summit"
                             onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic2.png';">
                         <span class="theme-btn-badge">Summit</span>
                     </button>
                     <button class="theme-select-btn" data-theme="theme17" onclick="switchBackdropTheme('theme17')"
                         title="Haven">
+                        <div class="theme-preview-fallback theme17-preview"></div>
                         <img class="theme-preview-img" src="/themes/pics/pic3.jpg" alt="Haven"
                             onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic3.jpg';">
                         <span class="theme-btn-badge">Haven</span>
@@ -752,18 +773,21 @@
                     </button>
                     <button class="theme-select-btn" data-theme="theme20" onclick="switchBackdropTheme('theme20')"
                         title="Solitude">
+                        <div class="theme-preview-fallback theme20-preview"></div>
                         <img class="theme-preview-img" src="/themes/pics/pic6.jpg" alt="Solitude"
                             onerror="if(this.src.indexOf('/themes/pics/')===-1)this.src='/themes/pics/pic6.jpg';">
                         <span class="theme-btn-badge">Solitude</span>
                     </button>
                     <button class="theme-select-btn" data-theme="10th" onclick="switchBackdropTheme('10th')"
                         title="Nova">
+                        <div class="theme-preview-fallback 10th-preview"></div>
                         <video class="theme-preview-video" src="/themes/nova.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Nova</span>
                     </button>
                     <button class="theme-select-btn" data-theme="7th" onclick="switchBackdropTheme('7th')"
                         title="Cosmic">
+                        <div class="theme-preview-fallback 7th-preview"></div>
                         <video class="theme-preview-video" src="/themes/cosmic.mp4" preload="metadata" muted
                             playsinline></video>
                         <span class="theme-btn-badge">Cosmic</span>
@@ -2565,7 +2589,7 @@
             style="width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></iframe>
     </div>
 
-    <script src="script.js?v=49"></script>
+    <script src="script.js?v=51"></script>
 </body>
 
 </html>

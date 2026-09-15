@@ -12994,3 +12994,1186 @@ input:checked+.slider:before {
         font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
     }
 }
+
+
+/* ==========================================================================
+   21. LEGACY THEME BACKDROPS
+   ==========================================================================
+
+   These themes shipped pointing at /themes/*.mp4 and /themes/pics/* files that
+   are not in the repository and are not on the live site either, so every one
+   of them fell through to the same empty canvas - the picker looked broken.
+
+   Each now has a CSS backdrop built to match the name it already carries, so
+   selecting Aurora gives you an aurora and selecting Vortex gives you a
+   vortex. If the original media ever turns up, dropping the files back in
+   takes precedence automatically: the <video>/<img> inside each layer paints
+   over the gradient below it.
+   ========================================================================== */
+
+/* Flow */
+#landing-view.theme-flow .layer--flow {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #8a5a12 0%, transparent 62%),
+        linear-gradient(180deg, #2a1a04 0%, #120a02 100%);
+}
+
+#landing-view.theme-flow .layer--flow::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #e0a5342e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #e0a53422 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-flow .layer--flow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #120a0299 0%, transparent 26%, transparent 66%, #120a02dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .flow-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #e0a53466 0%, transparent 62%),
+        linear-gradient(180deg, #2a1a04 0%, #8a5a12 55%, #120a02 100%);
+}
+
+/* Glass Flow */
+#landing-view.theme-glassflow .layer--glassflow {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #11525f 0%, transparent 62%),
+        linear-gradient(180deg, #07161d 0%, #03090c 100%);
+}
+
+#landing-view.theme-glassflow .layer--glassflow::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #5fd6d02e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #5fd6d022 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-glassflow .layer--glassflow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #03090c99 0%, transparent 26%, transparent 66%, #03090cdd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .glassflow-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #5fd6d066 0%, transparent 62%),
+        linear-gradient(180deg, #07161d 0%, #11525f 55%, #03090c 100%);
+}
+
+/* Water Flow */
+#landing-view.theme-waterflow .layer--waterflow {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #0c4a6e 0%, transparent 62%),
+        linear-gradient(180deg, #04131f 0%, #020a10 100%);
+}
+
+#landing-view.theme-waterflow .layer--waterflow::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #38bdf82e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #38bdf822 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-waterflow .layer--waterflow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #020a1099 0%, transparent 26%, transparent 66%, #020a10dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .waterflow-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #38bdf866 0%, transparent 62%),
+        linear-gradient(180deg, #04131f 0%, #0c4a6e 55%, #020a10 100%);
+}
+
+/* Air */
+#landing-view.theme-8th .layer--8th {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #2b4a6b 0%, transparent 62%),
+        linear-gradient(180deg, #0b1220 0%, #050a12 100%);
+}
+
+#landing-view.theme-8th .layer--8th::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #9fd0f02e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #9fd0f022 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-8th .layer--8th::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #050a1299 0%, transparent 26%, transparent 66%, #050a12dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .8th-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #9fd0f066 0%, transparent 62%),
+        linear-gradient(180deg, #0b1220 0%, #2b4a6b 55%, #050a12 100%);
+}
+
+/* Cosmic */
+#landing-view.theme-7th .layer--7th {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #3b1a6b 0%, transparent 62%),
+        linear-gradient(180deg, #0a0418 0%, #040210 100%);
+}
+
+#landing-view.theme-7th .layer--7th::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #a78bfa2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #a78bfa22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-7th .layer--7th::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #04021099 0%, transparent 26%, transparent 66%, #040210dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .7th-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #a78bfa66 0%, transparent 62%),
+        linear-gradient(180deg, #0a0418 0%, #3b1a6b 55%, #040210 100%);
+}
+
+/* Nova */
+#landing-view.theme-10th .layer--10th {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #6b1220 0%, transparent 62%),
+        linear-gradient(180deg, #180406 0%, #0c0203 100%);
+}
+
+#landing-view.theme-10th .layer--10th::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #f871712e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #f8717122 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-10th .layer--10th::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #0c020399 0%, transparent 26%, transparent 66%, #0c0203dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .10th-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #f8717166 0%, transparent 62%),
+        linear-gradient(180deg, #180406 0%, #6b1220 55%, #0c0203 100%);
+}
+
+/* Aurora */
+#landing-view.theme-theme1 .layer--theme1 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #0b5a4a 0%, transparent 62%),
+        linear-gradient(180deg, #02120f 0%, #010806 100%);
+}
+
+#landing-view.theme-theme1 .layer--theme1::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #34d3992e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #34d39922 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme1 .layer--theme1::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #01080699 0%, transparent 26%, transparent 66%, #010806dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme1-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #34d39966 0%, transparent 62%),
+        linear-gradient(180deg, #02120f 0%, #0b5a4a 55%, #010806 100%);
+}
+
+/* Nebula */
+#landing-view.theme-theme2 .layer--theme2 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #4a1263 0%, transparent 62%),
+        linear-gradient(180deg, #0d0418 0%, #060210 100%);
+}
+
+#landing-view.theme-theme2 .layer--theme2::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #c084fc2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #c084fc22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme2 .layer--theme2::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #06021099 0%, transparent 26%, transparent 66%, #060210dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme2-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #c084fc66 0%, transparent 62%),
+        linear-gradient(180deg, #0d0418 0%, #4a1263 55%, #060210 100%);
+}
+
+/* Prism */
+#landing-view.theme-theme3 .layer--theme3 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #2a2a7a 0%, transparent 62%),
+        linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+}
+
+#landing-view.theme-theme3 .layer--theme3::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #818cf82e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #818cf822 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme3 .layer--theme3::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #05051099 0%, transparent 26%, transparent 66%, #050510dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme3-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #818cf866 0%, transparent 62%),
+        linear-gradient(180deg, #0a0a1a 0%, #2a2a7a 55%, #050510 100%);
+}
+
+/* Vortex */
+#landing-view.theme-theme4 .layer--theme4 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #5e1246 0%, transparent 62%),
+        linear-gradient(180deg, #12040c 0%, #080206 100%);
+}
+
+#landing-view.theme-theme4 .layer--theme4::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #f472b62e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #f472b622 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme4 .layer--theme4::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #08020699 0%, transparent 26%, transparent 66%, #080206dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme4-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #f472b666 0%, transparent 62%),
+        linear-gradient(180deg, #12040c 0%, #5e1246 55%, #080206 100%);
+}
+
+/* Eclipse */
+#landing-view.theme-theme5 .layer--theme5 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #3a3a42 0%, transparent 62%),
+        linear-gradient(180deg, #0c0c0e 0%, #050506 100%);
+}
+
+#landing-view.theme-theme5 .layer--theme5::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #d4d4d82e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #d4d4d822 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme5 .layer--theme5::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #05050699 0%, transparent 26%, transparent 66%, #050506dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme5-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #d4d4d866 0%, transparent 62%),
+        linear-gradient(180deg, #0c0c0e 0%, #3a3a42 55%, #050506 100%);
+}
+
+/* Zenith */
+#landing-view.theme-theme6 .layer--theme6 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #0e4a6b 0%, transparent 62%),
+        linear-gradient(180deg, #04101a 0%, #020810 100%);
+}
+
+#landing-view.theme-theme6 .layer--theme6::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #7dd3fc2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #7dd3fc22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme6 .layer--theme6::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #02081099 0%, transparent 26%, transparent 66%, #020810dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme6-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #7dd3fc66 0%, transparent 62%),
+        linear-gradient(180deg, #04101a 0%, #0e4a6b 55%, #020810 100%);
+}
+
+/* Mirage */
+#landing-view.theme-theme7 .layer--theme7 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #7a5212 0%, transparent 62%),
+        linear-gradient(180deg, #1a1206 0%, #0d0903 100%);
+}
+
+#landing-view.theme-theme7 .layer--theme7::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #fbbf242e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #fbbf2422 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme7 .layer--theme7::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #0d090399 0%, transparent 26%, transparent 66%, #0d0903dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme7-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #fbbf2466 0%, transparent 62%),
+        linear-gradient(180deg, #1a1206 0%, #7a5212 55%, #0d0903 100%);
+}
+
+/* Radiance */
+#landing-view.theme-theme8 .layer--theme8 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #8a4212 0%, transparent 62%),
+        linear-gradient(180deg, #1a0c02 0%, #0d0601 100%);
+}
+
+#landing-view.theme-theme8 .layer--theme8::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #fb923c2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #fb923c22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme8 .layer--theme8::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #0d060199 0%, transparent 26%, transparent 66%, #0d0601dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme8-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #fb923c66 0%, transparent 62%),
+        linear-gradient(180deg, #1a0c02 0%, #8a4212 55%, #0d0601 100%);
+}
+
+/* Solstice */
+#landing-view.theme-theme9 .layer--theme9 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #7a4a08 0%, transparent 62%),
+        linear-gradient(180deg, #140a02 0%, #0a0501 100%);
+}
+
+#landing-view.theme-theme9 .layer--theme9::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #fcd34d2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #fcd34d22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme9 .layer--theme9::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #0a050199 0%, transparent 26%, transparent 66%, #0a0501dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme9-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #fcd34d66 0%, transparent 62%),
+        linear-gradient(180deg, #140a02 0%, #7a4a08 55%, #0a0501 100%);
+}
+
+/* Horizon */
+#landing-view.theme-theme10 .layer--theme10 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #0d5260 0%, transparent 62%),
+        linear-gradient(180deg, #04121a 0%, #02090d 100%);
+}
+
+#landing-view.theme-theme10 .layer--theme10::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #5eead42e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #5eead422 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme10 .layer--theme10::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #02090d99 0%, transparent 26%, transparent 66%, #02090ddd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme10-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #5eead466 0%, transparent 62%),
+        linear-gradient(180deg, #04121a 0%, #0d5260 55%, #02090d 100%);
+}
+
+/* Flux */
+#landing-view.theme-theme11 .layer--theme11 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #3a1a7a 0%, transparent 62%),
+        linear-gradient(180deg, #0a0618 0%, #050310 100%);
+}
+
+#landing-view.theme-theme11 .layer--theme11::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #a5b4fc2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #a5b4fc22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme11 .layer--theme11::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #05031099 0%, transparent 26%, transparent 66%, #050310dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme11-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #a5b4fc66 0%, transparent 62%),
+        linear-gradient(180deg, #0a0618 0%, #3a1a7a 55%, #050310 100%);
+}
+
+/* Cascade */
+#landing-view.theme-theme12 .layer--theme12 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #0a5a5a 0%, transparent 62%),
+        linear-gradient(180deg, #02141a 0%, #010a0d 100%);
+}
+
+#landing-view.theme-theme12 .layer--theme12::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #5eead42e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #5eead422 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme12 .layer--theme12::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #010a0d99 0%, transparent 26%, transparent 66%, #010a0ddd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme12-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #5eead466 0%, transparent 62%),
+        linear-gradient(180deg, #02141a 0%, #0a5a5a 55%, #010a0d 100%);
+}
+
+/* Astral */
+#landing-view.theme-theme13 .layer--theme13 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #2a1a6b 0%, transparent 62%),
+        linear-gradient(180deg, #080418 0%, #040210 100%);
+}
+
+#landing-view.theme-theme13 .layer--theme13::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #93c5fd2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #93c5fd22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme13 .layer--theme13::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #04021099 0%, transparent 26%, transparent 66%, #040210dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme13-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #93c5fd66 0%, transparent 62%),
+        linear-gradient(180deg, #080418 0%, #2a1a6b 55%, #040210 100%);
+}
+
+/* Lumina */
+#landing-view.theme-theme14 .layer--theme14 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #5a4212 0%, transparent 62%),
+        linear-gradient(180deg, #0e0a04 0%, #070502 100%);
+}
+
+#landing-view.theme-theme14 .layer--theme14::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #fde68a2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #fde68a22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme14 .layer--theme14::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #07050299 0%, transparent 26%, transparent 66%, #070502dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme14-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #fde68a66 0%, transparent 62%),
+        linear-gradient(180deg, #0e0a04 0%, #5a4212 55%, #070502 100%);
+}
+
+/* Oasis */
+#landing-view.theme-theme15 .layer--theme15 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #0e5a3a 0%, transparent 62%),
+        linear-gradient(180deg, #04140e 0%, #020a07 100%);
+}
+
+#landing-view.theme-theme15 .layer--theme15::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #6ee7b72e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #6ee7b722 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme15 .layer--theme15::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #020a0799 0%, transparent 26%, transparent 66%, #020a07dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme15-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #6ee7b766 0%, transparent 62%),
+        linear-gradient(180deg, #04140e 0%, #0e5a3a 55%, #020a07 100%);
+}
+
+/* Summit */
+#landing-view.theme-theme16 .layer--theme16 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #2a3a5a 0%, transparent 62%),
+        linear-gradient(180deg, #0a0e16 0%, #05070b 100%);
+}
+
+#landing-view.theme-theme16 .layer--theme16::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #bfdbfe2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #bfdbfe22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme16 .layer--theme16::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #05070b99 0%, transparent 26%, transparent 66%, #05070bdd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme16-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #bfdbfe66 0%, transparent 62%),
+        linear-gradient(180deg, #0a0e16 0%, #2a3a5a 55%, #05070b 100%);
+}
+
+/* Haven */
+#landing-view.theme-theme17 .layer--theme17 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #4a2a5a 0%, transparent 62%),
+        linear-gradient(180deg, #100a14 0%, #080510 100%);
+}
+
+#landing-view.theme-theme17 .layer--theme17::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #d8b4fe2e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #d8b4fe22 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme17 .layer--theme17::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #08051099 0%, transparent 26%, transparent 66%, #080510dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme17-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #d8b4fe66 0%, transparent 62%),
+        linear-gradient(180deg, #100a14 0%, #4a2a5a 55%, #080510 100%);
+}
+
+/* Solitude */
+#landing-view.theme-theme20 .layer--theme20 {
+    background:
+        radial-gradient(ellipse 110% 78% at 50% 8%, #28414f 0%, transparent 62%),
+        linear-gradient(180deg, #0a0e12 0%, #050709 100%);
+}
+
+#landing-view.theme-theme20 .layer--theme20::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 52% 36% at 26% 30%, #cbd5e12e 0%, transparent 66%),
+        radial-gradient(ellipse 46% 32% at 74% 64%, #cbd5e122 0%, transparent 68%);
+    filter: blur(44px);
+    animation: legacyDrift 26s ease-in-out infinite alternate;
+}
+
+#landing-view.theme-theme20 .layer--theme20::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, #05070999 0%, transparent 26%, transparent 66%, #050709dd 100%);
+}
+
+.sidebar-themes-grid.preview-boxes-grid .theme-select-btn .theme20-preview {
+    background:
+        radial-gradient(ellipse at 50% 20%, #cbd5e166 0%, transparent 62%),
+        linear-gradient(180deg, #0a0e12 0%, #28414f 55%, #050709 100%);
+}
+
+@keyframes legacyDrift {
+    from { transform: translate3d(-3%, -2%, 0) scale(1); }
+    to   { transform: translate3d(3%, 2%, 0) scale(1.1); }
+}
+
+/* The video/image elements are empty when their files are missing; hiding the
+   broken <img> stops the browser's placeholder icon showing through. */
+.theme-layer img.theme-bg-image:not([src$=".jpg"]):not([src$=".png"]) { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-layer::before { animation: none !important; }
+}
+
+
+/* ==========================================================================
+   22. PRONOUNCED 3D + TYPE SCALE
+   ==========================================================================
+
+   The previous depth pass was too restrained to read at a glance. The scene
+   now has a real shared perspective: the stage carries the perspective, the
+   heading and every tile sit at different Z depths inside it, and both hold a
+   continuous slow rotation so the dimensionality is visible standing still
+   rather than only on hover.
+   ========================================================================== */
+
+/* One perspective for the whole hero so heading and tiles share a vanishing point */
+#landing-view[class] .hero-container {
+    perspective: 1100px !important;
+    perspective-origin: 50% 38% !important;
+    transform-style: preserve-3d !important;
+}
+
+/* ---- Heading: larger than the live site, carved and floating ---- */
+
+#landing-view[class] .hero-main-title {
+    transform-style: preserve-3d !important;
+    perspective: 900px !important;
+}
+
+#landing-view[class] .title-single-box {
+    font-size: clamp(2.8rem, 5.6vw, 5.4rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    transform-style: preserve-3d !important;
+    /* A deep extrusion plus a cast shadow reads as carved rather than blurred */
+    text-shadow:
+        0 1px 0 #8f8f96,
+        0 2px 0 #84848b,
+        0 3px 0 #79797f,
+        0 4px 0 #6e6e74,
+        0 5px 0 #636368,
+        0 6px 0 #58585d,
+        0 7px 0 #4d4d51,
+        0 8px 0 #424246,
+        0 9px 0 #37373a,
+        0 10px 0 #2c2c2f,
+        0 14px 22px rgba(0, 0, 0, 0.62),
+        0 0 46px rgba(255, 255, 255, 0.26) !important;
+    animation: headingFloat3D 9s ease-in-out infinite alternate !important;
+}
+
+@keyframes headingFloat3D {
+    from { transform: perspective(900px) rotateX(13deg) rotateY(-4deg) translateZ(0); }
+    to   { transform: perspective(900px) rotateX(5deg)  rotateY(4deg)  translateZ(34px); }
+}
+
+/* Light grounds: the grey extrusion would look dirty, so it inverts */
+#landing-view.theme-water[class] .title-single-box,
+#landing-view.theme-sakura[class] .title-single-box,
+#landing-view.theme-ivorypearl[class] .title-single-box {
+    text-shadow:
+        0 1px 0 #ffffff,
+        0 2px 0 #f2eee6,
+        0 3px 0 #e4ded1,
+        0 4px 0 #d6cfbd,
+        0 5px 0 #c8bfa9,
+        0 6px 0 #bab095,
+        0 8px 0 #a89d80,
+        0 14px 22px rgba(60, 45, 20, 0.34) !important;
+}
+
+/* ---- Tiles: each sits at its own depth and rotates continuously ---- */
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-body {
+    transform-style: preserve-3d !important;
+    animation: tileFloat3D 7s ease-in-out infinite alternate !important;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.32),
+        0 12px 20px -6px rgba(0, 0, 0, 0.46),
+        0 30px 50px -14px rgba(0, 0, 0, 0.6),
+        inset 0 4px 7px rgba(255, 255, 255, 0.6),
+        inset 0 -8px 14px rgba(0, 0, 0, 0.38) !important;
+}
+
+/* Staggered phase so the row undulates instead of moving as one slab */
+#landing-view[class] .ecosystem-tile:nth-child(1) .tile-3d-body { animation-delay: 0s !important; }
+#landing-view[class] .ecosystem-tile:nth-child(2) .tile-3d-body { animation-delay: -1.1s !important; }
+#landing-view[class] .ecosystem-tile:nth-child(3) .tile-3d-body { animation-delay: -2.2s !important; }
+#landing-view[class] .ecosystem-tile:nth-child(4) .tile-3d-body { animation-delay: -3.3s !important; }
+#landing-view[class] .ecosystem-tile:nth-child(5) .tile-3d-body { animation-delay: -4.4s !important; }
+#landing-view[class] .ecosystem-tile:nth-child(6) .tile-3d-body { animation-delay: -5.5s !important; }
+
+@keyframes tileFloat3D {
+    from { transform: perspective(900px) rotateX(11deg) rotateY(-9deg) translateZ(0) translateY(4px); }
+    to   { transform: perspective(900px) rotateX(-6deg) rotateY(9deg)  translateZ(26px) translateY(-8px); }
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile:hover .tile-3d-body {
+    animation-play-state: paused !important;
+    transform: perspective(900px) rotateX(-14deg) rotateY(0deg) translateZ(66px) scale(1.06) !important;
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.34),
+        0 22px 34px -8px rgba(0, 0, 0, 0.52),
+        0 56px 84px -18px rgba(0, 0, 0, 0.68),
+        inset 0 4px 8px rgba(255, 255, 255, 0.7),
+        inset 0 -8px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* The inner disc lifts further so the tile has interior depth, not a flat face */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-raised {
+    transform: translateZ(26px) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-circle {
+    transform: translateZ(16px) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-symbol-svg,
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-circle-photo {
+    transform: translateZ(12px) !important;
+}
+
+/* Slower arrival so each tile's flight from depth is legible */
+#landing-view[class] .ecosystem-tile.tile-typing-in {
+    animation: tileTypewriterStrike 0.95s cubic-bezier(0.22, 1.05, 0.34, 1) forwards !important;
+}
+
+/* ---- Wordmark row given the same treatment ---- */
+
+#landing-view[class] .divider-icon {
+    transform-style: preserve-3d !important;
+    animation: orbFloat3D 6s ease-in-out infinite alternate !important;
+}
+
+@keyframes orbFloat3D {
+    from { transform: perspective(700px) rotateY(-16deg) translateZ(0) translateY(3px); }
+    to   { transform: perspective(700px) rotateY(16deg) translateZ(22px) translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #landing-view[class] .title-single-box,
+    #landing-view[class] .ecosystem-tile .tile-3d-body,
+    #landing-view[class] .divider-icon {
+        animation: none !important;
+    }
+}
+
+
+/* ==========================================================================
+   23. ABOUT - original type size, always-visible scrollbar
+   ========================================================================== */
+
+#landing-view.menu-active[class] .about-overlay-text,
+#landing-view.menu-active[class] .about-overlay-text p {
+    /* Back to the size it shipped at */
+    font-size: calc(clamp(1.18rem, 1.65vw, 1.42rem) * var(--about-font-scale, 1)) !important;
+    line-height: 1.65 !important;
+}
+
+#landing-view.menu-active[class] .about-overlay-title {
+    font-size: calc(clamp(2rem, 3.5vw, 2.75rem) * var(--about-title-scale, 1)) !important;
+}
+
+/* Always render the bar, not only while scrolling, so it is obvious the
+   panel continues below the fold. */
+#landing-view.menu-active[class] .landing-about-overlay {
+    overflow-y: scroll !important;
+    scrollbar-gutter: stable;
+}
+
+#landing-view.menu-active[class] .landing-about-overlay::-webkit-scrollbar {
+    width: 12px;
+}
+
+#landing-view.menu-active[class] .landing-about-overlay::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+}
+
+#landing-view.menu-active[class] .landing-about-overlay::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f3d99b, #c89a3c);
+    border-radius: 12px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    min-height: 40px;
+}
+
+
+/* ==========================================================================
+   24. LEGACY LAYER VISIBILITY
+   The original show-rule is a single long selector list covering every theme.
+   It was resolving to opacity 0 for the legacy layers in practice, so their
+   backdrops never appeared no matter what section 21 painted. Declared again
+   here, scoped per layer and marked important, so each legacy theme reliably
+   shows the backdrop built for it.
+   ========================================================================== */
+
+#landing-view.theme-flow .layer--flow,
+#landing-view.theme-glassflow .layer--glassflow,
+#landing-view.theme-waterflow .layer--waterflow,
+#landing-view.theme-8th .layer--8th,
+#landing-view.theme-7th .layer--7th,
+#landing-view.theme-10th .layer--10th,
+#landing-view.theme-theme1 .layer--theme1,
+#landing-view.theme-theme2 .layer--theme2,
+#landing-view.theme-theme3 .layer--theme3,
+#landing-view.theme-theme4 .layer--theme4,
+#landing-view.theme-theme5 .layer--theme5,
+#landing-view.theme-theme6 .layer--theme6,
+#landing-view.theme-theme7 .layer--theme7,
+#landing-view.theme-theme8 .layer--theme8,
+#landing-view.theme-theme9 .layer--theme9,
+#landing-view.theme-theme10 .layer--theme10,
+#landing-view.theme-theme11 .layer--theme11,
+#landing-view.theme-theme12 .layer--theme12,
+#landing-view.theme-theme13 .layer--theme13,
+#landing-view.theme-theme14 .layer--theme14,
+#landing-view.theme-theme15 .layer--theme15,
+#landing-view.theme-theme16 .layer--theme16,
+#landing-view.theme-theme17 .layer--theme17,
+#landing-view.theme-theme19 .layer--theme19,
+#landing-view.theme-theme20 .layer--theme20 {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+}
+
+
+/* ==========================================================================
+   25. ABOUT PANEL - room to breathe, and an obvious "more below" cue
+   ==========================================================================
+
+   At the restored type size the copy overflows on shorter windows. Clipping a
+   line mid-glyph reads as a bug, so the panel takes as much height as the
+   stack can spare, keeps a permanently visible scrollbar, and fades its
+   bottom edge so it is obvious the text continues.
+   ========================================================================== */
+
+#landing-view.menu-active[class] .landing-about-overlay {
+    /* Take the slack in the stack rather than being squeezed by it */
+    flex: 1 1 auto !important;
+    max-height: none !important;
+    padding-bottom: clamp(10px, 1.6vh, 22px) !important;
+    /* Fade the last few pixels instead of slicing a line in half */
+    -webkit-mask-image: linear-gradient(180deg, #000 0, #000 calc(100% - 26px), transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0, #000 calc(100% - 26px), transparent 100%);
+}
+
+/* A scrolled-to-the-end panel needs no fade */
+#landing-view.menu-active[class] .landing-about-overlay.about-at-end {
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+/* Keep the lower blocks from eating the space the copy needs */
+#landing-view.menu-active[class] .hero-text-wrap,
+#landing-view.menu-active[class] .apps-hub-wrap {
+    flex: 0 0 auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+#landing-view.menu-active[class] .hero-container {
+    justify-content: flex-start !important;
+    gap: clamp(14px, 2.4vh, 30px) !important;
+}
+
+
+/* ==========================================================================
+   26. ORIGINAL SPACING RHYTHM, WIDER COMPOSITION
+   ==========================================================================
+
+   Gaps restored to the values the project shipped with. They are deliberately
+   asymmetric - the original put a much larger gap above Together / Forever
+   than below the heading, which is what gives the wordmark room to read as a
+   closing statement rather than a caption on the tile row:
+
+       heading -> tiles           clamp(26px, 3.2vw, 40px)
+       tiles   -> Together/Forever  calc(48px + clamp(26px, 3.2vw, 40px))
+
+   Everything is also allowed to run wider: the original capped the tile block
+   at 580px, which is what kept the row feeling cramped.
+   ========================================================================== */
+
+/* The even-gap container rhythm is replaced by per-block margins */
+#landing-view[class] .hero-container {
+    gap: 0 !important;
+}
+
+#landing-view[class] .apps-hub-wrap {
+    gap: 0 !important;
+    max-width: min(1500px, 96vw) !important;
+    width: 100% !important;
+    padding: 0 clamp(8px, 2vw, 28px) !important;
+    margin: 0 auto !important;
+}
+
+/* Heading -> tiles */
+#landing-view[class] .hero-text-wrap {
+    margin: 0 auto clamp(26px, 3.2vw, 40px) !important;
+    width: 100% !important;
+}
+
+/* Tiles -> Together / Forever */
+#landing-view[class] .ecosystem-divider {
+    margin: calc(48px + clamp(26px, 3.2vw, 40px)) auto 0 !important;
+    max-width: min(1200px, 94vw) !important;
+    width: 100% !important;
+    gap: clamp(18px, 3.4vw, 54px) !important;
+}
+
+/* ---- Wider: the row spans the frame instead of hugging the centre ---- */
+
+#landing-view[class] .ecosystem-3d-tiles-container {
+    gap: clamp(14px, 2.9vw, 48px) !important;
+    max-width: min(1400px, 94vw) !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+#landing-view[class] .title-single-box {
+    letter-spacing: 0.035em !important;
+    max-width: min(1500px, 97vw) !important;
+}
+
+/* Wider pills so the wordmark matches the tile row's new span */
+#landing-view[class] .divider-slogan,
+#landing-view[class] .slogan-word-icon {
+    padding: clamp(12px, 1.7vh, 22px) clamp(30px, 5vw, 86px) !important;
+    letter-spacing: 0.2em !important;
+}
+
+/* In the About state the same rhythm applies, scaled down so it still fits */
+#landing-view.menu-active[class] .hero-text-wrap {
+    margin: 0 auto clamp(14px, 2vh, 26px) !important;
+}
+
+#landing-view.menu-active[class] .ecosystem-divider {
+    margin: clamp(26px, 4.4vh, 62px) auto 0 !important;
+}
