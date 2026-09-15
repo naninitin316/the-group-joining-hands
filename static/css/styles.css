@@ -30,9 +30,13 @@
     --pro-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.04);
 
     /* Fonts */
-    --font-heading: 'Outfit', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-    --font-body: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-    --font-slogan: 'Outfit', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    /* Matches the live site (joininghandsgroup.com), which specifies Calibri.
+       Carlito is metric-compatible with Calibri; the rest are ordered so a Mac,
+       which has no Calibri, still lands on a close humanist sans instead of an
+       unspecified default. */
+    --font-heading: 'Calibri', 'Carlito', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Calibri', 'Carlito', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    --font-slogan: 'Calibri', 'Carlito', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
     /* Theme color variables */
     --theme-accent-gradient: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
@@ -12342,48 +12346,6 @@ input:checked+.slider:before {
 
 
 /* ==========================================================================
-   15. THEME PICKER - only offer themes that actually render
-   ==========================================================================
-
-   24 of the 37 theme entries point at /themes/*.mp4 and /themes/pics/* files
-   that are not in the repository (only pics/pic5.jpg was ever committed).
-   Their layers therefore fall back to the same dark canvas, so picking any of
-   them looks like the picker is doing nothing.
-
-   They are hidden rather than deleted: the markup, CSS layers and JS entries
-   are all intact, so uploading the media files and removing this one block
-   brings them straight back.
-   ========================================================================== */
-
-.sidebar-themes-grid .theme-select-btn[data-theme="flow"],
-.sidebar-themes-grid .theme-select-btn[data-theme="glassflow"],
-.sidebar-themes-grid .theme-select-btn[data-theme="waterflow"],
-.sidebar-themes-grid .theme-select-btn[data-theme="8th"],
-.sidebar-themes-grid .theme-select-btn[data-theme="7th"],
-.sidebar-themes-grid .theme-select-btn[data-theme="10th"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme1"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme2"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme3"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme4"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme5"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme6"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme7"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme8"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme9"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme10"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme11"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme12"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme13"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme14"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme15"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme16"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme17"],
-.sidebar-themes-grid .theme-select-btn[data-theme="theme20"] {
-    display: none !important;
-}
-
-
-/* ==========================================================================
    16. WORDMARK LOCKUP, HOME BALANCE & CINEMA PAGE FIT
    ==========================================================================
 
@@ -12651,4 +12613,384 @@ input:checked+.slider:before {
 
 #landing-view.theme-water {
     --wordmark-accent: #35357a;
+}
+
+
+/* ==========================================================================
+   18. CLIENT REVISION - wordmark, tile scale, depth and rhythm
+   ==========================================================================
+
+   Supersedes the lockup treatment in section 16. Per client feedback:
+   the name goes back to one big line, the ecosystem tiles get noticeably
+   larger, the three stacked blocks share one spacing value, and both the
+   heading and the tiles carry real dimensional depth.
+   ========================================================================== */
+
+/* The lockup pieces are gone from the markup; drop their rules so nothing
+   from section 16 keeps applying to the restored single-line heading. */
+#landing-view[class] .title-eyebrow,
+#landing-view[class] .title-underline {
+    display: none !important;
+}
+
+/* ---- One spacing value shared by heading -> tiles -> wordmark ---- */
+
+#landing-view {
+    --block-rhythm: clamp(20px, 4.4vh, 52px);
+}
+
+#landing-view[class] .hero-container {
+    gap: var(--block-rhythm) !important;
+}
+
+#landing-view[class] .apps-hub-wrap {
+    gap: var(--block-rhythm) !important;
+}
+
+
+/* ---- Heading: one line, large, extruded ----
+   Depth comes from a stack of progressively darker offset shadows (a real
+   extrusion) rather than a flat glow, plus a slight perspective tilt so the
+   type sits in the same 3D space as the tiles below it. */
+
+#landing-view[class] .hero-main-title {
+    perspective: 900px;
+    gap: 0 !important;
+}
+
+#landing-view[class] .title-single-box {
+    font-family: 'Outfit', var(--font-heading), sans-serif !important;
+    font-size: clamp(1.45rem, 3.9vw + 0.6vh, 4.6rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.04 !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+    transform: rotateX(9deg) !important;
+    transform-origin: 50% 100%;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.22),
+        0 2px 0 rgba(0, 0, 0, 0.20),
+        0 3px 0 rgba(0, 0, 0, 0.18),
+        0 4px 0 rgba(0, 0, 0, 0.16),
+        0 5px 0 rgba(0, 0, 0, 0.14),
+        0 6px 0 rgba(0, 0, 0, 0.12),
+        0 7px 0 rgba(0, 0, 0, 0.10),
+        0 10px 22px rgba(0, 0, 0, 0.55),
+        0 0 42px rgba(255, 255, 255, 0.28) !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#landing-view[class] .title-single-box:hover {
+    transform: rotateX(0deg) scale(1.015) !important;
+}
+
+/* Light grounds need the extrusion inverted or the type looks smudged */
+#landing-view.theme-water[class] .title-single-box,
+#landing-view.theme-sakura[class] .title-single-box,
+#landing-view.theme-ivorypearl[class] .title-single-box {
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.85),
+        0 2px 0 rgba(255, 255, 255, 0.7),
+        0 3px 0 rgba(0, 0, 0, 0.10),
+        0 5px 0 rgba(0, 0, 0, 0.08),
+        0 8px 18px rgba(0, 0, 0, 0.22) !important;
+}
+
+@media (max-width: 720px) {
+    #landing-view[class] .title-single-box {
+        white-space: normal !important;
+        font-size: clamp(1.5rem, 7.4vw, 2.6rem) !important;
+    }
+}
+
+
+/* ---- Tiles: substantially larger, with genuine depth ---- */
+
+#landing-view[class] .ecosystem-3d-tiles-container {
+    perspective: 1200px !important;
+    perspective-origin: 50% 40% !important;
+    gap: clamp(8px, 1.5vw, 26px) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile {
+    width: min(148px, 15.5vw, 17vh) !important;
+    height: min(148px, 15.5vw, 17vh) !important;
+    transform-style: preserve-3d !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-body {
+    border-radius: 25% !important;
+    transform: translateZ(0) rotateX(6deg) !important;
+    transform-style: preserve-3d !important;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.45s ease !important;
+    /* Layered shadow: a tight contact shadow, a mid lift, and a wide ambient
+       pool - that combination is what reads as a raised physical object. */
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.28),
+        0 10px 18px -6px rgba(0, 0, 0, 0.42),
+        0 26px 44px -14px rgba(0, 0, 0, 0.55),
+        inset 0 3px 5px rgba(255, 255, 255, 0.55),
+        inset 0 -6px 10px rgba(0, 0, 0, 0.32) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile:hover .tile-3d-body {
+    transform: translateZ(36px) rotateX(-8deg) scale(1.04) !important;
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.3),
+        0 18px 30px -8px rgba(0, 0, 0, 0.5),
+        0 44px 70px -18px rgba(0, 0, 0, 0.62),
+        inset 0 3px 6px rgba(255, 255, 255, 0.65),
+        inset 0 -6px 12px rgba(0, 0, 0, 0.34) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-raised {
+    width: 74% !important;
+    height: 74% !important;
+    transform: translateZ(18px) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-circle {
+    width: 84% !important;
+    height: 84% !important;
+    transform: translateZ(10px) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-symbol-svg {
+    width: 58% !important;
+    height: 58% !important;
+}
+
+
+/* ---- Entrance: each tile flies in from depth, one after the next ----
+   The hero sequence already stamps the tiles in order by swapping
+   .hero-tile-typing-prep for .tile-typing-in; replacing the keyframes it
+   drives upgrades that existing choreography to a 3D arrival without
+   touching the sequencing code. */
+
+@keyframes tileTypewriterStrike {
+    0% {
+        opacity: 0;
+        transform: perspective(1200px) translate3d(0, -34px, -420px) rotateX(-52deg) scale(0.82);
+        filter: blur(6px);
+    }
+
+    55% {
+        opacity: 1;
+        transform: perspective(1200px) translate3d(0, 6px, 40px) rotateX(10deg) scale(1.06);
+        filter: blur(0);
+    }
+
+    80% {
+        transform: perspective(1200px) translate3d(0, -2px, 0) rotateX(-3deg) scale(0.99);
+    }
+
+    100% {
+        opacity: 1;
+        transform: perspective(1200px) translate3d(0, 0, 0) rotateX(0deg) scale(1);
+        filter: blur(0);
+    }
+}
+
+#landing-view[class] .ecosystem-tile.tile-typing-in {
+    animation: tileTypewriterStrike 0.62s cubic-bezier(0.22, 1.12, 0.36, 1) forwards !important;
+}
+
+/* The handshake orb arrives the same way */
+#landing-view[class] .divider-icon.icon-typing-in {
+    animation: tileTypewriterStrike 0.6s cubic-bezier(0.22, 1.12, 0.36, 1) forwards !important;
+}
+
+
+/* ---- Wordmark row: a touch larger again so the three blocks balance ---- */
+
+#landing-view[class] .divider-slogan,
+#landing-view[class] .slogan-word-icon {
+    font-size: clamp(1.15rem, 1.6vw + 0.8vh, 2.3rem) !important;
+    padding: clamp(12px, 1.6vh, 21px) clamp(22px, 3.2vw, 50px) !important;
+}
+
+#landing-view[class] .divider-icon {
+    width: clamp(54px, 3.9vw + 2vh, 88px) !important;
+    height: clamp(54px, 3.9vw + 2vh, 88px) !important;
+    font-size: clamp(1.3rem, 1.5vw + 0.75vh, 2.1rem) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #landing-view[class] .ecosystem-tile.tile-typing-in,
+    #landing-view[class] .divider-icon.icon-typing-in {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+    #landing-view[class] .title-single-box { transform: none !important; }
+}
+
+
+/* ==========================================================================
+   19. ABOUT PANEL - separation and scrolling
+   ==========================================================================
+
+   Two client fixes:
+   - The heading was sitting on top of the first paragraph. The rotating
+     typography engine swaps in faces with very different ascender metrics
+     (Instrument Serif and Cormorant are far taller than Inter at the same
+     px size), so a fixed margin that looked right for one face collapsed for
+     another. Spacing is now set in em, which scales with whichever face
+     is active, plus a minimum floor.
+   - The copy can exceed the panel on shorter windows, so the block scrolls
+     on its own with a visible bar rather than being clipped.
+   ========================================================================== */
+
+#landing-view.menu-active[class] .about-overlay-title {
+    /* em-based so it tracks the active face's own size */
+    margin: 0 0 0.55em 0 !important;
+    padding-bottom: 0.12em !important;
+    line-height: 1.15 !important;
+    display: block !important;
+}
+
+#landing-view.menu-active[class] .about-overlay-text {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+#landing-view.menu-active[class] .about-overlay-text p {
+    margin: 0 0 0.75em 0 !important;
+}
+
+#landing-view.menu-active[class] .about-overlay-text p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ---- Scrollable About block with a visible bar ---- */
+
+#landing-view.menu-active[class] .landing-about-overlay {
+    flex: 0 1 auto !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-gutter: stable both-edges;
+    /* Keep the bar clear of the text column */
+    padding-right: calc(var(--orb-size) + var(--stack-gap)) !important;
+}
+
+#landing-view.menu-active[class] .landing-about-overlay::-webkit-scrollbar {
+    width: 10px;
+}
+
+#landing-view.menu-active[class] .landing-about-overlay::-webkit-scrollbar-track {
+    background: rgba(127, 127, 127, 0.14);
+    border-radius: 10px;
+}
+
+#landing-view.menu-active[class] .landing-about-overlay::-webkit-scrollbar-thumb {
+    background: rgba(212, 170, 80, 0.75);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+#landing-view.menu-active[class] .landing-about-overlay::-webkit-scrollbar-thumb:hover {
+    background: rgba(230, 190, 105, 0.95);
+    background-clip: padding-box;
+}
+
+/* Firefox */
+#landing-view.menu-active[class] .landing-about-overlay {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 170, 80, 0.8) rgba(127, 127, 127, 0.14);
+}
+
+/* Light grounds get a darker thumb so the bar stays visible */
+#landing-view.theme-water.menu-active[class] .landing-about-overlay,
+#landing-view.theme-sakura.menu-active[class] .landing-about-overlay,
+#landing-view.theme-ivorypearl.menu-active[class] .landing-about-overlay {
+    scrollbar-color: rgba(120, 90, 30, 0.75) rgba(0, 0, 0, 0.1);
+}
+
+#landing-view.theme-water.menu-active[class] .landing-about-overlay::-webkit-scrollbar-thumb,
+#landing-view.theme-sakura.menu-active[class] .landing-about-overlay::-webkit-scrollbar-thumb,
+#landing-view.theme-ivorypearl.menu-active[class] .landing-about-overlay::-webkit-scrollbar-thumb {
+    background: rgba(120, 90, 30, 0.75);
+    background-clip: padding-box;
+}
+
+
+/* ==========================================================================
+   20. MATCH THE LIVE SITE (joininghandsgroup.com)
+   ==========================================================================
+
+   Type scale and tile size taken from the live stylesheet rather than
+   estimated, so the home page reads the same as the site the client knows:
+
+     .title-single-box   font-size: clamp(2.35rem, 4.35vw, 3.85rem)
+                         font-weight: 800, letter-spacing: 0.04em
+     .ecosystem-tile     120px
+
+   The 3D treatment the client asked for is layered on top of those values
+   rather than replacing them.
+   ========================================================================== */
+
+#landing-view[class] .title-single-box {
+    font-family: var(--font-heading) !important;
+    font-size: clamp(2.35rem, 4.35vw, 3.85rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.12 !important;
+    max-width: 95vw !important;
+    white-space: nowrap !important;
+    /* Extrusion kept, dialled back so it reads as depth on the live type scale
+       rather than as a heavy drop shadow */
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.20),
+        0 2px 0 rgba(0, 0, 0, 0.18),
+        0 3px 0 rgba(0, 0, 0, 0.15),
+        0 4px 0 rgba(0, 0, 0, 0.12),
+        0 5px 0 rgba(0, 0, 0, 0.09),
+        0 8px 18px rgba(0, 0, 0, 0.5),
+        0 0 24px rgba(255, 255, 255, 0.25) !important;
+    transform: rotateX(7deg) !important;
+}
+
+#landing-view.theme-water[class] .title-single-box,
+#landing-view.theme-sakura[class] .title-single-box,
+#landing-view.theme-ivorypearl[class] .title-single-box {
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.8),
+        0 2px 0 rgba(255, 255, 255, 0.6),
+        0 3px 0 rgba(0, 0, 0, 0.09),
+        0 5px 0 rgba(0, 0, 0, 0.07),
+        0 8px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Live tile size, still responsive so six never overflow a narrow window */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile {
+    width: min(120px, 14.2vw, 15vh) !important;
+    height: min(120px, 14.2vw, 15vh) !important;
+}
+
+/* Wordmark sized against the live slogan, kept a step up per the earlier
+   request that Together / Forever read larger than it does on the live site */
+#landing-view[class] .divider-slogan,
+#landing-view[class] .slogan-word-icon {
+    font-family: var(--font-slogan) !important;
+    font-size: clamp(1.05rem, 1.35vw + 0.6vh, 1.85rem) !important;
+    letter-spacing: 0.14em !important;
+    padding: clamp(10px, 1.3vh, 16px) clamp(20px, 2.8vw, 40px) !important;
+    border-radius: 999px !important;
+}
+
+#landing-view[class] .divider-icon {
+    width: clamp(48px, 3.3vw + 1.7vh, 74px) !important;
+    height: clamp(48px, 3.3vw + 1.7vh, 74px) !important;
+    font-size: clamp(1.15rem, 1.3vw + 0.65vh, 1.8rem) !important;
+}
+
+@media (max-width: 720px) {
+    #landing-view[class] .title-single-box {
+        white-space: normal !important;
+        font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
+    }
 }

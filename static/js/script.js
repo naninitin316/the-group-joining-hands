@@ -604,9 +604,9 @@ function finishHeroTypewriter() {
 
     // 1. Title
     const splitTitle = document.querySelector('.split-title-layout .title-single-box');
-    if (splitTitle) splitTitle.innerHTML = 'Joining Hands';
+    if (splitTitle) splitTitle.innerHTML = 'The Group of Joining Hands';
     const unifiedTitle = document.querySelector('.unified-title-layout .title-single-box');
-    if (unifiedTitle) unifiedTitle.innerHTML = 'JOINING HANDS';
+    if (unifiedTitle) unifiedTitle.innerHTML = 'THE GROUP OF JOINING HANDS';
 
     // 2. Ecosystem Tiles
     const tiles = document.querySelectorAll('.ecosystem-3d-tiles-container .ecosystem-tile');
@@ -660,10 +660,8 @@ function startHeroTypewriterSequence(forceRestart = false) {
     const unifiedWords = Array.from(document.querySelectorAll('.unified-slogan-layout .radium-word-icon'));
     const unifiedIcon = document.querySelector('.unified-slogan-layout .divider-icon');
 
-    // The wordmark is a two-part lockup: a static tracked eyebrow ("The Group of")
-    // sits above the typed display line, so only the display half is typed here.
-    const titleText = "Joining Hands";
-    const titleTextCaps = "JOINING HANDS";
+    const titleText = "The Group of Joining Hands";
+    const titleTextCaps = "THE GROUP OF JOINING HANDS";
 
     // Initialize Title
     const caretHtml = '<span class="typing-caret" style="background: currentColor;"></span>';
@@ -5600,11 +5598,12 @@ function normalizeTheme(name) {
 
 // Complete list of all themes for rotation
 const themeRotationList = [
-    // Only themes that actually render. The 24 legacy entries whose
-    // /themes/*.mp4 and /themes/pics/* media is not in the repository are
-    // excluded, otherwise auto-rotate keeps landing on an empty backdrop that
-    // looks identical to the last one. Re-add them once the media is uploaded.
-    "water", "theme19",
+    // Original order first - the themes that shipped with the project - then
+    // the ones added later.
+    "water", "flow", "glassflow", "waterflow", "8th",
+    "theme1", "theme2", "theme3", "theme4", "theme5", "theme6", "theme7",
+    "theme8", "theme9", "theme10", "theme11", "theme12", "theme13", "theme14",
+    "theme15", "theme16", "theme17", "theme19", "theme20", "10th", "7th",
     "auroraveil", "ember", "sakura", "neongrid", "deeptide",
     "templegold", "sapphire", "ivorypearl", "emerald", "graphite"
 ];
