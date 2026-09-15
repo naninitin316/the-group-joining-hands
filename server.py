@@ -355,7 +355,7 @@ class EnterpriseRESTRequestHandler(http.server.SimpleHTTPRequestHandler):
             "img-src 'self' data: blob: https://lh3.googleusercontent.com",
             "media-src 'self' blob:",
             "connect-src 'self' https://accounts.google.com",
-            "frame-src https://accounts.google.com",
+            "frame-src 'self' https://accounts.google.com",
             "object-src 'none'",
             "base-uri 'self'",
             "form-action 'self'",
