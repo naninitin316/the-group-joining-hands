@@ -13,7 +13,7 @@
         rel="stylesheet">
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=141">
+    <link rel="stylesheet" href="styles.css?v=142">
     <!-- Google Identity Services SDK -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
@@ -994,6 +994,42 @@
             </div>
 
             <p class="cinema-page-slogan">Together Forever</p>
+
+            <!-- Administrative access.
+                 Credentials are verified server-side by /api/auth/login
+                 (PBKDF2 + JWT, admin flag read from the database). Nothing is
+                 checked in the browser. -->
+            <section class="cinema-admin" aria-labelledby="cinemaAdminHeading">
+                <button type="button" class="cinema-admin-toggle" id="cinemaAdminToggle"
+                    onclick="toggleCinemaAdmin()" aria-expanded="false" aria-controls="cinemaAdminPanel">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    <span>Admin Login</span>
+                </button>
+
+                <div class="cinema-admin-panel" id="cinemaAdminPanel" hidden>
+                    <h2 class="cinema-admin-title" id="cinemaAdminHeading">
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Admin Login
+                    </h2>
+                    <form class="cinema-admin-form" id="cinemaAdminForm" onsubmit="return submitCinemaAdmin(event)">
+                        <label for="cinemaAdminEmail">Email</label>
+                        <input id="cinemaAdminEmail" name="email" type="email" required
+                            autocomplete="username" placeholder="Enter your email">
+
+                        <label for="cinemaAdminPassword">Password</label>
+                        <div class="cinema-admin-pass">
+                            <input id="cinemaAdminPassword" name="password" type="password" required
+                                autocomplete="current-password" placeholder="Enter your password">
+                            <button type="button" class="cinema-admin-eye" id="cinemaAdminEye"
+                                onclick="toggleCinemaAdminPassword()" aria-label="Show password">
+                                <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <button type="submit" class="cinema-admin-submit" id="cinemaAdminSubmit">Login</button>
+                        <p class="cinema-admin-note" id="cinemaAdminNote" role="status" aria-live="polite" hidden></p>
+                    </form>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -2589,7 +2625,7 @@
             style="width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></iframe>
     </div>
 
-    <script src="script.js?v=52"></script>
+    <script src="script.js?v=53"></script>
 </body>
 
 </html>

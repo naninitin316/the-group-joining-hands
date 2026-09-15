@@ -5840,6 +5840,110 @@ function setRotationSliderToNone() {
 // CINEMA VIEW - the page opened by the white "O" ecosystem tile.
 // The portrait is the page background; see #cinema-view in index.html.
 // ==========================================================================
+// ==========================================================================
+// CINEMA PAGE - administrative access
+//
+// Deliberately unlike the Red App's panel, which compares the admin id and
+// password against literals held in client-side JavaScript. Anyone can read
+// those from view-source, so they are not a credential check at all. This
+// form posts to /api/auth/login, where the password is verified against a
+// PBKDF2 hash and the admin flag is read from the database.
+// ==========================================================================
+
+function toggleCinemaAdmin() {
+    const panel = document.getElementById('cinemaAdminPanel');
+    const toggle = document.getElementById('cinemaAdminToggle');
+    if (!panel || !toggle) return;
+    const opening = panel.hidden;
+    panel.hidden = !opening;
+    toggle.setAttribute('aria-expanded', String(opening));
+    if (opening) {
+        const email = document.getElementById('cinemaAdminEmail');
+        if (email) email.focus();
+    }
+}
+
+function toggleCinemaAdminPassword() {
+    const input = document.getElementById('cinemaAdminPassword');
+    const btn = document.getElementById('cinemaAdminEye');
+    if (!input || !btn) return;
+    const show = input.type === 'password';
+    input.type = show ? 'text' : 'password';
+    btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    const icon = btn.querySelector('i');
+    if (icon) icon.className = show ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+}
+
+function setCinemaAdminNote(message, ok) {
+    const note = document.getElementById('cinemaAdminNote');
+    if (!note) return;
+    note.textContent = message;
+    note.hidden = !message;
+    note.classList.toggle('is-ok', !!ok);
+    note.classList.toggle('is-error', !ok && !!message);
+}
+
+async function submitCinemaAdmin(event) {
+    event.preventDefault();
+
+    const emailEl = document.getElementById('cinemaAdminEmail');
+    const passEl = document.getElementById('cinemaAdminPassword');
+    const submit = document.getElementById('cinemaAdminSubmit');
+    if (!emailEl || !passEl || !submit) return false;
+
+    const email = emailEl.value.trim();
+    const password = passEl.value;
+    if (!email || !password) {
+        setCinemaAdminNote('Enter your email and password.', false);
+        return false;
+    }
+
+    submit.disabled = true;
+    submit.textContent = 'Checking...';
+    setCinemaAdminNote('', true);
+
+    try {
+        const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, password: password })
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.status === 429) {
+            setCinemaAdminNote('Too many attempts. Try again shortly.', false);
+            return false;
+        }
+        if (!res.ok || !data.success || !data.token) {
+            // Same message whichever field was wrong, so this cannot be used
+            // to discover which email addresses exist.
+            setCinemaAdminNote(data.error || 'Invalid email or password.', false);
+            return false;
+        }
+
+        const isAdmin = !!(data.user && data.user.isAdmin);
+        if (!isAdmin) {
+            setCinemaAdminNote('That account does not have administrator access.', false);
+            return false;
+        }
+
+        try {
+            localStorage.setItem('pro_auth_token', data.token);
+        } catch (e) { }
+
+        setCinemaAdminNote('Signed in. Opening the dashboard...', true);
+        setTimeout(function () { window.location.href = '/admin-dashboard'; }, 600);
+        return false;
+    } catch (err) {
+        setCinemaAdminNote('Could not reach the server. Try again.', false);
+        return false;
+    } finally {
+        submit.disabled = false;
+        submit.textContent = 'Login';
+        passEl.value = '';
+    }
+}
+
 function openCinemaView() {
     if (typeof checkAppLock === 'function' && checkAppLock()) return;
     showView("cinema-view");
