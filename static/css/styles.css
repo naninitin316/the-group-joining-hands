@@ -14650,7 +14650,7 @@ input:checked+.slider:before {
 }
 
 #landing-view[class] .title-single-box {
-    font-size: clamp(2rem, 7.62vw, 7.3rem) !important;
+    font-size: clamp(1.8rem, 6.35vw, 6.1rem) !important;
     width: auto !important;
     max-width: 100% !important;
     margin-inline: 0 !important;
