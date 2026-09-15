@@ -14177,3 +14177,162 @@ input:checked+.slider:before {
 #landing-view.menu-active[class] .ecosystem-divider {
     margin: clamp(26px, 4.4vh, 62px) auto 0 !important;
 }
+
+
+/* ==========================================================================
+   27. REVISION PASS - reference-matched scale, cleaner heading depth
+   ==========================================================================
+
+   Against the reference screenshot:
+   - the tile row is larger with noticeably wider gaps
+   - the gap above Together / Forever is much bigger than the one below the
+     heading
+   - the wordmark pills are smaller and lighter than the tiles, not competing
+   - the heading is a clean luminous line, not a chunky extrusion
+
+   The previous heading used a ten-stop grey extrusion. Against a coloured
+   theme that grey read as a dirty smear rather than depth, so the depth here
+   comes from a tight contact shadow plus a wide ambient glow instead - the
+   type stays clean and still sits off the background.
+   ========================================================================== */
+
+#landing-view[class] .title-single-box {
+    font-size: clamp(2.6rem, 5.4vw, 5rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.42),
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        0 10px 26px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba(255, 255, 255, 0.34),
+        0 0 72px rgba(255, 255, 255, 0.18) !important;
+    animation: headingLift 10s ease-in-out infinite alternate !important;
+}
+
+@keyframes headingLift {
+    from { transform: perspective(1200px) rotateX(6deg) translateZ(0); }
+    to   { transform: perspective(1200px) rotateX(1deg) translateZ(30px); }
+}
+
+/* Light grounds: no halo, just a soft cast shadow */
+#landing-view.theme-water[class] .title-single-box,
+#landing-view.theme-sakura[class] .title-single-box,
+#landing-view.theme-ivorypearl[class] .title-single-box {
+    text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.9),
+        0 3px 8px rgba(70, 55, 25, 0.28),
+        0 12px 30px rgba(70, 55, 25, 0.22) !important;
+}
+
+/* ---- Tiles: larger, wider apart ---- */
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile {
+    width: min(172px, 17.5vw, 20vh) !important;
+    height: min(172px, 17.5vw, 20vh) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container {
+    gap: clamp(18px, 3.8vw, 68px) !important;
+    max-width: min(1600px, 96vw) !important;
+}
+
+/* ---- The big gap the reference shows above the wordmark ---- */
+
+#landing-view[class] .ecosystem-divider {
+    margin: clamp(64px, 11vh, 150px) auto 0 !important;
+    gap: clamp(14px, 2.4vw, 38px) !important;
+}
+
+/* ---- Pills: lighter than the tiles, as in the reference ---- */
+
+#landing-view[class] .divider-slogan,
+#landing-view[class] .slogan-word-icon {
+    font-size: clamp(0.95rem, 1.05vw + 0.45vh, 1.5rem) !important;
+    padding: clamp(10px, 1.3vh, 16px) clamp(26px, 4vw, 64px) !important;
+    letter-spacing: 0.22em !important;
+}
+
+#landing-view[class] .divider-icon {
+    width: clamp(44px, 2.9vw + 1.5vh, 66px) !important;
+    height: clamp(44px, 2.9vw + 1.5vh, 66px) !important;
+    font-size: clamp(1rem, 1.1vw + 0.55vh, 1.5rem) !important;
+}
+
+
+/* ==========================================================================
+   28. ABOUT - larger copy, content pushed below it, page scrolls
+   ==========================================================================
+
+   The About copy gets the top of the page at a larger size, and the heading,
+   tiles and wordmark move down beneath it. The view scrolls normally rather
+   than being locked to one screen, so there is a real scrollbar to reach
+   everything below.
+   ========================================================================== */
+
+#landing-view.menu-active {
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+}
+
+#landing-view.menu-active[class] .hero-section {
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    justify-content: flex-start !important;
+    padding-bottom: clamp(40px, 8vh, 96px) !important;
+    scrollbar-gutter: stable;
+}
+
+#landing-view.menu-active[class] .hero-container {
+    justify-content: flex-start !important;
+    flex: 0 0 auto !important;
+}
+
+/* The panel no longer scrolls internally - the page does */
+#landing-view.menu-active[class] .landing-about-overlay {
+    flex: 0 0 auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    padding-right: calc(var(--orb-size) + var(--stack-gap)) !important;
+    margin-bottom: clamp(28px, 5vh, 68px) !important;
+}
+
+#landing-view.menu-active[class] .about-overlay-text,
+#landing-view.menu-active[class] .about-overlay-text p {
+    font-size: calc(clamp(1.3rem, 1.95vw, 1.68rem) * var(--about-font-scale, 1)) !important;
+    line-height: 1.68 !important;
+}
+
+#landing-view.menu-active[class] .about-overlay-title {
+    font-size: calc(clamp(2.3rem, 4vw, 3.2rem) * var(--about-title-scale, 1)) !important;
+}
+
+/* A visible page scrollbar in the About view */
+#landing-view.menu-active[class] .hero-section::-webkit-scrollbar { width: 14px; }
+#landing-view.menu-active[class] .hero-section::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+#landing-view.menu-active[class] .hero-section::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f3d99b, #c89a3c);
+    border-radius: 14px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+#landing-view.menu-active[class] .hero-section {
+    scrollbar-width: auto;
+    scrollbar-color: #d4aa50 rgba(255, 255, 255, 0.1);
+}
+
+/* The footer is absolutely positioned for the one-screen home view; in the
+   scrolling About view it has to return to normal flow or it overlaps. */
+#landing-view.menu-active[class] .landing-footer {
+    display: block !important;
+    position: static !important;
+    padding: 24px 0 !important;
+}
