@@ -14336,3 +14336,120 @@ input:checked+.slider:before {
     position: static !important;
     padding: 24px 0 !important;
 }
+
+
+/* ==========================================================================
+   29. UNIFIED STACK WIDTH AND PROPORTION
+   ==========================================================================
+
+   The heading, the tile row and the Together / Forever row now share one
+   column width and all three span it edge to edge, so their left and right
+   edges line up exactly.
+
+   How each one fills that width differs by necessity:
+   - the heading is a single line, so its font-size is driven off viewport
+     width (tuned so 26 characters land on the column width)
+   - the tile row and the wordmark row use space-between, which pins their
+     first and last child to the column edges regardless of item size
+
+   Tiles come down slightly and the wordmark comes up, so the three blocks
+   read as one family rather than the tiles dominating.
+   ========================================================================== */
+
+#landing-view {
+    --stack-width: min(1180px, 92vw);
+    --stack-vgap: clamp(46px, 9.5vh, 130px);
+}
+
+/* All three blocks: one width, centred */
+#landing-view[class] .hero-text-wrap,
+#landing-view[class] .ecosystem-3d-tiles-container,
+#landing-view[class] .ecosystem-divider {
+    width: var(--stack-width) !important;
+    max-width: var(--stack-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+}
+
+#landing-view[class] .apps-hub-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+}
+
+/* ---- Heading: sized to fill the column on one line ---- */
+
+#landing-view[class] .title-single-box {
+    font-size: clamp(1.85rem, 6.35vw, 5.7rem) !important;
+    letter-spacing: 0.005em !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+/* ---- Tiles: a touch smaller, spread to the column edges ---- */
+
+#landing-view[class] .ecosystem-3d-tiles-container {
+    justify-content: space-between !important;
+    gap: clamp(6px, 1vw, 18px) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile {
+    width: min(142px, 13.6vw, 17vh) !important;
+    height: min(142px, 13.6vw, 17vh) !important;
+}
+
+/* ---- Together / Forever: larger, spread to the same edges ---- */
+
+#landing-view[class] .ecosystem-divider {
+    justify-content: space-between !important;
+    gap: clamp(10px, 1.6vw, 28px) !important;
+    margin-top: var(--stack-vgap) !important;
+}
+
+#landing-view[class] .divider-slogan,
+#landing-view[class] .slogan-word-icon {
+    flex: 1 1 0 !important;
+    font-size: clamp(1.1rem, 1.85vw, 2.3rem) !important;
+    padding: clamp(14px, 1.9vh, 26px) clamp(16px, 2vw, 40px) !important;
+    letter-spacing: 0.18em !important;
+    text-align: center !important;
+    justify-content: center !important;
+}
+
+#landing-view[class] .divider-icon {
+    flex: 0 0 auto !important;
+    width: clamp(58px, 4.6vw, 96px) !important;
+    height: clamp(58px, 4.6vw, 96px) !important;
+    font-size: clamp(1.3rem, 1.9vw, 2.3rem) !important;
+}
+
+/* ---- Even vertical rhythm between the three blocks ---- */
+
+#landing-view[class] .hero-text-wrap {
+    margin-bottom: var(--stack-vgap) !important;
+}
+
+/* The About view keeps the same proportions on a tighter vertical scale */
+#landing-view.menu-active {
+    --stack-vgap: clamp(30px, 5.6vh, 78px);
+}
+
+@media (max-width: 720px) {
+    #landing-view[class] .title-single-box {
+        white-space: normal !important;
+        font-size: clamp(1.6rem, 8vw, 2.6rem) !important;
+    }
+    #landing-view[class] .ecosystem-3d-tiles-container {
+        justify-content: center !important;
+        gap: clamp(8px, 2vw, 16px) !important;
+    }
+    #landing-view[class] .ecosystem-divider {
+        justify-content: center !important;
+    }
+    #landing-view[class] .divider-slogan,
+    #landing-view[class] .slogan-word-icon {
+        flex: 0 1 auto !important;
+    }
+}
