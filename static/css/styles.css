@@ -14574,3 +14574,84 @@ input:checked+.slider:before {
         font-size: 1rem !important;
     }
 }
+
+
+/* ==========================================================================
+   32. OPTICAL SPACING + LONGER HEADING
+   ==========================================================================
+
+   The two gaps measure the same but do not read the same. The tile row casts
+   a deep downward shadow (0 30px 50px) that visually fills the space beneath
+   it, so an identical numeric gap looks tighter below the tiles than above
+   them. The gap above Together / Forever is therefore set larger by roughly
+   the shadow's reach, which makes the three blocks look evenly spaced and
+   also drops the wordmark further down as asked.
+
+   Matching numbers is not the goal here; matching what the eye sees is.
+   ========================================================================== */
+
+#landing-view[class] .title-single-box {
+    font-size: clamp(2rem, 7.9vw, 7.6rem) !important;
+    letter-spacing: -0.028em !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-inline: auto !important;
+}
+
+#landing-view[class] .hero-text-wrap {
+    width: 99vw !important;
+    max-width: 99vw !important;
+    margin-inline: auto !important;
+    /* The heading's glow spills below its box, so its gap needs slightly less */
+    margin-bottom: var(--stack-vgap) !important;
+}
+
+#landing-view[class] .ecosystem-divider {
+    /* +38px compensates for the tile shadow's visual reach */
+    margin-top: calc(var(--stack-vgap) + clamp(8px, 1.7vh, 24px)) !important;
+}
+
+@media (max-width: 720px) {
+    #landing-view[class] .title-single-box,
+    #landing-view[class] .hero-text-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #landing-view[class] .title-single-box {
+        font-size: clamp(1.6rem, 8vw, 2.6rem) !important;
+    }
+}
+
+
+/* ==========================================================================
+   33. HEADING FIT AND CENTRING
+   The heading was given an explicit 99vw width while its parent container was
+   narrower, so it overflowed to the right and stopped centring (measured
+   left 67px, right -12px). It now fills its parent instead, and the section's
+   side padding is reduced in the home state so the parent itself is wide
+   enough for the long line. Size backed off so the line keeps a real margin.
+   ========================================================================== */
+
+#landing-view:not(.menu-active)[class] .hero-section {
+    padding-left: clamp(10px, 1.2vw, 24px) !important;
+    padding-right: clamp(10px, 1.2vw, 24px) !important;
+}
+
+#landing-view[class] .hero-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+#landing-view[class] .hero-text-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+#landing-view[class] .title-single-box {
+    font-size: clamp(2rem, 7.62vw, 7.3rem) !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+}
