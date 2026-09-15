@@ -14357,7 +14357,7 @@ input:checked+.slider:before {
    ========================================================================== */
 
 #landing-view {
-    --stack-width: min(1180px, 92vw);
+    --stack-width: min(1340px, 93.5vw);
     --stack-vgap: clamp(46px, 9.5vh, 130px);
 }
 
@@ -14381,7 +14381,7 @@ input:checked+.slider:before {
 /* ---- Heading: sized to fill the column on one line ---- */
 
 #landing-view[class] .title-single-box {
-    font-size: clamp(1.85rem, 6.35vw, 5.7rem) !important;
+    font-size: clamp(1.9rem, 6.45vw, 6.15rem) !important;
     letter-spacing: 0.005em !important;
     max-width: 100% !important;
     width: 100% !important;
@@ -14410,19 +14410,19 @@ input:checked+.slider:before {
 
 #landing-view[class] .divider-slogan,
 #landing-view[class] .slogan-word-icon {
-    flex: 1 1 0 !important;
-    font-size: clamp(1.1rem, 1.85vw, 2.3rem) !important;
-    padding: clamp(14px, 1.9vh, 26px) clamp(16px, 2vw, 40px) !important;
-    letter-spacing: 0.18em !important;
+    flex: 0 0 auto !important;
+    font-size: clamp(0.9rem, 1.25vw, 1.55rem) !important;
+    padding: clamp(9px, 1.15vh, 15px) clamp(14px, 1.8vw, 34px) !important;
+    letter-spacing: 0.16em !important;
     text-align: center !important;
     justify-content: center !important;
 }
 
 #landing-view[class] .divider-icon {
     flex: 0 0 auto !important;
-    width: clamp(58px, 4.6vw, 96px) !important;
-    height: clamp(58px, 4.6vw, 96px) !important;
-    font-size: clamp(1.3rem, 1.9vw, 2.3rem) !important;
+    width: clamp(44px, 3.2vw, 66px) !important;
+    height: clamp(44px, 3.2vw, 66px) !important;
+    font-size: clamp(1rem, 1.35vw, 1.6rem) !important;
 }
 
 /* ---- Even vertical rhythm between the three blocks ---- */
@@ -14452,4 +14452,71 @@ input:checked+.slider:before {
     #landing-view[class] .slogan-word-icon {
         flex: 0 1 auto !important;
     }
+}
+
+
+/* ==========================================================================
+   30. EVEN VERTICAL RHYTHM (horizontal spread reverted)
+   ==========================================================================
+
+   Correction: the requirement is equal VERTICAL distance between the three
+   blocks, not equal width. Section 29 spread the tile and wordmark rows edge
+   to edge with space-between, which threw Together and Forever to opposite
+   sides of the screen with a hole between them.
+
+   Both rows are centred again with even internal gaps. The heading keeps its
+   long measure. The one number that matters now is --stack-vgap, used
+   identically above and below the tile row.
+   ========================================================================== */
+
+#landing-view[class] .ecosystem-3d-tiles-container {
+    justify-content: center !important;
+    gap: clamp(14px, 2.6vw, 46px) !important;
+    width: 100% !important;
+    max-width: min(1340px, 93.5vw) !important;
+}
+
+#landing-view[class] .ecosystem-divider {
+    justify-content: center !important;
+    gap: clamp(14px, 2.2vw, 40px) !important;
+    width: auto !important;
+    max-width: min(1340px, 93.5vw) !important;
+}
+
+#landing-view[class] .divider-slogan,
+#landing-view[class] .slogan-word-icon {
+    flex: 0 0 auto !important;
+    font-size: clamp(0.95rem, 1.3vw, 1.6rem) !important;
+    padding: clamp(10px, 1.2vh, 16px) clamp(24px, 3.2vw, 56px) !important;
+    letter-spacing: 0.18em !important;
+}
+
+#landing-view[class] .divider-icon {
+    flex: 0 0 auto !important;
+    width: clamp(46px, 3.4vw, 70px) !important;
+    height: clamp(46px, 3.4vw, 70px) !important;
+    font-size: clamp(1.05rem, 1.4vw, 1.7rem) !important;
+}
+
+/* ---- The single number that sets the vertical rhythm ---- */
+
+#landing-view[class] .hero-text-wrap {
+    margin-top: 0 !important;
+    margin-bottom: var(--stack-vgap) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+#landing-view[class] .ecosystem-divider {
+    margin-top: var(--stack-vgap) !important;
+    margin-bottom: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#landing-view[class] .apps-hub-wrap {
+    gap: 0 !important;
 }
