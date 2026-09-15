@@ -14520,3 +14520,57 @@ input:checked+.slider:before {
 #landing-view[class] .apps-hub-wrap {
     gap: 0 !important;
 }
+
+
+/* ==========================================================================
+   31. HEADING LENGTH + WORDMARK SCALE
+   The heading runs closer to the full frame width, and Together / Forever
+   comes back up in size. Vertical rhythm is untouched - it stays driven by
+   the single --stack-vgap so both gaps remain identical.
+   ========================================================================== */
+
+#landing-view[class] .title-single-box {
+    /* Tuned so the 26-character line lands just inside the frame edges */
+    font-size: clamp(1.95rem, 6.95vw, 6.8rem) !important;
+    letter-spacing: 0 !important;
+    max-width: 98vw !important;
+    width: 98vw !important;
+}
+
+#landing-view[class] .hero-text-wrap {
+    width: 98vw !important;
+    max-width: 98vw !important;
+}
+
+#landing-view[class] .divider-slogan,
+#landing-view[class] .slogan-word-icon {
+    font-size: clamp(1.15rem, 1.75vw, 2.2rem) !important;
+    padding: clamp(14px, 1.85vh, 26px) clamp(32px, 4.4vw, 78px) !important;
+    letter-spacing: 0.2em !important;
+}
+
+#landing-view[class] .divider-icon {
+    width: clamp(60px, 4.6vw, 92px) !important;
+    height: clamp(60px, 4.6vw, 92px) !important;
+    font-size: clamp(1.35rem, 1.95vw, 2.3rem) !important;
+}
+
+#landing-view[class] .ecosystem-divider {
+    gap: clamp(16px, 2.5vw, 44px) !important;
+}
+
+@media (max-width: 720px) {
+    #landing-view[class] .title-single-box,
+    #landing-view[class] .hero-text-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #landing-view[class] .title-single-box {
+        font-size: clamp(1.6rem, 8vw, 2.6rem) !important;
+    }
+    #landing-view[class] .divider-slogan,
+    #landing-view[class] .slogan-word-icon {
+        padding: 12px 22px !important;
+        font-size: 1rem !important;
+    }
+}
