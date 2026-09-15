@@ -5850,18 +5850,6 @@ function setRotationSliderToNone() {
 // PBKDF2 hash and the admin flag is read from the database.
 // ==========================================================================
 
-function toggleCinemaAdmin() {
-    const panel = document.getElementById('cinemaAdminPanel');
-    const toggle = document.getElementById('cinemaAdminToggle');
-    if (!panel || !toggle) return;
-    const opening = panel.hidden;
-    panel.hidden = !opening;
-    toggle.setAttribute('aria-expanded', String(opening));
-    if (opening) {
-        const email = document.getElementById('cinemaAdminEmail');
-        if (email) email.focus();
-    }
-}
 
 function toggleCinemaAdminPassword() {
     const input = document.getElementById('cinemaAdminPassword');

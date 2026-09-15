@@ -14826,21 +14826,13 @@ input:checked+.slider:before {
     left: auto !important;
     top: auto !important;
     z-index: 4000 !important;
-    width: min(286px, calc(100vw - 32px)) !important;
+    width: min(250px, calc(100vw - 32px)) !important;
     margin: 0 !important;
     align-items: flex-end !important;
     gap: 8px !important;
 }
 
-/* Toggle sits above the card and only shows the word when collapsed */
-#cinema-view .cinema-admin-toggle {
-    order: 2;
-    padding: 8px 16px !important;
-    font-size: 0.7rem !important;
-}
-
 #cinema-view .cinema-admin-panel {
-    order: 1;
     width: 100% !important;
 }
 
@@ -14957,10 +14949,14 @@ input:checked+.slider:before {
    right-hand clearance on wide screens instead of running underneath it.
    -------------------------------------------------------------------------- */
 
-@media (min-width: 981px) {
+/* The admin card is 250px wide sitting 24px in from the right, so a centred
+   row clears it once it gives up 2 x (250 + 24 + 20) of width. Only worth
+   doing where three columns still read; below that the card just overlays. */
+@media (min-width: 1150px) {
     #cinema-view .cinema-page-cards {
-        padding-right: 296px;
-        /* hold the approved three-across row inside the narrowed track */
+        max-width: calc(100vw - 588px);
+        margin-left: auto;
+        margin-right: auto;
         grid-template-columns: repeat(3, 1fr);
     }
 }
