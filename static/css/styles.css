@@ -10548,7 +10548,7 @@ input:checked+.slider:before {
     inset: 5%;
     width: 90%;
     height: 90%;
-    object-position: 50% 22%;
+    object-position: 50% 14%;
     filter: saturate(1.12) contrast(1.06) brightness(1.04);
     box-shadow:
         0 2px 8px rgba(69, 10, 10, 0.45),
