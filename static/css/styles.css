@@ -12479,9 +12479,12 @@ input:checked+.slider:before {
 
 #landing-view:not(.menu-active)[class] .hero-section {
     /* Asymmetric padding lifts the whole stack above the optical centre,
-       which reads better than a mathematically centred block. */
-    padding-top: calc(var(--orb-inset) + var(--orb-size) * 0.2) !important;
-    padding-bottom: calc(var(--orb-inset) + var(--orb-size) * 2.1) !important;
+       which reads better than a mathematically centred block. The two
+       multipliers still sum to 2.3, so the stack keeps exactly the same
+       room to breathe - this only moves it down, clear of the MENU orb,
+       which the heading was overlapping by a few pixels. */
+    padding-top: calc(var(--orb-inset) + var(--orb-size) * 0.9) !important;
+    padding-bottom: calc(var(--orb-inset) + var(--orb-size) * 1.4) !important;
 }
 
 
