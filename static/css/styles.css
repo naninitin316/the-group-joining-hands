@@ -15181,3 +15181,28 @@ input:checked+.slider:before {
 #landing-view .vertical-ai-trigger.ecosystem-tile--ai .tile-3d-circle {
     overflow: visible !important;
 }
+
+/* The three lines were all starting at the same x, so the long one ran off
+   the right edge with zero margin while the short ones kept 15px - that is
+   what pushed "ENT" out. Centring makes the overflow symmetric, and a small
+   size trim buys margin on both sides. */
+#landing-view .vertical-ai-trigger.ecosystem-tile--ai .ai-tile-text {
+    display: block !important;
+    /* text-align alone did not help: the box is only as wide as the 41px
+       inner circle, so the long line stayed pinned to the box's left edge
+       and grew rightwards off the orb. Give the label its own box, wider
+       than the circle and centred on the 72px orb, so every line has room
+       and the three sit on a shared axis. */
+    position: absolute !important;
+    left: 50% !important;
+    margin-left: -34px !important;
+    width: 68px !important;
+    text-align: center !important;
+    font-size: 0.44rem !important;
+    line-height: 1.22 !important;
+    white-space: normal !important;
+}
+
+#landing-view .vertical-ai-trigger.ecosystem-tile--ai .tile-3d-circle {
+    position: relative !important;
+}
