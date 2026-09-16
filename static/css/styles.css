@@ -15060,3 +15060,124 @@ input:checked+.slider:before {
         transform: perspective(760px) rotateX(9deg) !important;
     }
 }
+
+
+/* ==========================================================================
+   38. MODERN STATIC 3D FOR THE ICON ROW
+   Supersedes the depth work in section 37.
+
+   The previous treatment leaned on a 7s float to sell the depth, so a
+   screenshot - which is how the client actually reviews this - caught it
+   mid-swing and read flat. This commits to a single lit pose instead: the
+   whole row is tilted the same way, lit from one direction, and given a
+   real chamfered side wall, so it reads as solid while completely still.
+
+   The pose sits on .tile-3d-body rather than .ecosystem-tile because the
+   tile itself carries the staggered entrance animation, which drives
+   transform - putting an !important transform there would freeze it.
+   ========================================================================== */
+
+/* One committed pose for every tile, no motion required */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-body {
+    animation: none !important;
+    transform: perspective(900px) rotateX(15deg) rotateZ(-1.5deg) !important;
+    transition: transform 0.5s cubic-bezier(0.22, 1.1, 0.36, 1),
+                box-shadow 0.5s ease !important;
+    border-radius: 28% !important;
+}
+
+/* Key light upper-left, occlusion lower-right, plus the shadow set that
+   places the object in space rather than on the page. */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-body {
+    box-shadow:
+        inset 0 3px 2px -1px rgba(255, 255, 255, 0.72),
+        inset 3px 0 3px -2px rgba(255, 255, 255, 0.38),
+        inset -5px -10px 18px -10px rgba(0, 0, 0, 0.62),
+        0 2px 4px rgba(0, 0, 0, 0.26),
+        0 16px 26px -12px rgba(0, 0, 0, 0.44),
+        0 42px 62px -28px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* The side wall. One element, but given a vertical gradient so it reads as
+   a chamfer curving away from the light rather than a flat dark slab.
+   ::after is the gloss overlay, so the wall is ::before. */
+#landing-view[class] .ecosystem-3d-tiles-container .tile-3d-body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    transform: translateZ(-36px) translateY(18px);
+    filter: none;
+    pointer-events: none;
+}
+
+#landing-view[class] .ecosystem-tile--d .tile-3d-body::before {
+    background: linear-gradient(180deg, #6d28d9 0%, #4c1d95 46%, #2e1065 100%);
+}
+
+#landing-view[class] .ecosystem-tile--h .tile-3d-body::before {
+    background: linear-gradient(180deg, #ea580c 0%, #b8430a 46%, #7c2d12 100%);
+}
+
+#landing-view[class] .ecosystem-tile--i .tile-3d-body::before {
+    background: linear-gradient(180deg, #dc2626 0%, #991b1b 46%, #5f1414 100%);
+}
+
+#landing-view[class] .ecosystem-tile--p .tile-3d-body::before {
+    background: linear-gradient(180deg, #d97706 0%, #a16207 46%, #6b3f10 100%);
+}
+
+#landing-view[class] .ecosystem-tile--e .tile-3d-body::before {
+    background: linear-gradient(180deg, #059669 0%, #046b4a 46%, #023d2c 100%);
+}
+
+#landing-view[class] .ecosystem-tile--o .tile-3d-body::before {
+    background: linear-gradient(180deg, #cfd8e3 0%, #aab6c5 46%, #8794a6 100%);
+}
+
+/* Soft contact shadow on the floor. It belongs to the tile, not the body,
+   so it stays flat while the face above it is tilted. */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile::after {
+    content: '';
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: -13%;
+    height: 17%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(15, 23, 42, 0.42) 0%, rgba(15, 23, 42, 0.16) 45%, rgba(15, 23, 42, 0) 72%);
+    filter: blur(7px);
+    transform: translateZ(-60px);
+    pointer-events: none;
+}
+
+/* Hover turns the face toward the viewer and lifts it off the floor */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile:hover .tile-3d-body {
+    transform: perspective(900px) rotateX(4deg) rotateZ(0deg) translateY(-14px) scale(1.05) !important;
+    box-shadow:
+        inset 0 3px 2px -1px rgba(255, 255, 255, 0.8),
+        inset -5px -10px 18px -10px rgba(0, 0, 0, 0.5),
+        0 3px 6px rgba(0, 0, 0, 0.3),
+        0 30px 44px -16px rgba(0, 0, 0, 0.5),
+        0 70px 90px -40px rgba(0, 0, 0, 0.45) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile:hover::after {
+    transform: translateZ(-60px) scale(1.16);
+    opacity: 0.75;
+}
+
+/* ---- Natural Intelligent Machine set in caps ----
+   Caps are wider than the mixed-case original, and the label sits in a
+   41px inner circle carrying overflow:hidden, so setting it in caps alone
+   clipped "INTELLIGENT" by 17px. Shrinking the type to fit would take it
+   to ~5px, so the circle lets it spill onto the orb face instead - the
+   orb is 72px, wide enough for the longest line. */
+.ai-tile-text {
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+}
+
+#landing-view .vertical-ai-trigger.ecosystem-tile--ai .tile-3d-circle {
+    overflow: visible !important;
+}
