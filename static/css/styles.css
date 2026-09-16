@@ -14592,7 +14592,10 @@ input:checked+.slider:before {
 
 #landing-view[class] .title-single-box {
     font-size: clamp(2rem, 7.9vw, 7.6rem) !important;
-    letter-spacing: 0.072em !important;
+    /* Length is tracking, not size - the face stays as approved. This is
+       the last rule that sets tracking on the title, so it is the one
+       that wins; font-size is overridden by a later rule further down. */
+    letter-spacing: 0.018em !important;
     max-width: 100% !important;
     width: 100% !important;
     margin-inline: auto !important;
