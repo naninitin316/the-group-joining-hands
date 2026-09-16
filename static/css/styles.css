@@ -15206,3 +15206,37 @@ input:checked+.slider:before {
 #landing-view .vertical-ai-trigger.ecosystem-tile--ai .tile-3d-circle {
     position: relative !important;
 }
+
+
+/* ==========================================================================
+   39. ICON ROW TRIMMED BACK
+   Section 37 took the tiles to 154.8px, which the client now wants pulled
+   back a little. Both the tile size and the gap come down, so the row gets
+   shorter than the heading rather than running wider than it.
+   ========================================================================== */
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile {
+    width: min(158px, 14vw, 18.5vh) !important;
+    height: min(158px, 14vw, 18.5vh) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container {
+    justify-content: center !important;
+    gap: clamp(12px, 2vw, 34px) !important;
+}
+
+/* The extrusion and contact shadow were tuned against the larger tile, so
+   they scale back with it or the depth reads heavier than the object. */
+#landing-view[class] .ecosystem-3d-tiles-container .tile-3d-body::before {
+    transform: translateZ(-30px) translateY(15px);
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-body {
+    box-shadow:
+        inset 0 3px 2px -1px rgba(255, 255, 255, 0.72),
+        inset 3px 0 3px -2px rgba(255, 255, 255, 0.38),
+        inset -4px -9px 16px -9px rgba(0, 0, 0, 0.62),
+        0 2px 4px rgba(0, 0, 0, 0.24),
+        0 14px 22px -11px rgba(0, 0, 0, 0.42),
+        0 34px 52px -26px rgba(0, 0, 0, 0.38) !important;
+}
