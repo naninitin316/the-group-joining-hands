@@ -15216,8 +15216,8 @@ input:checked+.slider:before {
    ========================================================================== */
 
 #landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile {
-    width: min(158px, 14vw, 18.5vh) !important;
-    height: min(158px, 14vw, 18.5vh) !important;
+    width: min(170px, 15vw, 19.8vh) !important;
+    height: min(170px, 15vw, 19.8vh) !important;
 }
 
 #landing-view[class] .ecosystem-3d-tiles-container {
@@ -15228,7 +15228,7 @@ input:checked+.slider:before {
 /* The extrusion and contact shadow were tuned against the larger tile, so
    they scale back with it or the depth reads heavier than the object. */
 #landing-view[class] .ecosystem-3d-tiles-container .tile-3d-body::before {
-    transform: translateZ(-30px) translateY(15px);
+    transform: translateZ(-32px) translateY(16px);
 }
 
 #landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-body {
