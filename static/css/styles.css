@@ -14966,3 +14966,97 @@ input:checked+.slider:before {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+
+/* ==========================================================================
+   37. BIGGER ICONS WITH A REAL EXTRUSION
+   Client feedback: the icons are small and do not read as 3D.
+
+   They were small because of the 17vh cap - at 1280x720 that resolved to
+   122px and was the binding term of the min(), so the px ceiling and the
+   vh factor both had to move.
+
+   They did not read as 3D because every layer was coplanar: a gradient, a
+   gloss overlay and a drop shadow, with nothing standing in for the side
+   of a solid object. The fix is an actual extruded wall (a dimmed copy of
+   the face pushed back in Z and down in Y) plus a tighter perspective, so
+   the same rotation foreshortens much more strongly.
+   ========================================================================== */
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile {
+    width: min(186px, 16.5vw, 21.5vh) !important;
+    height: min(186px, 16.5vw, 21.5vh) !important;
+}
+
+/* Tighter perspective = more foreshortening for the same rotation */
+#landing-view[class] .ecosystem-3d-tiles-container {
+    perspective: 760px !important;
+    perspective-origin: 50% 34% !important;
+}
+
+/* The extruded side wall. ::after is already the gloss overlay, so this is
+   ::before. Inside a preserve-3d parent the negative translateZ is what
+   puts it behind the face - no z-index needed. */
+#landing-view[class] .ecosystem-3d-tiles-container .tile-3d-body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    filter: brightness(0.44) saturate(1.4);
+    transform: translateZ(-30px) translateY(14px) scale(0.99);
+    pointer-events: none;
+}
+
+/* The white tile has no colour to darken, so give it its own wall */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile--o .tile-3d-body::before {
+    background: linear-gradient(145deg, #b8c2cf 0%, #97a3b2 55%, #78859557 100%);
+    filter: none;
+}
+
+/* Deeper stacking of the inner layers so the face itself has thickness */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-raised {
+    transform: translateZ(36px) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-circle {
+    transform: translateZ(24px) !important;
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-circle-photo,
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-symbol-svg {
+    transform: translateZ(18px) !important;
+}
+
+/* Shadow set: a tight contact shadow to anchor it, a wide ambient one for
+   distance, a top rim light and a bottom bounce inside the face. */
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-body {
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.30),
+        0 18px 30px -10px rgba(0, 0, 0, 0.45),
+        0 40px 70px -24px rgba(0, 0, 0, 0.42),
+        inset 0 2px 1px rgba(255, 255, 255, 0.55),
+        inset 0 -14px 22px -14px rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Wider swing than the old +/-10deg, which was too small to read at this
+   size. Redefining the name overrides the earlier keyframes. */
+@keyframes tileFloat3D {
+    from {
+        transform: perspective(760px) rotateX(15deg) rotateY(-13deg) translateZ(0) translateY(5px);
+    }
+    to {
+        transform: perspective(760px) rotateX(-8deg) rotateY(13deg) translateZ(30px) translateY(-9px);
+    }
+}
+
+#landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile:hover .tile-3d-body {
+    transform: perspective(760px) rotateX(-16deg) rotateY(0deg) translateZ(78px) scale(1.07) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #landing-view[class] .ecosystem-3d-tiles-container .ecosystem-tile .tile-3d-body {
+        animation: none !important;
+        transform: perspective(760px) rotateX(9deg) !important;
+    }
+}
